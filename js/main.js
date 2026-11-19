@@ -239,9 +239,16 @@ async function initHome() {
     });
   }
 
-  // Klik maskot untuk acak cerita seru
+  // Klik maskot untuk acak cerita seru dengan animasi responsif
   if (mascotGuide) {
     mascotGuide.addEventListener("click", () => {
+      const mascotImg = mascotGuide.querySelector(".mascot-img-character") || mascotGuide.querySelector("img");
+      if (mascotImg) {
+        mascotImg.style.transform = "scale(1.15) rotate(-4deg)";
+        setTimeout(() => {
+          mascotImg.style.transform = "";
+        }, 300);
+      }
       const randomIdx = Math.floor(Math.random() * deckStories.length);
       updateHeroShowcase(randomIdx);
     });
