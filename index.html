@@ -3,237 +3,181 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nepalora - Nepal Without Limits. Discover beyond the ordinary.</title>
-  <meta name="description" content="Journeys through Nepal shaped around you — your pace, your path, your sense of wonder. Every experience feels personal, effortless, and truly yours.">
+  <title>KisahNusantara - Storytelling Sejarah dan Budaya</title>
+  <meta name="description" content="Platform storytelling interaktif yang menyajikan kisah sejarah, kearifan budaya, dan legenda nusantara dalam narasi visual yang memikat.">
   
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans-Serif) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
   
-  <!-- Stylesheet -->
+  <!-- Stylesheet Utama (Path Relatif) -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="has-hero">
+<body>
 
-  <!-- NAVBAR KONSISTEN (F-02 & Persis Referensi Desain) -->
+  <!-- NAVBAR KONSISTEN (PRD F-02) -->
   <header class="site-header">
     <div class="container nav-container">
-      <a href="index.html" class="site-logo">Nepalora<span class="logo-dot">.</span></a>
+      <a href="index.html" class="site-logo">KisahNusantara</a>
       
-      <button class="nav-toggle" aria-label="Toggle Menu" aria-expanded="false">
+      <button class="nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
         <span>☰</span>
       </button>
 
-      <div class="nav-center-wrap">
-        <nav>
-          <ul class="nav-menu">
-            <li><a href="index.html" class="nav-link is-active">Home</a></li>
-            <li><a href="cerita.html?kategori=Sejarah" class="nav-link">Destinations</a></li>
-            <li>
-              <a href="cerita.html" class="nav-link">
-                Tours <span class="nav-badge-pill">NEW</span>
-              </a>
-            </li>
-            <li><a href="cerita.html" class="nav-link">Experiences</a></li>
-            <li><a href="tentang.html" class="nav-link">Contact</a></li>
-          </ul>
-        </nav>
-        <a href="cerita.html" class="nav-auth-btn">
-          <span class="nav-auth-icon">&#8594;</span>
-          <span>LOG IN</span>
-        </a>
-      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link is-active">Beranda</a></li>
+          <li><a href="cerita.html" class="nav-link">Cerita</a></li>
+          <li><a href="tentang.html" class="nav-link">Tentang Tim</a></li>
+          <li><a href="cerita.html" class="nav-cta">Jelajahi Cerita</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
   <main>
-    <!-- HERO SECTION (Persis 100% Referensi Gambar) -->
-    <section class="hero-editorial" style="background-image: url('images/hero-bg.jpg');">
+    <!-- HERO SECTION (PRD F-01: Nuansa Hangat & Edukatif Nusantara) -->
+    <section class="hero-banner">
       <div class="container">
+        <div class="hero-pill">Warisan Cerita Kepulauan Indonesia</div>
         <h1 class="hero-title">
-          Nepal <span class="serif-italic">Without Limits.</span><br>
-          Discover beyond the ordinary.
+          Merajut Jejak Sejarah, <br>
+          Menghidupkan <span class="serif-accent">Jiwa Nusantara</span>
         </h1>
         <p class="hero-desc">
-          Journeys through Nepal shaped around you — your pace, your path, your sense of wonder. Every experience feels personal, effortless, and truly yours.
+          Menelusuri keagungan peradaban masa lampau, pesona adat tradisi luhur, dan hikmah moral legenda rakyat yang diwariskan dari generasi ke generasi.
         </p>
-        <a href="cerita.html" class="btn-hero-pill">Build my trip now</a>
-      </div>
-    </section>
-
-    <!-- CAROUSEL / POPULAR TOURS (KONTRAK PRD 9.4: #featured-grid) -->
-    <section class="popular-section">
-      <div class="container">
-        <div class="section-tag-pill">YOUR JOURNEY</div>
-        <h2 class="section-title-editorial">
-          Discover <span class="serif-italic">Our Most</span><br>
-          <span class="serif-italic">Popular</span> Tours
-        </h2>
-
-        <div class="popular-deck-wrapper">
-          <!-- HOOK KONTRAK PRD 9.4: #featured-grid (diisi otomatis oleh js/main.js) -->
-          <div id="featured-grid">
-            <!-- Kartu otomatis dirender oleh js/main.js -->
-          </div>
-        </div>
-
-        <!-- KONTROL NAVIGASI CAROUSEL (Arrow Kiri + Link + Arrow Kanan) -->
-        <div class="carousel-controls">
-          <button class="circle-nav-btn" id="slide-prev" aria-label="Previous Tour">
-            &#8592;
-          </button>
-          <a href="cerita.html" class="view-more-link">View More Tours</a>
-          <button class="circle-nav-btn" id="slide-next" aria-label="Next Tour">
-            &#8594;
-          </button>
+        <div class="hero-actions">
+          <a href="cerita.html" class="btn btn--primary">Mulai Membaca Cerita</a>
+          <a href="tentang.html" class="btn btn--outline">Tentang Proyek</a>
         </div>
       </div>
     </section>
 
-    <!-- BENTO GRID SECTION (Persis Layout 3 Kartu pada Gambar) -->
-    <section class="bento-section">
+    <!-- KATEGORI UTAMA (PRD F-01: 3 Kategori Utama Nusantara) -->
+    <section style="padding: 60px 0 40px;">
       <div class="container">
-        <div class="bento-header">
-          <div>
-            <div class="section-tag-pill">ABOUT NEPAL</div>
-          </div>
-          <p class="bento-quote">
-            Nepal is more than a destination — it's a journey. From Himalayan peaks to ancient cities, every experience brings you closer to its nature, culture and people.
+        <div style="text-align: center; max-width: 650px; margin: 0 auto 32px;">
+          <h2 style="font-size: 2.1rem; margin-bottom: 8px;">Jelajahi Berdasarkan Kategori</h2>
+          <p style="color: var(--color-muted); font-size: 1rem;">
+            Temukan ragam kisah yang dikelompokkan dalam tiga pilar utama khazanah nusantara.
           </p>
         </div>
 
-        <div class="bento-grid">
-          <!-- KARTU 1: GELAP INTERAKTIF DENGAN TOGGLE SWITCH -->
-          <div class="bento-card--dark">
-            <div class="bento-top-row">
-              <svg class="bento-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-              <div class="bento-toggle-switch">
-                <span class="bento-toggle-dot"></span>
-              </div>
-            </div>
-            <p class="bento-body-text">
-              Journeys made personal travel at your own pace, discover hidden places and experience Nepal beyond the usual routes — <strong>authentic, personal and unforgettable</strong>.
+        <div class="category-deck">
+          <!-- SEJARAH -->
+          <article class="category-card">
+            <div class="category-card__icon">🏛️</div>
+            <span class="badge badge--sejarah" style="margin-bottom: 12px;">Sejarah</span>
+            <h3 class="category-card__title">Kisah Sejarah</h3>
+            <p class="category-card__text">
+              Jejak kebesaran kerajaan-kerajaan kuno, peristiwa heroik kebangsaan, dan arsitektur punden serta candi megah penanda peradaban bangsa.
             </p>
-            <a href="cerita.html" class="btn-bento-action">Tailor-Made</a>
-          </div>
+            <a href="cerita.html?kategori=Sejarah" class="category-card__link">
+              Lihat Kisah Sejarah &rarr;
+            </a>
+          </article>
 
-          <!-- KARTU 2: FOTO DENGAN FLOATING PILL "MADE FOR YOU" -->
-          <div class="bento-card--photo" style="background-image: url('images/hiker.jpg');">
-            <div class="frosted-pill-tag">Made for You</div>
-          </div>
+          <!-- BUDAYA -->
+          <article class="category-card">
+            <div class="category-card__icon">🎭</div>
+            <span class="badge badge--budaya" style="margin-bottom: 12px;">Budaya</span>
+            <h3 class="category-card__title">Adat & Tradisi</h3>
+            <p class="category-card__text">
+              Kekayaan filosofi kain batik, kesakralan alat musik tradisional, kearifan noken Papua, dan ritual turun-temurun masyarakat nusantara.
+            </p>
+            <a href="cerita.html?kategori=Budaya" class="category-card__link">
+              Lihat Kisah Budaya &rarr;
+            </a>
+          </article>
 
-          <!-- KARTU 3: STATISTIK 50+ & DOT PROGRESS RATINGS -->
-          <div class="bento-card--stats">
-            <div>
-              <div class="stat-header">
-                <div class="stat-number-big">50+</div>
-                <div class="stat-subtitle">Unique Experiences</div>
-              </div>
-              <p class="stat-desc">
-                Carefully selected journeys designed to reveal the real beauty, culture and spirit of Nepal.
-              </p>
-            </div>
-            
-            <div class="rating-indicator-list">
-              <div class="rating-indicator-row">
-                <span class="rating-category-label">Adventure</span>
-                <div class="rating-dots-bar">
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot is-active"></span>
-                </div>
-                <span class="rating-score">45</span>
-              </div>
-
-              <div class="rating-indicator-row">
-                <span class="rating-category-label">Culture</span>
-                <div class="rating-dots-bar">
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot"></span>
-                  <span class="rating-dot"></span>
-                  <span class="rating-dot"></span>
-                </div>
-                <span class="rating-score">35</span>
-              </div>
-
-              <div class="rating-indicator-row">
-                <span class="rating-category-label">Wellness</span>
-                <div class="rating-dots-bar">
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot is-active"></span>
-                  <span class="rating-dot"></span>
-                  <span class="rating-dot"></span>
-                  <span class="rating-dot"></span>
-                  <span class="rating-dot"></span>
-                  <span class="rating-dot"></span>
-                </div>
-                <span class="rating-score">20</span>
-              </div>
-            </div>
-          </div>
+          <!-- LEGENDA -->
+          <article class="category-card">
+            <div class="category-card__icon">📜</div>
+            <span class="badge badge--legenda" style="margin-bottom: 12px;">Legenda</span>
+            <h3 class="category-card__title">Mitos & Cerita Rakyat</h3>
+            <p class="category-card__text">
+              Kisah tutur lisan yang sarat pesan budi pekerti, asal-usul bentang alam danau hingga gunung, serta hikayat para tokoh legendaris tanah air.
+            </p>
+            <a href="cerita.html?kategori=Legenda" class="category-card__link">
+              Lihat Kisah Legenda &rarr;
+            </a>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- METRICS SECTION (4 KOLOM ANGKA PERSIS DI GAMBAR) -->
-    <section class="metrics-section">
-      <div class="container metrics-grid">
-        <div class="metric-item">
-          <div class="metric-item-num">8,000+ m</div>
-          <div class="metric-item-label">Highest Himalayan Peaks</div>
+    <!-- CERITA UNGGULAN (PRD F-01 & KONTRAK 9.4: #featured-grid) -->
+    <section style="padding: 50px 0 70px;">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <h2 style="font-size: 2.1rem; margin-bottom: 6px;">Cerita Pilihan Editor</h2>
+            <p style="color: var(--color-muted); font-size: 1rem;">
+              Kisah unggulan dengan narasi mendalam yang wajib kamu baca hari ini.
+            </p>
+          </div>
+          <a href="cerita.html" class="btn btn--outline" style="padding: 8px 18px; font-size: 0.9rem;">
+            Lihat Semua Koleksi &rarr;
+          </a>
         </div>
-        <div class="metric-item">
-          <div class="metric-item-num">100+</div>
-          <div class="metric-item-label">Unique Experiences</div>
+
+        <!-- HOOK KONTRAK PRD 9.4: #featured-grid -->
+        <div id="featured-grid" class="card-grid">
+          <!-- 3 Kartu Cerita Unggulan dimuat secara otomatis oleh js/main.js -->
         </div>
-        <div class="metric-item">
-          <div class="metric-item-num">50+</div>
-          <div class="metric-item-label">Curated Journeys</div>
-        </div>
-        <div class="metric-item">
-          <div class="metric-item-num">4 Seasons</div>
-          <div class="metric-item-label">Worth Exploring</div>
+      </div>
+    </section>
+
+    <!-- NILAI FILOSOFI KISAHNUSANTARA -->
+    <section style="background: var(--color-surface); padding: 70px 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+      <div class="container" style="max-width: 860px; text-align: center;">
+        <span class="badge badge--budaya" style="margin-bottom: 16px;">Pelestarian Budaya Digital</span>
+        <h2 style="font-size: 2.3rem; margin-bottom: 16px; color: var(--color-primary);">
+          Mengapa KisahNusantara Hadir?
+        </h2>
+        <p style="font-size: 1.12rem; color: var(--color-muted); line-height: 1.85; margin-bottom: 28px;">
+          Di era modern yang serba cepat, kisah-kisah luhur nenek moyang sering kali terlupakan atau terkubur dalam buku-buku naskah tebal. KisahNusantara merangkum keagungan cerita tersebut dalam bahasa yang mengalir, visual yang menyejukkan, serta didukung rujukan sumber terverifikasi untuk generasi masa kini.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; padding-top: 10px;">
+          <div>
+            <strong style="font-size: 1.8rem; font-family: var(--font-heading); color: var(--color-primary); display: block;">10+</strong>
+            <span style="font-size: 0.9rem; color: var(--color-muted);">Kisah Terkurasi</span>
+          </div>
+          <div>
+            <strong style="font-size: 1.8rem; font-family: var(--font-heading); color: var(--color-primary); display: block;">100%</strong>
+            <span style="font-size: 0.9rem; color: var(--color-muted);">Sumber Terbuka & Legal</span>
+          </div>
+          <div>
+            <strong style="font-size: 1.8rem; font-family: var(--font-heading); color: var(--color-primary); display: block;">4</strong>
+            <span style="font-size: 0.9rem; color: var(--color-muted);">Pengembang Mahasiswa</span>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER KONSISTEN (F-02) -->
+  <!-- FOOTER KONSISTEN (PRD F-02) -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <a href="index.html" class="footer-logo">Nepalora<span class="logo-dot">.</span></a>
+        <div>
+          <a href="index.html" class="footer-logo">KisahNusantara</a>
+          <p style="color: var(--color-muted); font-size: 0.9rem; margin-top: 6px; max-width: 360px;">
+            Platform Storytelling Sejarah, Budaya Tradisi, dan Legenda Rakyat Nusantara.
+          </p>
+        </div>
         <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="cerita.html">Destinations</a></li>
-          <li><a href="cerita.html">Tours</a></li>
-          <li><a href="tentang.html">Experiences</a></li>
-          <li><a href="tentang.html">Contact</a></li>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="cerita.html">Katalog Cerita</a></li>
+          <li><a href="tentang.html">Tentang Tim</a></li>
+          <li><a href="docs/sumber.md">Pustaka & Referensi</a></li>
         </ul>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Nepalora / KisahNusantara. Tugas Kerjasama Digital Tim Edy, Riki, Alvin, Toni.</p>
-        <p>Platform Storytelling Interaktif. Dihosting di GitHub Pages.</p>
+        <p>&copy; 2026 <strong>KisahNusantara</strong>. Proyek Tugas Kuliah Kerjasama Digital.</p>
+        <p style="margin-top: 4px; font-size: 0.85rem;">Dikembangkan oleh Edy Sutanto, Riki, Alvin, dan Toni. Tayang via GitHub Pages.</p>
       </div>
     </div>
   </footer>

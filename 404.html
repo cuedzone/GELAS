@@ -3,79 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 Halaman Tidak Ditemukan - Nepalora</title>
-  <meta name="description" content="Halaman yang Anda tuju tidak ditemukan di Nepalora.">
+  <title>404 Halaman Tidak Ditemukan - KisahNusantara</title>
+  <meta name="description" content="Halaman yang Anda tuju tidak ditemukan di KisahNusantara.">
   
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans-Serif) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
   
-  <!-- Stylesheet -->
+  <!-- Stylesheet Utama -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- NAVBAR KONSISTEN (F-02) -->
-  <header class="site-header is-scrolled">
+  <!-- NAVBAR KONSISTEN (PRD F-02) -->
+  <header class="site-header">
     <div class="container nav-container">
-      <a href="index.html" class="site-logo">Nepalora<span class="logo-dot">.</span></a>
+      <a href="index.html" class="site-logo">KisahNusantara</a>
       
-      <button class="nav-toggle" aria-label="Toggle Menu" aria-expanded="false">
+      <button class="nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
         <span>☰</span>
       </button>
 
-      <div class="nav-center-wrap">
-        <nav>
-          <ul class="nav-menu">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="cerita.html?kategori=Sejarah" class="nav-link">Destinations</a></li>
-            <li>
-              <a href="cerita.html" class="nav-link">
-                Tours <span class="nav-badge-pill">NEW</span>
-              </a>
-            </li>
-            <li><a href="cerita.html" class="nav-link">Experiences</a></li>
-            <li><a href="tentang.html" class="nav-link">Contact</a></li>
-          </ul>
-        </nav>
-        <a href="cerita.html" class="nav-auth-btn">
-          <span class="nav-auth-icon">&#8594;</span>
-          <span>LOG IN</span>
-        </a>
-      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Beranda</a></li>
+          <li><a href="cerita.html" class="nav-link">Cerita</a></li>
+          <li><a href="tentang.html" class="nav-link">Tentang Tim</a></li>
+          <li><a href="cerita.html" class="nav-cta">Jelajahi Cerita</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <main class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 24px;">
-    <div class="section-tag-pill">ERROR 404</div>
-    <h1 class="hero-title" style="color: var(--color-text); font-size: 3.5rem; margin-bottom: 16px;">
-      Lost in <span class="serif-italic">The Mountains</span>
+  <main class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 110px 24px 130px;">
+    <div style="font-size: 5.5rem; font-weight: 800; font-family: var(--font-heading); color: var(--color-accent); line-height: 1;">
+      404
+    </div>
+    <h1 style="font-size: 2.3rem; margin: 18px 0 12px; color: var(--color-primary);">
+      Halaman Tersesat di Nusantara
     </h1>
-    <p style="color: var(--color-muted); max-width: 520px; margin-bottom: 36px; font-size: 1.1rem; line-height: 1.7;">
-      Halaman yang kamu tuju tidak ditemukan atau telah berpindah jalur penjelajahan. Mari kembali ke beranda untuk melanjutkan rute perjalanan.
+    <p style="color: var(--color-muted); max-width: 520px; margin-bottom: 32px; font-size: 1.1rem; line-height: 1.7;">
+      Mohon maaf, halaman yang kamu tuju tidak ditemukan atau telah dipindahkan ke alamat lain. Mari kembali ke beranda untuk melanjutkan penjelajahan kisah nusantara.
     </p>
-    <a href="index.html" class="btn btn--primary" style="display: inline-block; width: auto; padding: 14px 34px; background: var(--color-surface-dark); color: #FFFFFF;">
-      Kembali ke Beranda &rarr;
+    <a href="index.html" class="btn btn--primary" style="padding: 13px 32px; font-size: 1rem;">
+      &larr; Kembali ke Beranda
     </a>
   </main>
 
-  <!-- FOOTER KONSISTEN (F-02) -->
+  <!-- FOOTER KONSISTEN (PRD F-02) -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <a href="index.html" class="footer-logo">Nepalora<span class="logo-dot">.</span></a>
+        <div>
+          <a href="index.html" class="footer-logo">KisahNusantara</a>
+          <p style="color: var(--color-muted); font-size: 0.9rem; margin-top: 6px; max-width: 360px;">
+            Platform Storytelling Sejarah, Budaya Tradisi, dan Legenda Rakyat Nusantara.
+          </p>
+        </div>
         <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="cerita.html">Destinations</a></li>
-          <li><a href="cerita.html">Tours</a></li>
-          <li><a href="tentang.html">Experiences</a></li>
-          <li><a href="tentang.html">Contact</a></li>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="cerita.html">Katalog Cerita</a></li>
+          <li><a href="tentang.html">Tentang Tim</a></li>
+          <li><a href="docs/sumber.md">Pustaka & Referensi</a></li>
         </ul>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Nepalora / KisahNusantara. Tugas Kerjasama Digital Tim Edy, Riki, Alvin, Toni.</p>
-        <p>Platform Storytelling Interaktif. Dihosting di GitHub Pages.</p>
+        <p>&copy; 2026 <strong>KisahNusantara</strong>. Proyek Tugas Kuliah Kerjasama Digital.</p>
+        <p style="margin-top: 4px; font-size: 0.85rem;">Dikembangkan oleh Edy Sutanto, Riki, Alvin, dan Toni. Tayang via GitHub Pages.</p>
       </div>
     </div>
   </footer>

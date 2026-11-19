@@ -3,131 +3,121 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detail Cerita - Nepalora</title>
-  <meta name="description" content="Baca narasi lengkap kisah nusantara beserta sumber referensi terpercaya.">
+  <title>Detail Cerita - KisahNusantara</title>
+  <meta name="description" content="Baca narasi lengkap kisah sejarah, budaya, dan legenda nusantara dengan sumber pustaka terpercaya.">
   
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans-Serif) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
   
-  <!-- Stylesheet -->
+  <!-- Stylesheet Utama -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- NAVBAR KONSISTEN (F-02) -->
-  <header class="site-header is-scrolled">
+  <!-- NAVBAR KONSISTEN (PRD F-02) -->
+  <header class="site-header">
     <div class="container nav-container">
-      <a href="index.html" class="site-logo">Nepalora<span class="logo-dot">.</span></a>
+      <a href="index.html" class="site-logo">KisahNusantara</a>
       
-      <button class="nav-toggle" aria-label="Toggle Menu" aria-expanded="false">
+      <button class="nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
         <span>☰</span>
       </button>
 
-      <div class="nav-center-wrap">
-        <nav>
-          <ul class="nav-menu">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="cerita.html?kategori=Sejarah" class="nav-link">Destinations</a></li>
-            <li>
-              <a href="cerita.html" class="nav-link is-active">
-                Tours <span class="nav-badge-pill">NEW</span>
-              </a>
-            </li>
-            <li><a href="cerita.html" class="nav-link">Experiences</a></li>
-            <li><a href="tentang.html" class="nav-link">Contact</a></li>
-          </ul>
-        </nav>
-        <a href="cerita.html" class="nav-auth-btn">
-          <span class="nav-auth-icon">&#8594;</span>
-          <span>LOG IN</span>
-        </a>
-      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Beranda</a></li>
+          <li><a href="cerita.html" class="nav-link is-active">Cerita</a></li>
+          <li><a href="tentang.html" class="nav-link">Tentang Tim</a></li>
+          <li><a href="cerita.html" class="nav-cta">Jelajahi Cerita</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <main class="container story-detail-container" style="padding-top: 48px;">
-    <!-- TOMBOL KEMBALI -->
-    <div style="margin-bottom: 24px;">
-      <a href="cerita.html" class="nav-auth-btn" style="color: var(--color-text); border-color: rgba(14, 22, 38, 0.2); background: #FFFFFF;">
-        <span class="nav-auth-icon" style="transform: rotate(180deg);">&#8594;</span>
-        <span>Kembali ke Daftar Cerita</span>
+  <main class="container">
+    <div class="detail-wrapper">
+      <!-- TOMBOL KEMBALI KE KATALOG -->
+      <a href="cerita.html" class="detail-back">
+        &larr; Kembali ke Daftar Cerita
       </a>
-    </div>
 
-    <!-- HOOK KONTRAK PRD 9.4: #story-detail -->
-    <article id="story-detail">
-      <header class="story-header">
-        <!-- HOOK KONTRAK: #story-category -->
-        <span id="story-category" class="badge">Kategori</span>
-        <!-- HOOK KONTRAK: #story-title -->
-        <h1 id="story-title">Judul Cerita</h1>
-        <!-- HOOK KONTRAK: #story-region -->
-        <p id="story-region" class="story-meta">Daerah, Provinsi</p>
-      </header>
+      <!-- HOOK KONTRAK PRD 9.4: #story-detail -->
+      <article id="story-detail">
+        <header class="detail-header">
+          <!-- HOOK KONTRAK: #story-category -->
+          <span id="story-category" class="badge">Kategori</span>
+          <!-- HOOK KONTRAK: #story-title -->
+          <h1 id="story-title">Memuat Judul Cerita...</h1>
+          <!-- HOOK KONTRAK: #story-region -->
+          <p id="story-region" class="detail-meta">Daerah, Provinsi</p>
+        </header>
 
-      <!-- HOOK KONTRAK: #story-image -->
-      <div class="story-image-wrap">
-        <img id="story-image" src="" alt="Gambar Cerita" loading="lazy">
-      </div>
-
-      <!-- HOOK KONTRAK: #story-content -->
-      <section id="story-content" class="story-article">
-        <!-- Paragraf cerita dirender otomatis oleh js/detail.js -->
-      </section>
-
-      <!-- HOOK KONTRAK: #story-sources -->
-      <section class="story-sources-box">
-        <h3>Sumber Referensi & Pustaka</h3>
-        <ul id="story-sources">
-          <!-- Daftar sumber diisi otomatis oleh js/detail.js -->
-        </ul>
-      </section>
-
-      <!-- BAGIAN CERITA TERKAIT (F-07) -->
-      <section style="margin-top: 70px; padding-top: 40px; border-top: 1px solid rgba(14, 22, 38, 0.1);">
-        <div class="section-tag-pill">REKOMENDASI LAINNYA</div>
-        <h2 class="section-title-editorial" style="font-size: 2.2rem; margin-bottom: 28px;">
-          Cerita <span class="serif-italic">Terkait</span>
-        </h2>
-        <!-- HOOK KONTRAK: #related-grid -->
-        <div id="related-grid" class="card-grid">
-          <!-- Kartu cerita terkait dirender otomatis oleh js/detail.js -->
+        <!-- HOOK KONTRAK: #story-image -->
+        <div class="detail-image-box">
+          <img id="story-image" src="" alt="Ilustrasi Cerita Nusantara" loading="lazy">
         </div>
-      </section>
-    </article>
 
-    <!-- HOOK KONTRAK PRD 9.4: #not-found (AWALNYA HIDDEN) -->
-    <section id="not-found" class="empty-state-box" hidden>
-      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--color-text); margin-bottom: 12px;">
-        Cerita Tidak Ditemukan
-      </h2>
-      <p style="color: var(--color-muted); margin-bottom: 24px;">
-        Mohon maaf, cerita yang kamu cari tidak tersedia atau parameter ID pada URL tidak valid.
-      </p>
-      <a href="cerita.html" class="btn btn--primary" style="display: inline-block; width: auto; padding: 12px 30px;">
-        Kembali ke Daftar Cerita
-      </a>
-    </section>
+        <!-- HOOK KONTRAK: #story-content (DIISI PARAGRAF OLEH JS) -->
+        <section id="story-content" class="detail-content">
+          <!-- Paragraf cerita dirender otomatis oleh js/detail.js -->
+        </section>
+
+        <!-- HOOK KONTRAK: #story-sources -->
+        <section class="detail-sources-box">
+          <h3>Rujukan Sumber & Kepustakaan</h3>
+          <ul id="story-sources">
+            <!-- Daftar sumber diisi otomatis oleh js/detail.js -->
+          </ul>
+        </section>
+
+        <!-- BAGIAN CERITA TERKAIT (PRD F-07 & HOOK: #related-grid) -->
+        <section style="margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--color-border);">
+          <div style="margin-bottom: 24px;">
+            <h2 style="font-size: 1.8rem; margin-bottom: 6px;">Kisah Nusantara Terkait</h2>
+            <p style="color: var(--color-muted); font-size: 0.95rem;">Jelajahi kisah lain dalam kategori yang serupa.</p>
+          </div>
+          
+          <!-- HOOK KONTRAK: #related-grid -->
+          <div id="related-grid" class="card-grid">
+            <!-- Cerita terkait dirender otomatis oleh js/detail.js -->
+          </div>
+        </section>
+      </article>
+
+      <!-- HOOK KONTRAK PRD 9.4: #not-found (AWALNYA HIDDEN) -->
+      <section id="not-found" class="empty-state-box" hidden>
+        <div style="font-size: 3.5rem; margin-bottom: 12px;">📜</div>
+        <h2 style="font-size: 2rem; color: var(--color-primary); margin-bottom: 12px;">Cerita Tidak Ditemukan</h2>
+        <p style="color: var(--color-muted); max-width: 500px; margin: 0 auto 24px; font-size: 1.05rem;">
+          Mohon maaf, cerita yang kamu tuju tidak ditemukan atau parameter tautan tidak sesuai.
+        </p>
+        <a href="cerita.html" class="btn btn--primary">Kembali ke Katalog Cerita</a>
+      </section>
+    </div>
   </main>
 
-  <!-- FOOTER KONSISTEN (F-02) -->
+  <!-- FOOTER KONSISTEN (PRD F-02) -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <a href="index.html" class="footer-logo">Nepalora<span class="logo-dot">.</span></a>
+        <div>
+          <a href="index.html" class="footer-logo">KisahNusantara</a>
+          <p style="color: var(--color-muted); font-size: 0.9rem; margin-top: 6px; max-width: 360px;">
+            Platform Storytelling Sejarah, Budaya Tradisi, dan Legenda Rakyat Nusantara.
+          </p>
+        </div>
         <ul class="footer-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="cerita.html">Destinations</a></li>
-          <li><a href="cerita.html">Tours</a></li>
-          <li><a href="tentang.html">Experiences</a></li>
-          <li><a href="tentang.html">Contact</a></li>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="cerita.html">Katalog Cerita</a></li>
+          <li><a href="tentang.html">Tentang Tim</a></li>
+          <li><a href="docs/sumber.md">Pustaka & Referensi</a></li>
         </ul>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 Nepalora / KisahNusantara. Tugas Kerjasama Digital Tim Edy, Riki, Alvin, Toni.</p>
-        <p>Platform Storytelling Interaktif. Dihosting di GitHub Pages.</p>
+        <p>&copy; 2026 <strong>KisahNusantara</strong>. Proyek Tugas Kuliah Kerjasama Digital.</p>
+        <p style="margin-top: 4px; font-size: 0.85rem;">Dikembangkan oleh Edy Sutanto, Riki, Alvin, dan Toni. Tayang via GitHub Pages.</p>
       </div>
     </div>
   </footer>
