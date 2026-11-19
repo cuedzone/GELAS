@@ -98,10 +98,12 @@ function getStoryById(stories, id) {
  * @returns {Array}
  */
 function getRelated(stories, currentStory, max = 3) {
-  if (!currentStory) return [];
-  return stories
-    .filter(s => s.kategori === currentStory.kategori && s.id !== currentStory.id)
-    .slice(0, max);
+  if (!currentStory || !Array.isArray(stories)) return [];
+  const sameCategory = stories.filter(s => s.kategori === currentStory.kategori && s.id !== currentStory.id);
+  if (sameCategory.length > 0) {
+    return sameCategory.slice(0, max);
+  }
+  return stories.filter(s => s.id !== currentStory.id).slice(0, max);
 }
 
 /**
