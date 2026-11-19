@@ -26,9 +26,9 @@ Proyek ini dikembangkan untuk memenuhi tugas mata kuliah **Kerjasama Digital** d
 | Nama | Peran | Tanggung Jawab & Kepemilikan File |
 |---|---|---|
 | **Edy Sutanto** | **Kapten** / PM & Integrator | Manajemen repositori, integrasi kode, Beranda (`index.html`), penanganan 404 (`404.html`), konfigurasi `.github/`, dan *deployment*. |
-| **Riki** | UI/UX & Desain Antarmuka | Sistem desain, tema token warna batik kuno (`css/style.css`), interaktivitas navigasi responsif (`js/nav.js`), aset UI (`images/ui/`), dan markup halaman. |
-| **Alvin** | Konten & Manajemen Data | Riset dan kurasi narasi cerita nusantara (`data/stories.json`), atribusi lisensi terbuka (`docs/sumber.md`), halaman Tentang Tim (`tentang.html`), dan kurasi visual. |
-| **Toni** | Logika JS & Dokumentasi | Pengembangan seluruh modul logika JavaScript (`js/main.js`, `js/filter.js`, `js/detail.js`), sanitasi data, pengujian fungsional, dan penyusunan dokumentasi (`README.md`, `docs/laporan/`, `docs/presentasi/`). |
+| **Alvin Maulana** | Konten & Manajemen Data | Riset dan kurasi narasi cerita nusantara (`data/stories.json`), atribusi lisensi terbuka (`docs/sumber.md`), halaman Tentang Tim (`tentang.html`), dan kurasi visual. |
+| **Ahmad Riki Safudin** | UI/UX & Desain Antarmuka | Sistem desain, tema token warna ultra-modern monokrom (`css/style.css`), interaktivitas navigasi responsif (`js/nav.js`), aset UI (`images/ui/`), dan markup halaman. |
+| **Ach. Sultoni Ichwana** | Logika JS & Dokumentasi | Pengembangan seluruh modul logika JavaScript (`js/main.js`, `js/filter.js`, `js/detail.js`), sanitasi data, pengujian fungsional, dan penyusunan dokumentasi (`README.md`, `docs/laporan/`, `docs/presentasi/`). |
 
 ---
 

@@ -1,47 +1,61 @@
 /**
  * KisahNusantara - nav.js
- * Logika Navigasi: Menu Hamburger Responsif, Sticky Header & Indikator Halaman Aktif
+ * Logika Navigasi: Popup Modal Beranimasi Elegan (Lingkaran Setiap Halaman), Sticky Header & Indikator Halaman Aktif
  * Dimuat di: Semua halaman
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. Mobile Menu Toggle & Close on Click
-  const navToggle = document.querySelector(".nav-toggle");
-  const navMenu = document.querySelector(".nav-menu");
+  // 1. Popup Modal Navigation Logic (Lingkaran-Lingkaran Setiap Halaman)
+  const popupTrigger = document.getElementById("nav-popup-trigger");
+  const popupModal = document.getElementById("nav-popup-modal");
+  const popupClose = document.getElementById("nav-popup-close");
 
-  if (navToggle && navMenu) {
-    navToggle.addEventListener("click", (e) => {
+  function openNavPopup() {
+    if (popupModal) {
+      popupModal.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+      if (popupClose) popupClose.focus();
+    }
+  }
+
+  function closeNavPopup() {
+    if (popupModal) {
+      popupModal.classList.remove("is-open");
+      document.body.style.overflow = "";
+      if (popupTrigger) popupTrigger.focus();
+    }
+  }
+
+  if (popupTrigger) {
+    popupTrigger.addEventListener("click", (e) => {
       e.stopPropagation();
-      const isExpanded = navToggle.getAttribute("aria-expanded") === "true";
-      navToggle.setAttribute("aria-expanded", String(!isExpanded));
-      navMenu.classList.toggle("is-open");
-    });
-
-    // Tutup menu saat tautan diklik pada tampilan mobile
-    navMenu.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        navMenu.classList.remove("is-open");
-        navToggle.setAttribute("aria-expanded", "false");
-      });
-    });
-
-    // Tutup menu saat pengguna klik di luar menu
-    document.addEventListener("click", (e) => {
-      if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-        navMenu.classList.remove("is-open");
-        navToggle.setAttribute("aria-expanded", "false");
-      }
-    });
-
-    // Tutup menu dengan tombol Escape (Aksesibilitas R-32)
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && navMenu.classList.contains("is-open")) {
-        navMenu.classList.remove("is-open");
-        navToggle.setAttribute("aria-expanded", "false");
-        navToggle.focus();
-      }
+      openNavPopup();
     });
   }
+
+  if (popupClose) {
+    popupClose.addEventListener("click", closeNavPopup);
+  }
+
+  if (popupModal) {
+    popupModal.addEventListener("click", (e) => {
+      if (e.target === popupModal) {
+        closeNavPopup();
+      }
+    });
+
+    // Tutup saat pengguna klik salah satu tautan lingkaran
+    popupModal.querySelectorAll(".nav-circle-item").forEach(item => {
+      item.addEventListener("click", closeNavPopup);
+    });
+  }
+
+  // Tutup dengan tombol Escape (Aksesibilitas)
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && popupModal && popupModal.classList.contains("is-open")) {
+      closeNavPopup();
+    }
+  });
 
   // 2. Sticky Header Scroll Effect
   const siteHeader = document.querySelector(".site-header");
@@ -57,29 +71,35 @@ document.addEventListener("DOMContentLoaded", () => {
     handleScroll();
   }
 
-  // 3. Active Nav Link Indicator (Mendukung path & query param kategori)
+  // 3. Active Nav Link Indicator (Dukungan Circular Pills & Popup Circle Items)
   const currentPath = window.location.pathname.split("/").pop() || "index.html";
   const currentSearch = window.location.search;
-  const navLinks = document.querySelectorAll(".nav-link");
 
-  navLinks.forEach(link => {
-    const href = link.getAttribute("href") || "";
-    const [linkPath, linkSearch] = href.split("?");
-    const normalizedLinkPath = linkPath || "index.html";
-    const normalizedLinkSearch = linkSearch ? `?${linkSearch}` : "";
+  function updateActiveLink(selector, activeClass) {
+    const links = document.querySelectorAll(selector);
+    links.forEach(link => {
+      const href = link.getAttribute("href") || "";
+      const [linkPath, linkSearch] = href.split("?");
+      const normalizedLinkPath = linkPath || "index.html";
+      const normalizedLinkSearch = linkSearch ? `?${linkSearch}` : "";
 
-    if (linkSearch) {
-      if (normalizedLinkPath === currentPath && normalizedLinkSearch === currentSearch) {
-        link.classList.add("is-active");
+      if (linkSearch) {
+        if (normalizedLinkPath === currentPath && normalizedLinkSearch === currentSearch) {
+          link.classList.add(activeClass);
+        } else {
+          link.classList.remove(activeClass);
+        }
       } else {
-        link.classList.remove("is-active");
+        if ((normalizedLinkPath === currentPath || (currentPath === "" && normalizedLinkPath === "index.html")) && !currentSearch) {
+          link.classList.add(activeClass);
+        } else {
+          link.classList.remove(activeClass);
+        }
       }
-    } else {
-      if ((normalizedLinkPath === currentPath || (currentPath === "" && normalizedLinkPath === "index.html")) && !currentSearch) {
-        link.classList.add("is-active");
-      } else {
-        link.classList.remove("is-active");
-      }
-    }
-  });
+    });
+  }
+
+  updateActiveLink(".nav-circle-pill", "is-active");
+  updateActiveLink(".nav-circle-item", "is-active-circle");
+  updateActiveLink(".nav-link", "is-active");
 });
