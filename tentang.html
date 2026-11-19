@@ -3,130 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tentang Kami - KisahNusantara</title>
-  <meta name="description" content="Informasi mengenai proyek KisahNusantara dan profil tim pengembang Kerjasama Digital.">
+  <title>Tentang Kami - Nepalora</title>
+  <meta name="description" content="Informasi mengenai proyek KisahNusantara / Nepalora dan profil tim pengembang Kerjasama Digital.">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
   
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-      margin-top: 32px;
-    }
-    .team-card {
-      background: var(--color-surface);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow);
-      text-align: center;
-      border-top: 4px solid var(--color-primary);
-    }
-    .team-card h3 {
-      font-family: var(--font-heading);
-      margin-top: 12px;
-      margin-bottom: 4px;
-      color: var(--color-text);
-    }
-    .team-card .role {
-      font-weight: 600;
-      color: var(--color-accent);
-      font-size: 0.9rem;
-      margin-bottom: 12px;
-    }
-    .team-card p {
-      font-size: 0.88rem;
-      color: var(--color-muted);
-    }
-  </style>
 </head>
 <body>
 
   <!-- NAVBAR KONSISTEN (F-02) -->
-  <header class="site-header">
+  <header class="site-header is-scrolled">
     <div class="container nav-container">
-      <a href="index.html" class="site-logo">KisahNusantara</a>
+      <a href="index.html" class="site-logo">Nepalora<span class="logo-dot">.</span></a>
+      
       <button class="nav-toggle" aria-label="Toggle Menu" aria-expanded="false">
         <span>☰</span>
       </button>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link">Beranda</a></li>
-          <li><a href="cerita.html" class="nav-link">Cerita</a></li>
-          <li><a href="tentang.html" class="nav-link is-active">Tentang</a></li>
-        </ul>
-      </nav>
+
+      <div class="nav-center-wrap">
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="cerita.html?kategori=Sejarah" class="nav-link">Destinations</a></li>
+            <li>
+              <a href="cerita.html" class="nav-link">
+                Tours <span class="nav-badge-pill">NEW</span>
+              </a>
+            </li>
+            <li><a href="cerita.html" class="nav-link">Experiences</a></li>
+            <li><a href="tentang.html" class="nav-link is-active">Contact</a></li>
+          </ul>
+        </nav>
+        <a href="cerita.html" class="nav-auth-btn">
+          <span class="nav-auth-icon">&#8594;</span>
+          <span>LOG IN</span>
+        </a>
+      </div>
     </div>
   </header>
 
-  <main class="container" style="padding: 48px 20px;">
+  <main class="container" style="padding: 60px 24px 90px;">
     <!-- TENTANG PROYEK (F-08) -->
-    <section style="max-width: 800px; margin: 0 auto 56px; text-align: center;">
-      <h1 style="font-family: var(--font-heading); font-size: 2.3rem; color: var(--color-primary); margin-bottom: 16px;">
-        Tentang KisahNusantara
+    <section style="max-width: 820px; margin: 0 auto 64px; text-align: center;">
+      <div class="section-tag-pill">OUR MISSION & HERITAGE</div>
+      <h1 class="section-title-editorial">
+        About <span class="serif-italic">The Journey &</span><br>
+        <span class="serif-italic">The Creators</span>
       </h1>
-      <p style="font-size: 1.1rem; color: var(--color-muted); line-height: 1.8;">
-        KisahNusantara lahir dari keinginan untuk melestarikan dan mendokumentasikan khazanah narasi tradisi, sejarah peradaban, dan legenda rakyat dari Sabang sampai Merauke dalam wadah digital yang mudah diakses dan menyenangkan untuk dibaca oleh generasi muda.
+      <p style="font-size: 1.15rem; color: var(--color-muted); line-height: 1.8; margin-top: 16px;">
+        KisahNusantara / Nepalora lahir dari dedikasi untuk merangkum khazanah tradisi, keagungan sejarah peradaban, dan keindahan alam dalam platform naratif digital yang modern, estetik, dan nyaman dinikmati di seluruh perangkat.
       </p>
     </section>
 
     <!-- PROFIL ANGGOTA TIM (F-08) -->
-    <section style="margin-bottom: 60px;">
-      <h2 style="font-family: var(--font-heading); text-align: center; color: var(--color-text); margin-bottom: 8px;">
-        Tim Pengembang
-      </h2>
-      <p style="text-align: center; color: var(--color-muted);">Kolaborasi 4 peran dalam tugas Kerjasama Digital</p>
+    <section style="margin-bottom: 70px;">
+      <div style="text-align: center; margin-bottom: 36px;">
+        <div class="section-tag-pill">TIM PENGEMBANG</div>
+        <h2 class="section-title-editorial" style="font-size: 2.2rem;">
+          Kolaborasi <span class="serif-italic">Digital</span>
+        </h2>
+        <p style="color: var(--color-muted);">Sinergi 4 peran utama dalam perancangan aplikasi</p>
+      </div>
 
-      <div class="team-grid">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
         <!-- EDY -->
-        <div class="team-card">
-          <div style="font-size: 2.5rem; margin-bottom: 8px;">👑</div>
-          <h3>Edy Sutanto</h3>
-          <div class="role">Kapten / Project Manager & Integrator</div>
-          <p>Bertanggung jawab atas koordinasi tim, manajemen repo Git & GitHub, integrasi antarmuka, dan deployment.</p>
+        <div class="bento-card--stats" style="text-align: center; align-items: center; justify-content: flex-start; padding: 32px 24px;">
+          <div style="font-size: 2.8rem; margin-bottom: 12px;">👑</div>
+          <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--color-text); margin-bottom: 6px;">Edy Sutanto</h3>
+          <span class="badge badge--sejarah" style="margin-bottom: 16px; align-self: center;">Kapten & Integrator</span>
+          <p style="font-size: 0.9rem; color: var(--color-muted); line-height: 1.6;">
+            Memimpin orkestrasi proyek, arsitektur repositori Git/GitHub, integrasi antarmuka, dan manajemen rilis deployment.
+          </p>
         </div>
 
         <!-- RIKI -->
-        <div class="team-card">
-          <div style="font-size: 2.5rem; margin-bottom: 8px;">🎨</div>
-          <h3>Riki</h3>
-          <div class="role">UI/UX & Tampilan</div>
-          <p>Merancang tata letak CSS, tipografi nuansa nusantara, sistem kartu visual, dan memastikan responsivitas perangkat.</p>
+        <div class="bento-card--stats" style="text-align: center; align-items: center; justify-content: flex-start; padding: 32px 24px;">
+          <div style="font-size: 2.8rem; margin-bottom: 12px;">🎨</div>
+          <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--color-text); margin-bottom: 6px;">Riki</h3>
+          <span class="badge badge--budaya" style="margin-bottom: 16px; align-self: center;">UI/UX & Tampilan</span>
+          <p style="font-size: 0.9rem; color: var(--color-muted); line-height: 1.6;">
+            Merancang identitas visual, estetika editorial modern, sistem kartu interaktif, tipografi, dan optimasi responsif lintas layar.
+          </p>
         </div>
 
         <!-- ALVIN -->
-        <div class="team-card">
-          <div style="font-size: 2.5rem; margin-bottom: 8px;">✍️</div>
-          <h3>Alvin</h3>
-          <div class="role">Konten & Data</div>
-          <p>Melakukan riset cerita orisinal, kurasi sumber terbuka, penyusunan dataset JSON, dan dokumentasi pustaka.</p>
+        <div class="bento-card--stats" style="text-align: center; align-items: center; justify-content: flex-start; padding: 32px 24px;">
+          <div style="font-size: 2.8rem; margin-bottom: 12px;">✍️</div>
+          <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--color-text); margin-bottom: 6px;">Alvin</h3>
+          <span class="badge badge--legenda" style="margin-bottom: 16px; align-self: center;">Konten & Data</span>
+          <p style="font-size: 0.9rem; color: var(--color-muted); line-height: 1.6;">
+            Melakukan riset cerita orisinal, kurasi sumber sejarah terpercaya, penyusunan dataset JSON, dan dokumentasi pustaka.
+          </p>
         </div>
 
         <!-- TONI -->
-        <div class="team-card">
-          <div style="font-size: 2.5rem; margin-bottom: 8px;">💻</div>
-          <h3>Toni</h3>
-          <div class="role">Logika JavaScript & Dokumentasi</div>
-          <p>Membangun logika render data, algoritma pencarian & filter kategori, serta menyusun dokumentasi teknis proyek.</p>
+        <div class="bento-card--stats" style="text-align: center; align-items: center; justify-content: flex-start; padding: 32px 24px;">
+          <div style="font-size: 2.8rem; margin-bottom: 12px;">💻</div>
+          <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--color-text); margin-bottom: 6px;">Toni</h3>
+          <span class="badge badge--sejarah" style="margin-bottom: 16px; align-self: center;">Logika JavaScript</span>
+          <p style="font-size: 0.9rem; color: var(--color-muted); line-height: 1.6;">
+            Mengembangkan logika asynchronous fetch data, algoritma pencarian & filter kategori, serta dokumentasi teknis sistem.
+          </p>
         </div>
       </div>
     </section>
 
     <!-- TAUTAN PUSTAKA & REPO -->
-    <section style="background: var(--color-surface); padding: 32px; border-radius: var(--radius); box-shadow: var(--shadow); max-width: 800px; margin: 0 auto; text-align: center;">
-      <h3 style="font-family: var(--font-heading); color: var(--color-text); margin-bottom: 12px;">Transparansi & Pustaka</h3>
-      <p style="color: var(--color-muted); margin-bottom: 20px;">
-        Seluruh kode sumber terbuka dapat dilihat di repositori GitHub, serta daftar referensi cerita dapat dibaca pada dokumentasi sumber.
+    <section class="bento-card--dark" style="max-width: 820px; margin: 0 auto; text-align: center; align-items: center;">
+      <h3 style="font-size: 1.6rem; font-weight: 700; color: #FFFFFF; margin-bottom: 12px;">
+        Transparansi Kode & Pustaka Terbuka
+      </h3>
+      <p style="color: rgba(255, 255, 255, 0.85); font-size: 0.98rem; max-width: 600px; margin-bottom: 24px; line-height: 1.6;">
+        Seluruh kode sumber terbuka dapat ditinjau pada repositori GitHub tim, serta referensi pustaka cerita dapat diakses pada dokumentasi sumber.
       </p>
       <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-        <a href="https://github.com/cuedzone/GELAS" target="_blank" rel="noopener" class="btn btn--primary">Lihat di GitHub</a>
-        <a href="docs/sumber.md" class="btn" style="background: rgba(107, 62, 38, 0.1); color: var(--color-primary);">Dokumentasi Sumber</a>
+        <a href="https://github.com/cuedzone/GELAS" target="_blank" rel="noopener" class="btn-hero-pill" style="font-size: 0.9rem; padding: 12px 28px;">
+          Lihat di GitHub &rarr;
+        </a>
       </div>
     </section>
   </main>
@@ -134,7 +132,20 @@
   <!-- FOOTER KONSISTEN (F-02) -->
   <footer class="site-footer">
     <div class="container">
-      <p><strong>KisahNusantara</strong> &copy; 2026. Tugas Kerjasama Digital Tim Edy, Riki, Alvin, Toni.</p>
+      <div class="footer-top">
+        <a href="index.html" class="footer-logo">Nepalora<span class="logo-dot">.</span></a>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="cerita.html">Destinations</a></li>
+          <li><a href="cerita.html">Tours</a></li>
+          <li><a href="tentang.html">Experiences</a></li>
+          <li><a href="tentang.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nepalora / KisahNusantara. Tugas Kerjasama Digital Tim Edy, Riki, Alvin, Toni.</p>
+        <p>Platform Storytelling Interaktif. Dihosting di GitHub Pages.</p>
+      </div>
     </div>
   </footer>
 

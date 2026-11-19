@@ -3,99 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detail Cerita - KisahNusantara</title>
+  <title>Detail Cerita - Nepalora</title>
   <meta name="description" content="Baca narasi lengkap kisah nusantara beserta sumber referensi terpercaya.">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
   
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    .story-hero {
-      margin-bottom: 32px;
-    }
-    .story-header {
-      margin-bottom: 24px;
-    }
-    .story-header h1 {
-      font-family: var(--font-heading);
-      font-size: 2.2rem;
-      color: var(--color-text);
-      margin: 12px 0 8px;
-      line-height: 1.3;
-    }
-    .story-meta {
-      font-size: 1rem;
-      color: var(--color-muted);
-    }
-    .story-image-wrap {
-      width: 100%;
-      max-height: 480px;
-      overflow: hidden;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      margin-bottom: 36px;
-    }
-    .story-image-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .story-article {
-      max-width: 800px;
-      margin: 0 auto 48px;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--color-text);
-    }
-    .story-sources-box {
-      max-width: 800px;
-      margin: 0 auto 48px;
-      padding: 24px;
-      background: rgba(107, 62, 38, 0.04);
-      border-left: 4px solid var(--color-primary);
-      border-radius: 4px 8px 8px 4px;
-    }
-    .story-sources-box h3 {
-      font-family: var(--font-heading);
-      font-size: 1.1rem;
-      margin-bottom: 12px;
-      color: var(--color-primary);
-    }
-    .story-sources-box ul {
-      padding-left: 20px;
-      font-size: 0.95rem;
-      color: var(--color-muted);
-    }
-  </style>
 </head>
 <body>
 
   <!-- NAVBAR KONSISTEN (F-02) -->
-  <header class="site-header">
+  <header class="site-header is-scrolled">
     <div class="container nav-container">
-      <a href="index.html" class="site-logo">KisahNusantara</a>
+      <a href="index.html" class="site-logo">Nepalora<span class="logo-dot">.</span></a>
+      
       <button class="nav-toggle" aria-label="Toggle Menu" aria-expanded="false">
         <span>☰</span>
       </button>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link">Beranda</a></li>
-          <li><a href="cerita.html" class="nav-link">Cerita</a></li>
-          <li><a href="tentang.html" class="nav-link">Tentang</a></li>
-        </ul>
-      </nav>
+
+      <div class="nav-center-wrap">
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="cerita.html?kategori=Sejarah" class="nav-link">Destinations</a></li>
+            <li>
+              <a href="cerita.html" class="nav-link is-active">
+                Tours <span class="nav-badge-pill">NEW</span>
+              </a>
+            </li>
+            <li><a href="cerita.html" class="nav-link">Experiences</a></li>
+            <li><a href="tentang.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+        <a href="cerita.html" class="nav-auth-btn">
+          <span class="nav-auth-icon">&#8594;</span>
+          <span>LOG IN</span>
+        </a>
+      </div>
     </div>
   </header>
 
-  <main class="container" style="padding-top: 32px;">
+  <main class="container story-detail-container" style="padding-top: 48px;">
     <!-- TOMBOL KEMBALI -->
-    <div style="margin-bottom: 20px;">
-      <a href="cerita.html" style="font-weight: 500; display: inline-flex; align-items: center; gap: 6px;">
-        &larr; Kembali ke Daftar Cerita
+    <div style="margin-bottom: 24px;">
+      <a href="cerita.html" class="nav-auth-btn" style="color: var(--color-text); border-color: rgba(14, 22, 38, 0.2); background: #FFFFFF;">
+        <span class="nav-auth-icon" style="transform: rotate(180deg);">&#8594;</span>
+        <span>Kembali ke Daftar Cerita</span>
       </a>
     </div>
 
@@ -129,8 +86,11 @@
       </section>
 
       <!-- BAGIAN CERITA TERKAIT (F-07) -->
-      <section style="margin-top: 60px; padding-top: 40px; border-top: 1px solid rgba(107, 91, 78, 0.15);">
-        <h2 style="font-family: var(--font-heading); margin-bottom: 24px; color: var(--color-text);">Cerita Terkait</h2>
+      <section style="margin-top: 70px; padding-top: 40px; border-top: 1px solid rgba(14, 22, 38, 0.1);">
+        <div class="section-tag-pill">REKOMENDASI LAINNYA</div>
+        <h2 class="section-title-editorial" style="font-size: 2.2rem; margin-bottom: 28px;">
+          Cerita <span class="serif-italic">Terkait</span>
+        </h2>
         <!-- HOOK KONTRAK: #related-grid -->
         <div id="related-grid" class="card-grid">
           <!-- Kartu cerita terkait dirender otomatis oleh js/detail.js -->
@@ -139,17 +99,36 @@
     </article>
 
     <!-- HOOK KONTRAK PRD 9.4: #not-found (AWALNYA HIDDEN) -->
-    <section id="not-found" style="text-align: center; padding: 80px 20px;" hidden>
-      <h2 style="font-family: var(--font-heading); color: var(--color-primary); margin-bottom: 12px;">Cerita Tidak Ditemukan</h2>
-      <p style="color: var(--color-muted); margin-bottom: 24px;">Mohon maaf, cerita yang kamu cari tidak tersedia atau URL tidak valid.</p>
-      <a href="cerita.html" class="btn btn--primary">Kembali ke Daftar Cerita</a>
+    <section id="not-found" class="empty-state-box" hidden>
+      <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--color-text); margin-bottom: 12px;">
+        Cerita Tidak Ditemukan
+      </h2>
+      <p style="color: var(--color-muted); margin-bottom: 24px;">
+        Mohon maaf, cerita yang kamu cari tidak tersedia atau parameter ID pada URL tidak valid.
+      </p>
+      <a href="cerita.html" class="btn btn--primary" style="display: inline-block; width: auto; padding: 12px 30px;">
+        Kembali ke Daftar Cerita
+      </a>
     </section>
   </main>
 
   <!-- FOOTER KONSISTEN (F-02) -->
   <footer class="site-footer">
     <div class="container">
-      <p><strong>KisahNusantara</strong> &copy; 2026. Tugas Kerjasama Digital Tim Edy, Riki, Alvin, Toni.</p>
+      <div class="footer-top">
+        <a href="index.html" class="footer-logo">Nepalora<span class="logo-dot">.</span></a>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="cerita.html">Destinations</a></li>
+          <li><a href="cerita.html">Tours</a></li>
+          <li><a href="tentang.html">Experiences</a></li>
+          <li><a href="tentang.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nepalora / KisahNusantara. Tugas Kerjasama Digital Tim Edy, Riki, Alvin, Toni.</p>
+        <p>Platform Storytelling Interaktif. Dihosting di GitHub Pages.</p>
+      </div>
     </div>
   </footer>
 

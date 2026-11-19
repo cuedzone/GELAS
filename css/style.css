@@ -2,35 +2,69 @@
    KisahNusantara - style.css
    Pemilik File: Riki (UI/UX & Tampilan)
    Tugas Terkait: T-R2, T-R3, T-R4, T-R5, T-R6, T-R7, T-R8
-   Catatan: File ini diisi dan diatur oleh Riki sesuai Design Tokens PRD Bagian 10.
+   Konsep Desain: Modern Editorial Travel & Heritage (100% Persis Referensi Desain)
    ========================================================================== */
 
-/* 1. DESIGN TOKENS (PRD Bagian 10.2) */
+/* 1. IMPORT FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+/* 2. DESIGN TOKENS (CSS Variables) */
 :root {
-  --color-bg: #FBF6EC;        /* krem kertas */
-  --color-surface: #FFFFFF;   /* putih kartu */
-  --color-text: #2B2118;      /* cokelat gelap teks utama */
-  --color-muted: #6B5B4E;     /* abu kecokelatan teks sekunder */
-  --color-primary: #6B3E26;   /* cokelat soga */
-  --color-accent: #C9962B;    /* emas aksen */
-  --color-indigo: #1F3A5F;
-  --color-sejarah: #1F3A5F;   /* lencana sejarah */
-  --color-budaya: #2F6B4F;    /* lencana budaya */
-  --color-legenda: #8A3B2E;   /* lencana legenda */
+  /* Color System */
+  --color-bg: #F8F9FA;
+  --color-surface: #FFFFFF;
+  --color-surface-dark: #0E1626;
+  --color-surface-dark-card: #151F32;
+  --color-text: #0E1626;
+  --color-text-light: #FFFFFF;
+  --color-muted: #64748B;
+  --color-muted-dark: #94A3B8;
+  --color-border: rgba(14, 22, 38, 0.08);
+  --color-border-dark: rgba(255, 255, 255, 0.14);
+  --color-primary: #0E1626;
+  --color-accent: #38BDF8;
+  --color-accent-gold: #C9962B;
+  
+  /* Category Badges (PRD 9.4 & 10.2) */
+  --color-sejarah: #1F3A5F;
+  --color-budaya: #2F6B4F;
+  --color-legenda: #8A3B2E;
 
-  --font-heading: "Playfair Display", Georgia, serif;
-  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  /* Typography */
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-heading: var(--font-sans);
+  --font-body: var(--font-sans);
 
-  --radius: 12px;
-  --shadow: 0 4px 16px rgba(43, 33, 24, 0.10);
-  --container: 1120px;
+  /* Elevation & Curves */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+  --radius: 20px;
+
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 10px 30px -5px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  --shadow-card: 0 20px 40px -15px rgba(14, 22, 38, 0.35);
+  --shadow: var(--shadow-md);
+
+  --container: 1240px;
 }
 
-/* 2. BASE RESET & BOX SIZING */
+/* 3. BASE RESET & BOX SIZING */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -42,6 +76,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 main {
@@ -55,191 +90,1107 @@ img {
 }
 
 a {
-  color: var(--color-primary);
+  color: inherit;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all 0.25s ease;
 }
 
-a:hover {
-  color: var(--color-accent);
+button {
+  font-family: inherit;
 }
 
-/* 3. LAYOUT & CONTAINER */
+/* 4. LAYOUT & CONTAINER */
 .container {
   width: 100%;
   max-width: var(--container);
   margin-left: auto;
   margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
-/* 4. NAVBAR (T-R3: Dikerjakan Riki) */
+/* 5. TYPOGRAPHY UTILITIES */
+.serif-italic {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.section-tag-pill {
+  display: inline-block;
+  padding: 6px 16px;
+  background: #EFEFEF;
+  color: #555555;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  margin-bottom: 20px;
+}
+
+.section-title-editorial {
+  font-family: var(--font-sans);
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+}
+
+.section-title-editorial .serif-italic {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* 6. NAVBAR (T-R3: Persis Header Referensi Desain) */
 .site-header {
-  background: var(--color-surface);
-  border-bottom: 1px solid rgba(107, 91, 78, 0.15);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
+}
+
+/* Header saat halaman non-hero atau saat scroll */
+.site-header.is-scrolled,
+body:not(.has-hero) .site-header {
   position: sticky;
   top: 0;
-  z-index: 100;
+  background: rgba(14, 22, 38, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
+  height: 80px;
 }
 
 .site-logo {
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-primary);
+  font-family: var(--font-sans);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.site-logo .logo-dot {
+  color: var(--color-accent);
+}
+
+.nav-center-wrap {
+  display: flex;
+  align-items: center;
 }
 
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 24px;
+  gap: 28px;
+  align-items: center;
 }
 
 .nav-link {
+  font-size: 0.92rem;
   font-weight: 500;
-  color: var(--color-muted);
+  color: rgba(255, 255, 255, 0.85);
   padding: 8px 12px;
-  border-radius: 6px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
 }
 
-.nav-link.is-active,
-.nav-link:hover {
-  color: var(--color-primary);
-  background-color: rgba(107, 62, 38, 0.08);
+.nav-link:hover,
+.nav-link.is-active {
+  color: #FFFFFF;
+}
+
+.nav-badge-pill {
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: #000000;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Nav Pill Button Kanan (seperti LOG IN pada gambar) */
+.nav-auth-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--radius-pill);
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+}
+
+.nav-auth-btn:hover {
+  background: #FFFFFF;
+  color: var(--color-surface-dark);
+  border-color: #FFFFFF;
+}
+
+.nav-auth-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  font-size: 0.75rem;
 }
 
 .nav-toggle {
   display: none;
   background: none;
   border: none;
+  color: #FFFFFF;
   cursor: pointer;
   padding: 8px;
+  font-size: 1.5rem;
 }
 
-/* 5. KONTRAK KARTU CERITA (PRD 9.4 & T-R4: Dikerjakan Riki) */
+/* 7. HERO SECTION (100% Persis Gambar Referensi) */
+.hero-editorial {
+  position: relative;
+  min-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 130px 24px 80px;
+  background-size: cover;
+  background-position: center 25%;
+  background-repeat: no-repeat;
+  color: #FFFFFF;
+}
+
+.hero-editorial::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 16, 28, 0.35) 0%,
+    rgba(10, 16, 28, 0.45) 50%,
+    rgba(10, 16, 28, 0.85) 100%
+  );
+  z-index: 1;
+}
+
+.hero-editorial .container {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+}
+
+.hero-title {
+  font-family: var(--font-sans);
+  font-size: 4.2rem;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.hero-title .serif-italic {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-style: italic;
+  display: inline;
+}
+
+.hero-desc {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 640px;
+  margin: 0 auto 36px;
+  font-weight: 400;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-hero-pill {
+  display: inline-block;
+  background: #FFFFFF;
+  color: #0E1626;
+  font-size: 0.98rem;
+  font-weight: 700;
+  padding: 14px 34px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-hero-pill:hover {
+  background: #F1F5F9;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+}
+
+/* 8. CAROUSEL / CARD SECTION ("Discover Our Most Popular Tours") */
+.popular-section {
+  padding: 90px 0 60px;
+  text-align: center;
+  background-color: var(--color-bg);
+}
+
+.popular-deck-wrapper {
+  margin-top: 48px;
+  position: relative;
+}
+
+/* Kontrak 9.4: #featured-grid */
+#featured-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+  padding: 30px 10px 40px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+#featured-grid::-webkit-scrollbar {
+  display: none;
+}
+
+/* 9. KONTRAK KARTU CERITA (PRD 9.4 & T-R4: Persis Kartu pada Gambar) */
 .story-card {
-  background: var(--color-surface);
-  border-radius: var(--radius);
+  position: relative;
+  width: 290px;
+  min-width: 270px;
+  height: 460px;
+  border-radius: 26px;
   overflow: hidden;
-  box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  justify-content: flex-end;
+  background-color: var(--color-surface-dark);
+  box-shadow: 0 16px 36px -10px rgba(14, 22, 38, 0.28);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  text-align: left;
 }
 
+/* Efek Hover Mengangkat Kartu */
 .story-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(43, 33, 24, 0.15);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(14, 22, 38, 0.4);
 }
 
+/* Gambar Latar Belakang Kartu Penuh */
 .story-card__img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
-  background-color: #e5ded3;
+  z-index: 1;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  background-color: #1a2333;
 }
 
+.story-card:hover .story-card__img {
+  transform: scale(1.08);
+}
+
+/* Gradien Gelap di Bagian Bawah Gambar Kartu */
+.story-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(14, 22, 38, 0.05) 0%,
+    rgba(14, 22, 38, 0.4) 45%,
+    rgba(10, 16, 28, 0.95) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Konten Kartu di Atas Gambar */
 .story-card__body {
-  padding: 20px;
+  position: relative;
+  z-index: 3;
+  padding: 22px;
   display: flex;
   flex-direction: column;
-  flex: 1;
-}
-
-.story-card__title {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  margin: 12px 0 6px;
-  color: var(--color-text);
-}
-
-.story-card__meta {
-  font-size: 0.875rem;
-  color: var(--color-muted);
-  margin-bottom: 12px;
-}
-
-.story-card__text {
-  font-size: 0.95rem;
-  color: var(--color-muted);
-  margin-bottom: 16px;
-  flex: 1;
+  justify-content: flex-end;
+  color: #FFFFFF;
 }
 
 /* LENCANA (BADGES) */
 .badge {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.06em;
   color: #FFFFFF;
   align-self: flex-start;
+  margin-bottom: 8px;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
-.badge--sejarah { background-color: var(--color-sejarah); }
-.badge--budaya  { background-color: var(--color-budaya); }
-.badge--legenda { background-color: var(--color-legenda); }
+.badge--sejarah {
+  background: rgba(31, 58, 95, 0.85);
+  border-color: rgba(56, 189, 248, 0.4);
+}
 
-/* TOMBOL (BUTTONS) */
+.badge--budaya {
+  background: rgba(47, 107, 79, 0.85);
+  border-color: rgba(74, 222, 128, 0.4);
+}
+
+.badge--legenda {
+  background: rgba(138, 59, 46, 0.85);
+  border-color: rgba(248, 113, 113, 0.4);
+}
+
+.story-card__title {
+  font-family: var(--font-sans);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 6px 0 4px;
+  color: #FFFFFF;
+  line-height: 1.25;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.story-card__meta {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 6px;
+}
+
+.story-card__text {
+  font-size: 0.84rem;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* TOMBOL KARTU (PERSIS "EXPLORE" PADA GAMBAR) */
 .btn {
   display: inline-block;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  font-weight: 600;
   text-align: center;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
   cursor: pointer;
   border: none;
-  min-height: 44px;
+  transition: all 0.25s ease;
 }
 
 .btn--primary {
-  background-color: var(--color-primary);
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  color: #0E1626;
+  padding: 10px 20px;
+  font-size: 0.88rem;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .btn--primary:hover {
-  background-color: #54311e;
-  color: #FFFFFF;
+  background-color: #F1F5F9;
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* 6. GRID SYSTEM (HP, Tablet, Desktop) */
-.card-grid {
+/* Navigasi Carousel di Bawah Kartu (Arrow Kiri + Teks + Arrow Kanan) */
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.circle-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(14, 22, 38, 0.25);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: var(--color-text);
+  transition: all 0.2s ease;
+}
+
+.circle-nav-btn:hover {
+  border-color: var(--color-text);
+  background: rgba(14, 22, 38, 0.05);
+}
+
+.view-more-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.view-more-link:hover {
+  opacity: 0.75;
+}
+
+/* 10. BENTO GRID SECTION (Persis Layout 3 Kartu & Quote pada Gambar) */
+.bento-section {
+  padding: 90px 0 60px;
+  background-color: var(--color-bg);
+}
+
+.bento-header {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: auto 1fr;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.bento-quote {
+  font-size: 1.18rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  font-weight: 500;
+  max-width: 620px;
+  margin-left: auto;
+  text-align: right;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.05fr;
   gap: 24px;
 }
 
-@media (min-width: 640px) {
-  .card-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* Kartu Bento 1: Gelap dengan Toggle Switch */
+.bento-card--dark {
+  background: var(--color-surface-dark);
+  color: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 380px;
+  box-shadow: var(--shadow-md);
 }
 
-@media (min-width: 1024px) {
-  .card-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.bento-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* 7. FOOTER */
-.site-footer {
-  background: var(--color-surface);
-  border-top: 1px solid rgba(107, 91, 78, 0.15);
-  padding: 32px 0;
-  margin-top: 60px;
-  text-align: center;
+.bento-icon-svg {
+  width: 28px;
+  height: 28px;
+  stroke: #FFFFFF;
+}
+
+.bento-toggle-switch {
+  width: 44px;
+  height: 24px;
+  background: #3B82F6;
+  border-radius: var(--radius-pill);
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.bento-toggle-dot {
+  width: 20px;
+  height: 20px;
+  background: #FFFFFF;
+  border-radius: 50%;
+}
+
+.bento-body-text {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+  margin: 24px 0;
+}
+
+.bento-body-text strong {
+  color: #FFFFFF;
+}
+
+.btn-bento-action {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-pill);
+  color: #FFFFFF;
+  font-weight: 600;
   font-size: 0.9rem;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.btn-bento-action:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* Kartu Bento 2: Foto dengan Floating Pill "Made for You" */
+.bento-card--photo {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: 380px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.bento-card--photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.frosted-pill-tag {
+  position: relative;
+  z-index: 2;
+  align-self: center;
+  padding: 8px 24px;
+  background: rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--radius-pill);
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Kartu Bento 3: Statistik 50+ & Dot Progress Indicator */
+.bento-card--stats {
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  padding: 32px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 380px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.stat-header {
+  margin-bottom: 12px;
+}
+
+.stat-number-big {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-text);
+  letter-spacing: -0.03em;
+}
+
+.stat-subtitle {
+  font-size: 0.88rem;
+  font-weight: 600;
   color: var(--color-muted);
+  margin-top: 4px;
+}
+
+.stat-desc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--color-muted);
+  margin-bottom: 24px;
+}
+
+.rating-indicator-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rating-indicator-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.rating-category-label {
+  width: 75px;
+  color: var(--color-text);
+}
+
+.rating-dots-bar {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.rating-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #CBD5E1;
+}
+
+.rating-dot.is-active {
+  background-color: #38BDF8;
+}
+
+.rating-score {
+  width: 24px;
+  text-align: right;
+  font-weight: 600;
+  color: var(--color-muted);
+}
+
+/* 11. METRICS / STATS SECTION (4 Kolom Angka di Bawah) */
+.metrics-section {
+  padding: 70px 0 90px;
+  background-color: var(--color-bg);
+  border-top: 1px solid rgba(14, 22, 38, 0.06);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  text-align: center;
+}
+
+.metric-item-num {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--color-text);
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
+}
+
+.metric-item-label {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+/* 12. HALAMAN CERITA: TOOLBAR & GRID (cerita.html) */
+.page-hero-sub {
+  padding: 120px 0 40px;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.filter-toolbar {
+  padding: 36px 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.search-box {
+  width: 100%;
+  max-width: 560px;
+  position: relative;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 14px 22px;
+  border: 1px solid rgba(14, 22, 38, 0.12);
+  border-radius: var(--radius-pill);
+  font-size: 0.98rem;
+  font-family: var(--font-body);
+  outline: none;
+  background: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s ease;
+}
+
+.search-box input:focus {
+  border-color: var(--color-text);
+  box-shadow: 0 8px 24px rgba(14, 22, 38, 0.12);
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* HOOK KONTRAK 9.4: .filter-btn */
+.filter-btn {
+  padding: 9px 20px;
+  border: 1px solid rgba(14, 22, 38, 0.14);
+  border-radius: var(--radius-pill);
+  background: #FFFFFF;
+  color: var(--color-text);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(14, 22, 38, 0.05);
+}
+
+.filter-btn.is-active {
+  background: var(--color-text);
+  color: #FFFFFF;
+  border-color: var(--color-text);
+  box-shadow: 0 4px 14px rgba(14, 22, 38, 0.25);
+}
+
+/* Status Bar & Count */
+.status-bar {
+  margin-bottom: 28px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+/* HOOK KONTRAK 9.4: #story-grid & .card-grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+  margin-bottom: 80px;
+}
+
+.card-grid .story-card {
+  width: 100%;
+  min-width: unset;
+}
+
+/* HOOK KONTRAK 9.4: #empty-state */
+.empty-state-box {
+  text-align: center;
+  padding: 80px 24px;
+  background: #FFFFFF;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin-bottom: 60px;
+}
+
+/* 13. HALAMAN DETAIL (detail.html) */
+.story-detail-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-bottom: 80px;
+}
+
+.story-header {
+  margin: 32px 0 24px;
+}
+
+.story-header h1 {
+  font-family: var(--font-sans);
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--color-text);
+  margin: 14px 0 8px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.story-meta {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
+.story-image-wrap {
+  width: 100%;
+  max-height: 500px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 40px;
+  background-color: #1a2333;
+}
+
+.story-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-article {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: #334155;
+  margin-bottom: 48px;
+}
+
+.story-article p {
+  margin-bottom: 24px;
+}
+
+.story-sources-box {
+  padding: 28px;
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border-left: 5px solid var(--color-text);
+  margin-bottom: 60px;
+}
+
+.story-sources-box h3 {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: var(--color-text);
+}
+
+.story-sources-box ul {
+  padding-left: 20px;
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+/* 14. FOOTER (F-02: Rapi & Elegan) */
+.site-footer {
+  background: #0B1120;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 60px 0 40px;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 32px;
+}
+
+.footer-logo {
+  font-family: var(--font-sans);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.footer-links a:hover {
+  color: #FFFFFF;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.7;
+}
+
+/* 15. RESPONSIVE BREAKPOINTS (HP 360px, Tablet 768px, Desktop 1024px+) */
+
+/* TABLET (Kurang dari 1024px) */
+@media (max-width: 1023px) {
+  .hero-title {
+    font-size: 3.2rem;
+  }
+
+  .bento-header {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .bento-quote {
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .bento-card--stats {
+    grid-column: span 2;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+}
+
+/* MOBILE / HP (Kurang dari 768px - Termasuk 360px) */
+@media (max-width: 767px) {
+  .container {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .site-header {
+    background: rgba(14, 22, 38, 0.96);
+    position: sticky;
+    top: 0;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-center-wrap {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: #0E1626;
+    padding: 24px 20px;
+    flex-direction: column;
+    gap: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(-150%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .nav-menu.is-open {
+    display: flex;
+  }
+
+  .nav-center-wrap.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-auth-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-editorial {
+    min-height: 85vh;
+    padding: 100px 18px 60px;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+  }
+
+  .section-title-editorial {
+    font-size: 2.1rem;
+  }
+
+  .story-card {
+    width: 250px;
+    min-width: 240px;
+    height: 420px;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bento-card--stats {
+    grid-column: span 1;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .metric-item-num {
+    font-size: 2rem;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
 }
