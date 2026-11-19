@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "judul": "Legenda Candi Prambanan",
+    "kategori": "Legenda",
+    "daerah": "Sleman",
+    "provinsi": "DI Yogyakarta",
+    "ringkasan": "Kisah cinta Bandung Bondowoso dan Roro Jonggrang yang melahirkan kompleks seribu candi megah di tanah Jawa.",
+    "isi": "Alkisah pada zaman dahulu di tanah Jawa Tengah, berdirilah dua kerajaan bertetangga yang saling bermusuhan, yaitu Kerajaan Pengging yang dipimpin oleh Prabu Damar Moyo dan Kerajaan Prambanan yang diperintah oleh Prabu Baka, seorang raja raksasa yang perkasa dan ditakuti.\n\nPutra mahkota Pengging, Raden Bandung Bondowoso, memiliki kesaktian luar biasa berkat pusaka sakti dan pasukan bala tentara jin. Ketika perang dahsyat berkecamuk antara kedua kerajaan tersebut, Bandung Bondowoso berhasil menewaskan Prabu Baka. Kemenangan itu membawanya memasuki istana Prambanan, di mana ia pertama kali berjumpa dengan putri mendiang Prabu Baka yang bernama Roro Jonggrang. Terpesona oleh kecantikan sang putri jelita, Bandung Bondowoso seketika berniat memperistrinya.\n\nRoro Jonggrang yang membenci pembunuh ayahnya tentu menolak pinangan tersebut, namun ia menyadari tidak dapat menolak secara terang-terangan karena takut akan amarah sang pangeran sakti. Sang putri pun mengajukan dua syarat yang mustahil dipenuhi: membuat sumur air yang sangat dalam bernama Jalatunda, serta membangun seribu candi megah dalam waktu satu malam sebelum ayam jantan pertama berkokok di ufuk timur.\n\nBandung Bondowoso menyanggupi tantangan tersebut. Saat malam tiba, ia bersemedi dan memanggil ribuan pasukan jin untuk membantunya mendirikan candi-candi batu yang agung. Menjelang fajar, ketika candi ke-999 hampir tuntas, Roro Jonggrang panik. Ia bergegas membangunkan para dayang istana untuk membakar tumpukan jerami padi di sebelah timur dan menumbuk lesung bertalu-talu. Mengira fajar telah menyingsing karena langit memerah dan ayam-ayam mulai berkokok bersahutan, seluruh bala tentara jin ketakutan lalu lari berhamburan kembali ke alam gaib.\n\nMenyadari dirinya telah dicurangi dengan tipu muslihat, Bandung Bondowoso dilanda amarah yang amat sangat. Dengan segenap kekuatan batinnya, ia mengutuk Roro Jonggrang menjadi arca batu indah untuk melengkapi candi keseribu, yang kini dikenal sebagai arca Durga Mahisasuramardini di kompleks Candi Prambanan.",
+    "gambar": "images/prambanan.jpg",
+    "gambarSumber": "Wikimedia Commons, lisensi CC BY-SA 4.0",
+    "tags": ["candi", "legenda", "jawa", "prambanan"],
+    "sumber": [
+      "Kementerian Pendidikan dan Kebudayaan RI - Cerita Rakyat Nusantara: Roro Jonggrang",
+      "Balai Pelestarian Kebudayaan Wilayah X - Kompleks Percandian Prambanan"
+    ],
+    "featured": true,
+    "penulis": "Alvin"
+  },
+  {
+    "id": 2,
+    "judul": "Kemegahan Sejarah Candi Borobudur",
+    "kategori": "Sejarah",
+    "daerah": "Magelang",
+    "provinsi": "Jawa Tengah",
+    "ringkasan": "Monumen candi Buddha terbesar di dunia peninggalan Dinasti Syailendra abad ke-8 yang memukau peradaban manusia.",
+    "isi": "Candi Borobudur merupakan salah satu monumen Buddha termegah di dunia yang didirikan pada masa kejayaan Wangsa Syailendra sekitar tahun 750 hingga 842 Masehi. Berdiri anggun di dataran Kedu, Kabupaten Magelang, candi ini merupakan mahakarya arsitektur batu andesit yang menggabungkan konsep kosmologi Buddhis dengan tradisi punden berundak asli nusantara.\n\nPembangunan Borobudur diperkirakan memakan waktu puluhan hingga ratusan tahun dan dipimpin oleh seorang arsitek ulung bernama Gunadharma. Struktur monumen ini menyerupai piramida berundak dengan sepuluh tingkatan yang melambangkan tahapan kesempurnaan batin seorang Bodhisattva menuju pencerahan sejati. Tiga zona spiritual terwujud jelas dalam struktur fisiknya: Kamadhatu (ranah hawa nafsu duniawi), Rupadhatu (ranah wujud yang telah terbebas dari nafsu bendawi), dan Arupadhatu (ranah tanpa wujud keabadian tertinggi).\n\nPada dinding-dinding lorong Borobudur terukir lebih dari 2.600 panel relief naratif dan dekoratif yang menakjubkan. Relief tersebut menggambarkan riwayat kehidupan Sang Buddha Gautama (Lalitavistara), kisah-kisah perbuatan mulia masa lampau (Jataka dan Awadana), serta petualangan spiritual Sudhana dalam mencari hakikat kebenaran (Gandawyuha). Selain nilai religiusnya, deretan relief ini menyajikan rekaman visual autentik mengenai kehidupan sosial, maritim, busana, alat musik, hingga flora-fauna masyarakat Jawa kuno abad ke-8.\n\nSetelah sempat tertutup abu vulkanik letusan Gunung Merapi dan rerimbunan hutan tropis selama berabad-abad, Borobudur kembali diungkap ke mata dunia pada abad ke-19 oleh Sir Thomas Stamford Raffles. Berkat pemugaran skala internasional bersama UNESCO pada era 1970-an, Candi Borobudur kini ditetapkan sebagai Situs Warisan Dunia dan tetap berdiri kokoh sebagai simbol keagungan peradaban nusantara.",
+    "gambar": "images/borobudur.jpg",
+    "gambarSumber": "Koleksi Repositori Kemdikbud / Wikimedia Commons Public Domain",
+    "tags": ["sejarah", "borobudur", "candi", "jawa tengah"],
+    "sumber": [
+      "UNESCO World Heritage Centre - Borobudur Temple Compounds (Ref: 592)",
+      "Soekmono, R. (1976). Chandi Borobudur: A Monument of Mankind. The Unesco Press."
+    ],
+    "featured": true,
+    "penulis": "Alvin"
+  }
+]

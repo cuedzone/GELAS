@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KisahNusantara - Storytelling Sejarah dan Budaya</title>
+  <meta name="description" content="Platform storytelling cerita sejarah, budaya, dan legenda nusantara dalam format visual dan menarik.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet (Path Relatif) -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAVBAR KONSISTEN (F-02) -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="site-logo">KisahNusantara</a>
+      <button class="nav-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span>☰</span>
+      </button>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Beranda</a></li>
+          <li><a href="cerita.html" class="nav-link">Cerita</a></li>
+          <li><a href="tentang.html" class="nav-link">Tentang</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION (F-01) -->
+    <section class="hero-section" style="padding: 60px 0; text-align: center; background: rgba(107, 62, 38, 0.04);">
+      <div class="container">
+        <h1 style="font-family: var(--font-heading); font-size: 2.5rem; color: var(--color-primary); margin-bottom: 16px;">
+          Menelusuri Jejak Sejarah & Legenda Nusantara
+        </h1>
+        <p style="font-size: 1.15rem; color: var(--color-muted); max-width: 680px; margin: 0 auto 28px;">
+          Menghidupkan kembali kearifan lokal, kisah kepahlawanan, dan mitologi nusantara dalam bacaan digital yang memikat.
+        </p>
+        <a href="cerita.html" class="btn btn--primary" style="font-size: 1.05rem; padding: 12px 28px;">Jelajahi Cerita</a>
+      </div>
+    </section>
+
+    <!-- KATEGORI UTAMA (F-01) -->
+    <section class="categories-section" style="padding: 48px 0;">
+      <div class="container">
+        <h2 style="font-family: var(--font-heading); text-align: center; margin-bottom: 32px; color: var(--color-text);">
+          Kategori Pilihan
+        </h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
+          <a href="cerita.html?kategori=Sejarah" style="background: var(--color-surface); padding: 24px; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; display: block;">
+            <span class="badge badge--sejarah" style="margin-bottom: 12px;">Sejarah</span>
+            <h3 style="font-family: var(--font-heading); color: var(--color-text); margin-bottom: 8px;">Kisah Sejarah</h3>
+            <p style="color: var(--color-muted); font-size: 0.9rem;">Perjalanan kerajaan agung, peristiwa bersejarah, dan peninggalan masa lampau.</p>
+          </a>
+          <a href="cerita.html?kategori=Budaya" style="background: var(--color-surface); padding: 24px; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; display: block;">
+            <span class="badge badge--budaya" style="margin-bottom: 12px;">Budaya</span>
+            <h3 style="font-family: var(--font-heading); color: var(--color-text); margin-bottom: 8px;">Adat & Tradisi</h3>
+            <p style="color: var(--color-muted); font-size: 0.9rem;">Kekayaan adat istiadat, ritual sakral, dan kearifan nenek moyang bangsa.</p>
+          </a>
+          <a href="cerita.html?kategori=Legenda" style="background: var(--color-surface); padding: 24px; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; display: block;">
+            <span class="badge badge--legenda" style="margin-bottom: 12px;">Legenda</span>
+            <h3 style="font-family: var(--font-heading); color: var(--color-text); margin-bottom: 8px;">Mitos & Cerita Rakyat</h3>
+            <p style="color: var(--color-muted); font-size: 0.9rem;">Kisah tutur rakyat, asal-usul tempat, dan cerita penuh petuah moral.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERITA UNGGULAN (F-01 - KONTRAK 9.4: #featured-grid) -->
+    <section class="featured-section" style="padding: 48px 0;">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px;">
+          <div>
+            <h2 style="font-family: var(--font-heading); color: var(--color-text); margin-bottom: 6px;">Cerita Unggulan</h2>
+            <p style="color: var(--color-muted);">Pilihan cerita terbaik minggu ini dari berbagai daerah</p>
+          </div>
+          <a href="cerita.html" style="font-weight: 600; color: var(--color-primary);">Lihat Semua &rarr;</a>
+        </div>
+
+        <!-- HOOK KONTRAK PRD 9.4: #featured-grid -->
+        <div id="featured-grid" class="card-grid">
+          <!-- Kartu dirender otomatis oleh js/main.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER KONSISTEN (F-02) -->
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>KisahNusantara</strong> &copy; 2026. Tugas Kerjasama Digital Tim Edy, Riki, Alvin, Toni.</p>
+      <p style="margin-top: 8px; font-size: 0.85rem;">
+        Dibuat dengan HTML5, CSS3, dan JavaScript murni. Dihosting di GitHub Pages.
+      </p>
+    </div>
+  </footer>
+
+  <!-- URUTAN SCRIPT (PRD Bagian 9.2) -->
+  <script src="js/main.js"></script>
+  <script src="js/nav.js"></script>
+</body>
+</html>
