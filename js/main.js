@@ -1,7 +1,6 @@
 /**
  * KisahNusantara - main.js
- * Pemilik File: Toni (Logika JavaScript & Dokumentasi)
- * Tugas Terkait: T-T2 (loadStories, escapeHTML, createCard, renderCards, initHome)
+ * Logika Utama: Fetch Data, Hero Slider Imersif (Akses Penuh 10 Cerita), & Maskot Si Loreng
  * Dimuat di: Semua halaman
  */
 
@@ -105,9 +104,22 @@ function getRelated(stories, currentStory, max = 3) {
     .slice(0, max);
 }
 
+// Trivia edukatif dari Maskot Si Loreng sesuai cerita
+const mascotTriviaMap = {
+  1: "Tahukah kamu? Arca Durga di Candi Prambanan dipercaya rakyat setempat sebagai penjelmaan putri Roro Jonggrang!",
+  2: "Megahnya Borobudur dibangun dengan lebih dari 2.672 panel relief naratif yang merekam kehidupan masyarakat Jawa kuno abad ke-8!",
+  3: "Meski dalam suasana genting di Jakarta, naskah Proklamasi diketik dengan tenang oleh Sayuti Melik menjelang subuh 17 Agustus 1945!",
+  4: "Sumpah Palapa yang diucapkan Mahapatih Gajah Mada di Majapahit adalah tekad mempersatukan pulau-pulau nusantara!",
+  5: "Danau Toba adalah danau vulkanik purba terbesar di dunia, dengan pulau Samosir di tengahnya yang sarat cerita rakyat!",
+  6: "Noken Papua dianyam dari serat kulit kayu alami dan diakui UNESCO sebagai Warisan Budaya Takbenda Dunia sejak 2012!",
+  7: "Alunan bambu Angklung Sunda mampu memainkan melodi harmonis berkat prinsip gotong royong antar pemainnya!",
+  8: "Batik Tulis Imogiri memiliki motif Parang Barong sakral yang dulunya hanya boleh dikenakan oleh para raja!",
+  9: "Gunung Tangkuban Perahu memiliki kawah unik yang menyerupai perahu terbalik akibat kemarahan Sangkuriang!",
+  10: "Batu Malin Kundang di Pantai Air Manis Padang menjadi simbol abadi pengingat bakti seorang anak kepada ibunya."
+};
+
 /**
- * Inisialisasi halaman Beranda (index.html)
- * Mengontrol Hero Slider Imersif sesuai referensi Dribbble
+ * Inisialisasi Hero Slider Imersif di Beranda (Akses Penuh Semua 10 Cerita)
  */
 async function initHome() {
   const featuredGrid = document.getElementById("featured-grid");
@@ -117,17 +129,19 @@ async function initHome() {
   const heroDesc = document.getElementById("hero-desc");
   const heroCta = document.getElementById("hero-cta");
   const slideCurrent = document.getElementById("slide-current");
+  const slideTotal = document.getElementById("slide-total");
   const btnPrev = document.getElementById("slide-prev");
   const btnNext = document.getElementById("slide-next");
+  const mascotGuide = document.getElementById("mascot-guide");
+  const mascotQuote = document.getElementById("mascot-quote");
 
   if (!featuredGrid) return;
 
   const stories = await loadStories();
   if (stories.length === 0) return;
 
-  // Ambil cerita unggulan (atau ambil koleksi untuk deck slider)
-  const featured = stories.filter(s => s.featured === true);
-  const deckStories = featured.length >= 3 ? featured : stories.slice(0, 6);
+  // Pastikan SEMUA cerita (10 cerita) dapat diakses di hero deck
+  const deckStories = stories;
 
   // Render kartu ke #featured-grid
   renderCards(deckStories, featuredGrid);
@@ -135,17 +149,21 @@ async function initHome() {
   let currentIndex = 0;
   const cards = featuredGrid.querySelectorAll(".story-card");
 
+  if (slideTotal) {
+    slideTotal.textContent = `/ ${String(deckStories.length).padStart(2, "0")}`;
+  }
+
   function updateHeroShowcase(index) {
     if (index < 0 || index >= deckStories.length) return;
     currentIndex = index;
     const story = deckStories[currentIndex];
 
-    // 1. Update background image
+    // 1. Ganti background gambar hero dengan transisi halus
     if (heroBg && story.gambar) {
       heroBg.style.backgroundImage = `url('${story.gambar}')`;
     }
 
-    // 2. Update teks showcase kiri
+    // 2. Ganti teks showcase
     if (heroTag) {
       heroTag.textContent = `${story.daerah}, ${story.provinsi} • ${(story.kategori || "").toUpperCase()}`;
     }
@@ -159,16 +177,21 @@ async function initHome() {
       heroCta.setAttribute("href", `detail.html?id=${story.id}`);
     }
 
-    // 3. Update counter slide (01, 02, ...)
+    // 3. Update counter slide (01, 02, ... 10)
     if (slideCurrent) {
       slideCurrent.textContent = String(currentIndex + 1).padStart(2, "0");
     }
 
-    // 4. Update status kartu aktif di deck
+    // 4. Update kutipan Maskot Si Loreng
+    if (mascotQuote) {
+      const trivia = mascotTriviaMap[story.id] || `Halo! Aku Si Loreng, mari baca kisah menarik "${story.judul}" bersama-sama!`;
+      mascotQuote.textContent = `"${trivia}"`;
+    }
+
+    // 5. Tandai kartu aktif dan scroll ke posisi kartu tersebut
     cards.forEach((card, idx) => {
       if (idx === currentIndex) {
         card.classList.add("is-active-card");
-        // Scroll kartu aktif agar terlihat
         card.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
       } else {
         card.classList.remove("is-active-card");
@@ -176,10 +199,9 @@ async function initHome() {
     });
   }
 
-  // Klik pada masing-masing kartu di deck untuk berpindah slide
+  // Interaksi klik kartu di deck
   cards.forEach((card, idx) => {
     card.addEventListener("click", (e) => {
-      // Jika pengguna mengklik link langsung di kartu, biarkan membuka detail
       if (e.target.tagName.toLowerCase() === "a") return;
       updateHeroShowcase(idx);
     });
@@ -201,7 +223,15 @@ async function initHome() {
     });
   }
 
-  // Set slide pertama saat load
+  // Klik maskot untuk acak cerita seru
+  if (mascotGuide) {
+    mascotGuide.addEventListener("click", () => {
+      const randomIdx = Math.floor(Math.random() * deckStories.length);
+      updateHeroShowcase(randomIdx);
+    });
+  }
+
+  // Set cerita pertama saat load
   updateHeroShowcase(0);
 }
 

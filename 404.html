@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 Halaman Tidak Ditemukan - KisahNusantara</title>
   <meta name="description" content="Halaman yang Anda tuju tidak ditemukan di KisahNusantara.">
-  
-  <!-- Google Fonts: Oswald (Display / Heading) & Inter (Body / UI) -->
+  <link rel="icon" type="image/jpeg" href="images/ui/logo.jpg">
+
+  <!-- Google Fonts: Oswald (Heading / Display) & Inter (Body / UI) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,14 +15,15 @@
   <!-- Stylesheet Utama -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body style="padding-top: 80px;">
+<body style="padding-top: 100px;">
 
-  <!-- TOPBAR NAVBAR -->
+  <!-- FLOATING PILL NAVBAR -->
   <header class="site-header is-sticky">
-    <div class="container nav-container">
+    <div class="nav-floating-pill">
+      <!-- Logo Gambar 1 -->
       <a href="index.html" class="site-logo">
-        <span class="site-logo-icon">🏛</span>
-        <span>KISAH NUSANTARA</span>
+        <img src="images/ui/logo.jpg" alt="Logo KisahNusantara" class="site-logo__img">
+        <span class="site-logo__title">KISAH NUSANTARA</span>
       </a>
 
       <button class="nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
@@ -40,25 +42,30 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="cerita.html" class="nav-icon-btn" aria-label="Cari Cerita" title="Cari Cerita">
+        <a href="cerita.html" class="nav-search-btn" aria-label="Cari Cerita" title="Cari Cerita">
           🔍
         </a>
       </div>
     </div>
   </header>
 
-  <main class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 24px 140px;">
-    <div style="font-size: 6rem; font-weight: 700; font-family: var(--font-heading); color: var(--color-primary); line-height: 1;">
+  <main class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 24px 100px;">
+    <!-- Maskot Si Loreng Tersesat -->
+    <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; border: 3px solid var(--color-primary); box-shadow: 0 0 24px rgba(212, 163, 70, 0.4); background: #FFFFFF; margin-bottom: 24px;">
+      <img src="images/ui/maskot.jpg" alt="Maskot Si Loreng" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+
+    <div style="font-size: 5.5rem; font-weight: 700; font-family: var(--font-heading); color: var(--color-primary); line-height: 1;">
       404
     </div>
-    <h1 style="font-size: 2.8rem; text-transform: uppercase; margin: 18px 0 12px; color: #FFFFFF;">
+    <h1 style="font-size: 2.8rem; text-transform: uppercase; margin: 14px 0 10px; color: #FFFFFF;">
       Halaman Tersesat di Nusantara
     </h1>
-    <p style="color: var(--color-text-muted); max-width: 520px; margin-bottom: 32px; font-size: 1.1rem; line-height: 1.7;">
-      Mohon maaf, halaman yang kamu tuju tidak ditemukan atau telah dipindahkan ke alamat lain. Mari kembali ke beranda untuk melanjutkan penjelajahan kisah nusantara.
+    <p style="color: var(--color-text-muted); max-width: 520px; margin-bottom: 32px; font-size: 1.05rem; line-height: 1.7;">
+      "Waduh, sepertinya kamu tersesat di luar peta nusantara! Tenang, Si Loreng siap memandumu kembali ke beranda."
     </p>
     <a href="index.html" class="btn btn--primary" style="padding: 13px 32px; font-size: 0.95rem;">
-      &larr; KEMBALI KE BERANDA
+      &larr; KEMBALI KE BERANDA BERSAMA SI LORENG
     </a>
   </main>
 
@@ -66,14 +73,16 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <div>
-          <a href="index.html" class="site-logo">
-            <span class="site-logo-icon">🏛</span>
-            <span>KISAH NUSANTARA</span>
-          </a>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 8px; max-width: 360px;">
-            Platform Storytelling Sejarah, Budaya Tradisi, dan Legenda Rakyat Nusantara.
-          </p>
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <img src="images/ui/logo.jpg" alt="Logo KisahNusantara" style="width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--color-primary);">
+          <div>
+            <span style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; letter-spacing: 2px; color: #FFFFFF; display: block;">
+              KISAH NUSANTARA
+            </span>
+            <p style="color: var(--color-text-muted); font-size: 0.85rem;">
+              Platform Storytelling Sejarah, Budaya Tradisi, dan Legenda Rakyat Republik Indonesia.
+            </p>
+          </div>
         </div>
         <ul class="footer-links">
           <li><a href="index.html">BERANDA</a></li>

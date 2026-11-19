@@ -1,45 +1,50 @@
 /* ==========================================================================
    KisahNusantara - style.css
-   Konsep: Immersive Editorial Hero Slider (Sesuai Referensi Visual Dribbble)
-   Tipografi: Oswald (Display / Heading) & Inter (Body / UI)
-   Konten & Skema Warna: 100% Mengikuti PRD KisahNusantara
+   Konsep: Glassmorphism Elegan & Floating Pill Hero Section
+   Maskot: Si Loreng (Harimau Budaya Nusantara)
+   Logo: Lambang Resmi KisahNusantara Republik Indonesia
+   Tipografi: Oswald (Heading / Display) & Inter (Body / UI)
    ========================================================================== */
 
 /* 1. GOOGLE FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
 
-/* 2. DESIGN TOKENS */
+/* 2. DESIGN TOKENS (Glassmorphism & Warna Nusantara) */
 :root {
-  /* Nuansa Gelap Sinematik & Emas Nusantara */
-  --color-bg: #0C1017;
-  --color-surface: #141A24;
-  --color-surface-card: rgba(20, 26, 36, 0.75);
-  --color-surface-hover: #1C2433;
-  --color-text: #FFFFFF;
-  --color-text-muted: rgba(255, 255, 255, 0.70);
-  --color-text-dim: rgba(255, 255, 255, 0.45);
-  --color-border: rgba(255, 255, 255, 0.12);
-  --color-border-hover: rgba(212, 163, 70, 0.5);
+  /* Nuansa Gelap Sinematik dengan Refraksi Kaca */
+  --color-bg: #0A0E15;
+  --color-bg-mesh: radial-gradient(circle at 15% 20%, rgba(212, 163, 70, 0.08) 0%, transparent 45%),
+                   radial-gradient(circle at 85% 75%, rgba(39, 92, 150, 0.12) 0%, transparent 50%),
+                   #0A0E15;
 
-  /* Aksen Emas & Warna Kategori PRD */
-  --color-primary: #D4A346;       /* Emas Pusaka Nusantara */
+  /* Glassmorphism System */
+  --glass-surface: rgba(18, 26, 40, 0.65);
+  --glass-surface-card: rgba(22, 32, 50, 0.75);
+  --glass-surface-hover: rgba(30, 44, 68, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --glass-border-gold: rgba(212, 163, 70, 0.55);
+  --glass-blur: blur(20px);
+  --glass-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+  --glass-pill: 9999px;
+
+  /* Warna Utama & Lencana PRD 9.4 */
+  --color-primary: #D4A346;       /* Emas Pusaka */
   --color-primary-hover: #E8BC66;
-  --color-accent: #D4A346;
+  --color-text: #FFFFFF;
+  --color-text-muted: rgba(255, 255, 255, 0.75);
+  --color-text-dim: rgba(255, 255, 255, 0.48);
   --color-sejarah: #275C96;       /* Indigo Bahari */
   --color-budaya: #2F7A56;        /* Hijau Zamrud */
   --color-legenda: #A84133;       /* Merah Bata Candi */
 
-  /* Tipografi Seiras */
+  /* Tipografi */
   --font-heading: "Oswald", system-ui, -apple-system, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
 
-  /* Radius & Bayangan */
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
-  --radius-pill: 9999px;
-  --shadow-card: 0 18px 40px rgba(0, 0, 0, 0.55);
-  --shadow-glow: 0 0 25px rgba(212, 163, 70, 0.25);
+  /* Ukuran */
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
   --container: 1240px;
 }
 
@@ -57,6 +62,7 @@ html {
 }
 
 body {
+  background: var(--color-bg-mesh);
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
@@ -90,7 +96,6 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.15;
 }
 
-/* 4. CONTAINER */
 .container {
   width: 100%;
   max-width: var(--container);
@@ -100,63 +105,77 @@ h1, h2, h3, h4, h5, h6 {
   padding-right: 28px;
 }
 
-/* 5. TOPBAR NAVBAR (Persis Header Globe Express) */
+/* 4. FLOATING PILL NAVBAR */
 .site-header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
-  padding: 24px 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
-  transition: background-color 0.3s ease;
+  z-index: 1000;
+  padding: 16px 20px;
+  pointer-events: none;
+  transition: all 0.3s ease;
 }
 
-.site-header.is-sticky {
-  position: fixed;
-  background: rgba(12, 16, 23, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  padding: 16px 0;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.nav-container {
+.nav-floating-pill {
+  pointer-events: auto;
+  max-width: 1060px;
+  margin: 0 auto;
+  background: rgba(14, 20, 32, 0.72);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-pill);
+  padding: 8px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+  transition: all 0.3s ease;
+}
+
+.site-header.is-sticky .nav-floating-pill {
+  background: rgba(10, 15, 25, 0.88);
+  border-color: rgba(212, 163, 70, 0.35);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6);
+  padding: 6px 20px;
 }
 
 /* Logo */
 .site-logo {
-  font-family: var(--font-heading);
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: #FFFFFF;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
-.site-logo-icon {
-  width: 26px;
-  height: 26px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1.5px solid var(--color-primary);
+.site-logo__img {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  color: var(--color-primary);
-  font-size: 0.85rem;
+  object-fit: cover;
+  border: 2px solid var(--color-primary);
+  box-shadow: 0 0 14px rgba(212, 163, 70, 0.45);
+  transition: transform 0.3s ease;
+}
+
+.site-logo:hover .site-logo__img {
+  transform: rotate(15deg) scale(1.08);
+}
+
+.site-logo__title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #FFFFFF;
 }
 
 /* Nav Menu */
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 32px;
+  gap: 26px;
   align-items: center;
 }
 
@@ -164,11 +183,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-body);
   font-size: 0.82rem;
   font-weight: 500;
-  letter-spacing: 1.8px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--color-text-muted);
   position: relative;
   padding: 6px 0;
+  transition: color 0.2s ease;
 }
 
 .nav-link:hover {
@@ -189,31 +209,29 @@ h1, h2, h3, h4, h5, h6 {
   height: 2px;
   background-color: var(--color-primary);
   border-radius: 2px;
+  box-shadow: 0 0 8px var(--color-primary);
 }
 
-/* Right Nav Controls */
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.nav-icon-btn {
-  background: none;
-  border: none;
+.nav-search-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--glass-border);
   color: var(--color-text-muted);
-  font-size: 1.1rem;
-  cursor: pointer;
-  padding: 6px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.2s ease, transform 0.2s ease;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.nav-icon-btn:hover {
-  color: var(--color-primary);
-  transform: scale(1.1);
+.nav-search-btn:hover {
+  background: var(--color-primary);
+  color: #0A0E15;
+  border-color: var(--color-primary);
+  transform: scale(1.08);
 }
 
 .nav-toggle {
@@ -225,20 +243,19 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 }
 
-/* 6. IMMERSIVE HERO SLIDER SECTION (Persis Desain Referensi) */
+/* 5. FLOATING PILL HERO SECTION */
 .hero-slider {
   position: relative;
   width: 100%;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 110px;
-  padding-bottom: 70px;
+  padding-top: 100px;
+  padding-bottom: 60px;
   overflow: hidden;
   background-color: #080B10;
 }
 
-/* Background Image Layer with Crossfade */
 .hero-slider__bg {
   position: absolute;
   top: 0;
@@ -251,7 +268,6 @@ h1, h2, h3, h4, h5, h6 {
   z-index: 1;
 }
 
-/* Dark Gradient Overlay for optimal legibility */
 .hero-slider__overlay {
   position: absolute;
   top: 0;
@@ -260,10 +276,10 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   background: linear-gradient(
     90deg,
-    rgba(10, 14, 20, 0.92) 0%,
-    rgba(10, 14, 20, 0.78) 42%,
-    rgba(10, 14, 20, 0.45) 75%,
-    rgba(10, 14, 20, 0.65) 100%
+    rgba(10, 14, 21, 0.94) 0%,
+    rgba(10, 14, 21, 0.82) 45%,
+    rgba(10, 14, 21, 0.50) 80%,
+    rgba(10, 14, 21, 0.75) 100%
   );
   z-index: 2;
 }
@@ -276,35 +292,34 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-slider__layout {
   display: grid;
-  grid-template-columns: 1fr 1.35fr;
+  grid-template-columns: 1fr 1.3fr;
   align-items: center;
   gap: 40px;
 }
 
 /* --- Hero Showcase Kiri --- */
 .hero-showcase {
-  max-width: 520px;
+  max-width: 530px;
 }
 
-.hero-showcase__tag {
+/* Floating Pill Tag */
+.floating-pill-tag {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(212, 163, 70, 0.15);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(212, 163, 70, 0.4);
+  border-radius: var(--glass-pill);
   font-family: var(--font-body);
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--color-primary);
-  margin-bottom: 12px;
-}
-
-.hero-showcase__tag::before {
-  content: "";
-  display: inline-block;
-  width: 24px;
-  height: 2px;
-  background-color: var(--color-primary);
+  margin-bottom: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 .hero-showcase__title {
@@ -316,124 +331,200 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 1px;
   color: #FFFFFF;
   margin-bottom: 20px;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
 }
 
-.hero-showcase__desc {
+/* Glass Description Box */
+.hero-glass-desc {
+  background: var(--glass-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  margin-bottom: 28px;
+  box-shadow: var(--glass-shadow);
+}
+
+.hero-glass-desc p {
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 0.98rem;
   color: var(--color-text-muted);
   line-height: 1.7;
-  margin-bottom: 32px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
+/* Floating Actions Pill */
 .hero-showcase__actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
-/* Tombol Ikon Bundar Emas */
-.btn-circle-gold {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--color-primary);
-  color: #0C1017;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.15rem;
-  border: none;
-  cursor: pointer;
-  box-shadow: var(--shadow-glow);
-  transition: transform 0.2s ease, background 0.2s ease;
-  flex-shrink: 0;
-}
-
-.btn-circle-gold:hover {
-  transform: scale(1.08);
-  background: var(--color-primary-hover);
-}
-
-/* Tombol Pill Border */
-.btn-pill-explore {
+.btn-pill-cta {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 12px 28px;
-  border-radius: var(--radius-pill);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 13px 30px;
+  background: var(--color-primary);
+  color: #0A0E15 !important;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: var(--glass-pill);
+  box-shadow: 0 8px 24px rgba(212, 163, 70, 0.35);
+  transition: all 0.25s ease;
+}
+
+.btn-pill-cta:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(212, 163, 70, 0.5);
+}
+
+.btn-pill-glass {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
   background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(8px);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   color: #FFFFFF;
   font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  cursor: pointer;
+  border-radius: var(--glass-pill);
   transition: all 0.25s ease;
 }
 
-.btn-pill-explore:hover {
+.btn-pill-glass:hover {
   border-color: var(--color-primary);
-  background: var(--color-primary);
-  color: #0C1017;
-  box-shadow: var(--shadow-glow);
+  background: rgba(212, 163, 70, 0.15);
+  color: var(--color-primary);
 }
 
-/* --- Hero Carousel Deck Kanan (Hook Kontrak 9.4: #featured-grid) --- */
+/* --- MASKOT SI LORENG FLOATING WIDGET --- */
+.mascot-guide-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 24px;
+  background: var(--glass-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border-gold);
+  border-radius: var(--glass-pill);
+  padding: 8px 20px 8px 10px;
+  box-shadow: var(--glass-shadow);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mascot-guide-pill:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: var(--color-primary);
+  box-shadow: 0 12px 32px rgba(212, 163, 70, 0.3);
+}
+
+.mascot-avatar-frame {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--color-primary);
+  background: #FFFFFF;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(212, 163, 70, 0.4);
+}
+
+.mascot-avatar-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mascot-guide-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.mascot-guide-name {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.mascot-guide-quote {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* --- Hero Carousel Deck Kanan (Hook Kontrak PRD 9.4: #featured-grid) --- */
 .hero-deck {
   position: relative;
   width: 100%;
   overflow: visible;
 }
 
-/* Kontainer Kartu Floating (#featured-grid) */
+/* Penampung seluruh 10 cerita yang bisa diakses penuh */
 #featured-grid {
   display: flex;
   gap: 20px;
   overflow-x: auto;
   scroll-behavior: smooth;
   padding: 24px 8px;
-  scrollbar-width: none; /* Hide scrollbar for Chrome/Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) transparent;
 }
 
 #featured-grid::-webkit-scrollbar {
-  display: none;
+  height: 6px;
 }
 
-/* KONTRAK KARTU CERITA (PRD 9.4: .story-card) Sesuai Visual Kartu Floating */
+#featured-grid::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 10px;
+}
+
+/* KONTRAK KARTU CERITA (PRD 9.4: .story-card) GLASSMORPHISM */
 .story-card {
-  flex: 0 0 190px;
-  height: 310px;
+  flex: 0 0 195px;
+  height: 320px;
   border-radius: var(--radius-lg);
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: var(--shadow-card);
-  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  box-shadow: var(--glass-shadow);
+  border: 1.5px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease, box-shadow 0.35s ease;
-  background-color: var(--color-surface);
+  background-color: var(--glass-surface);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 
 .story-card:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-8px) scale(1.03);
   border-color: var(--color-primary);
-  box-shadow: 0 24px 45px rgba(0, 0, 0, 0.7), var(--shadow-glow);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.65), 0 0 25px rgba(212, 163, 70, 0.3);
 }
 
 .story-card.is-active-card {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px var(--color-primary), var(--shadow-card);
+  box-shadow: 0 0 0 2px var(--color-primary), 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 .story-card__img {
@@ -448,14 +539,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .story-card:hover .story-card__img {
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
 .story-card__body {
   position: relative;
   z-index: 2;
   padding: 20px 16px;
-  background: linear-gradient(180deg, rgba(12, 16, 23, 0) 0%, rgba(12, 16, 23, 0.95) 60%);
+  background: linear-gradient(180deg, rgba(10, 14, 21, 0) 0%, rgba(10, 14, 21, 0.95) 60%);
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -483,17 +574,16 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
-/* Sembunyikan ringkasan dan tombol bawaan di dalam slider kartu kanan */
 .hero-deck .story-card__text,
 .hero-deck .story-card .btn {
   display: none;
 }
 
-/* Lencana Kategori */
+/* Lencana Kategori Glass */
 .badge {
   display: inline-block;
-  padding: 3px 9px;
-  border-radius: var(--radius-pill);
+  padding: 4px 10px;
+  border-radius: var(--glass-pill);
   font-family: var(--font-body);
   font-size: 0.68rem;
   font-weight: 600;
@@ -501,13 +591,15 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   color: #FFFFFF;
   width: fit-content;
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.badge--sejarah { background-color: var(--color-sejarah); }
-.badge--budaya  { background-color: var(--color-budaya); }
-.badge--legenda { background-color: var(--color-legenda); }
+.badge--sejarah { background-color: rgba(39, 92, 150, 0.85); }
+.badge--budaya  { background-color: rgba(47, 122, 86, 0.85); }
+.badge--legenda { background-color: rgba(168, 65, 51, 0.85); }
 
-/* --- Slider Bottom Controls (Panah & Nomor Slide) --- */
+/* --- Floating Pill Slider Controller Bawah --- */
 .hero-slider__bottom-bar {
   display: flex;
   justify-content: space-between;
@@ -517,17 +609,25 @@ h1, h2, h3, h4, h5, h6 {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.slider-nav-arrows {
-  display: flex;
-  gap: 12px;
+.floating-pill-controller {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--glass-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--glass-pill);
+  padding: 6px 18px;
+  box-shadow: var(--glass-shadow);
 }
 
 .circle-nav-btn {
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
   color: #FFFFFF;
   display: inline-flex;
   align-items: center;
@@ -540,32 +640,32 @@ h1, h2, h3, h4, h5, h6 {
 .circle-nav-btn:hover {
   border-color: var(--color-primary);
   color: var(--color-primary);
-  background: rgba(212, 163, 70, 0.15);
-  transform: scale(1.08);
+  background: rgba(212, 163, 70, 0.2);
+  transform: scale(1.1);
 }
 
 .slider-counter {
   font-family: var(--font-heading);
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: #FFFFFF;
   letter-spacing: 2px;
   display: flex;
   align-items: baseline;
-  gap: 8px;
+  gap: 6px;
 }
 
 .slider-counter__total {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--color-text-dim);
   font-family: var(--font-body);
 }
 
-/* 7. SECTION UMUM & KATEGORI (BERANDA LANJUTAN) */
+/* 6. SECTION KATEGORI (BERANDA LANJUTAN) */
 .section-dark {
   padding: 90px 0;
-  background-color: var(--color-surface);
-  border-top: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--glass-border);
 }
 
 .section-header {
@@ -596,7 +696,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-text-muted);
 }
 
-/* Kartu Kategori */
 .category-deck {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -604,11 +703,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .category-card {
-  background: var(--color-bg);
+  background: var(--glass-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border-radius: var(--radius-lg);
   padding: 36px 30px;
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-card);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -617,7 +718,7 @@ h1, h2, h3, h4, h5, h6 {
 .category-card:hover {
   transform: translateY(-6px);
   border-color: var(--color-primary);
-  box-shadow: var(--shadow-glow);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 163, 70, 0.25);
 }
 
 .category-card__icon {
@@ -651,7 +752,7 @@ h1, h2, h3, h4, h5, h6 {
   gap: 8px;
 }
 
-/* 8. GRID STANDAR (Untuk cerita.html & detail.html) */
+/* 7. GRID KATALOG (cerita.html) */
 .card-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -670,7 +771,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Tampilan Kartu di Halaman cerita.html */
 .catalog-view .story-card {
   height: 420px;
   flex: none;
@@ -678,7 +778,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .catalog-view .story-card__body {
   padding: 24px;
-  background: linear-gradient(180deg, rgba(12, 16, 23, 0) 0%, rgba(12, 16, 23, 0.98) 50%);
+  background: linear-gradient(180deg, rgba(10, 14, 21, 0) 0%, rgba(10, 14, 21, 0.98) 50%);
 }
 
 .catalog-view .story-card__title {
@@ -703,14 +803,13 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.82rem;
 }
 
-/* Tombol Umum */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   padding: 10px 22px;
-  border-radius: var(--radius-pill);
+  border-radius: var(--glass-pill);
   font-family: var(--font-body);
   font-size: 0.88rem;
   font-weight: 600;
@@ -723,18 +822,19 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn--primary {
   background-color: var(--color-primary);
-  color: #0C1017 !important;
+  color: #0A0E15 !important;
 }
 
 .btn--primary:hover {
   background-color: var(--color-primary-hover);
-  box-shadow: var(--shadow-glow);
+  box-shadow: 0 0 20px rgba(212, 163, 70, 0.4);
   transform: translateY(-2px);
 }
 
 .btn--outline {
-  background: transparent;
-  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
   color: #FFFFFF;
 }
 
@@ -743,7 +843,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-primary);
 }
 
-/* 9. FILTER & TOOLBAR DI cerita.html */
+/* 8. FILTER & TOOLBAR DI cerita.html */
 .catalog-header {
   padding: 60px 0 32px;
   text-align: center;
@@ -762,10 +862,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .filter-toolbar {
-  background: var(--color-surface);
+  background: var(--glass-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border-radius: var(--radius-lg);
   padding: 24px;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
   margin-bottom: 36px;
   display: flex;
   flex-direction: column;
@@ -774,20 +877,20 @@ h1, h2, h3, h4, h5, h6 {
 
 .search-box input {
   width: 100%;
-  padding: 14px 22px;
-  background: var(--color-bg);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-pill);
+  padding: 14px 24px;
+  background: rgba(10, 14, 21, 0.85);
+  border: 1.5px solid var(--glass-border);
+  border-radius: var(--glass-pill);
   color: #FFFFFF;
   font-family: var(--font-body);
   font-size: 1rem;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .search-box input:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(212, 163, 70, 0.2);
+  box-shadow: 0 0 0 3px rgba(212, 163, 70, 0.25);
 }
 
 .filter-group {
@@ -807,9 +910,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .filter-btn {
   padding: 8px 20px;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--color-border);
-  background: var(--color-bg);
+  border-radius: var(--glass-pill);
+  border: 1px solid var(--glass-border);
+  background: rgba(10, 14, 21, 0.6);
   color: var(--color-text-muted);
   font-family: var(--font-body);
   font-size: 0.85rem;
@@ -825,7 +928,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .filter-btn.is-active {
   background: var(--color-primary);
-  color: #0C1017;
+  color: #0A0E15;
   border-color: var(--color-primary);
   font-weight: 600;
 }
@@ -842,9 +945,10 @@ h1, h2, h3, h4, h5, h6 {
 .empty-state-box {
   text-align: center;
   padding: 80px 24px;
-  background: var(--color-surface);
+  background: var(--glass-surface);
+  backdrop-filter: var(--glass-blur);
   border-radius: var(--radius-lg);
-  border: 1.5px dashed var(--color-border);
+  border: 1.5px dashed var(--glass-border);
   margin-bottom: 40px;
 }
 
@@ -854,7 +958,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 12px;
 }
 
-/* 10. DETAIL CERITA (detail.html) */
+/* 9. DETAIL CERITA (detail.html) */
 .detail-wrapper {
   max-width: 880px;
   margin: 0 auto;
@@ -898,8 +1002,8 @@ h1, h2, h3, h4, h5, h6 {
   max-height: 520px;
   overflow: hidden;
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-  border: 1px solid var(--color-border);
+  box-shadow: var(--glass-shadow);
+  border: 1px solid var(--glass-border);
   margin-bottom: 40px;
 }
 
@@ -921,14 +1025,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .detail-sources-box {
-  background: var(--color-surface);
+  background: var(--glass-surface);
+  backdrop-filter: var(--glass-blur);
   border-left: 4px solid var(--color-primary);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
   padding: 28px;
-  border-top: 1px solid var(--color-border);
-  border-right: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+  border-top: 1px solid var(--glass-border);
+  border-right: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
   margin-bottom: 60px;
+  box-shadow: var(--glass-shadow);
 }
 
 .detail-sources-box h3 {
@@ -945,7 +1051,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.7;
 }
 
-/* 11. TENTANG TIM (tentang.html) */
+/* 10. TENTANG TIM (tentang.html) */
 .team-hero {
   text-align: center;
   padding: 60px 0 40px;
@@ -967,10 +1073,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .team-card {
-  background: var(--color-surface);
+  background: var(--glass-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border-radius: var(--radius-lg);
   padding: 36px 24px;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -981,7 +1090,7 @@ h1, h2, h3, h4, h5, h6 {
 .team-card:hover {
   transform: translateY(-6px);
   border-color: var(--color-primary);
-  box-shadow: var(--shadow-glow);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 163, 70, 0.3);
 }
 
 .team-avatar {
@@ -1011,10 +1120,10 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.6;
 }
 
-/* 12. FOOTER */
+/* 11. FOOTER */
 .site-footer {
-  background: #080B10;
-  border-top: 1px solid var(--color-border);
+  background: rgba(8, 12, 18, 0.95);
+  border-top: 1px solid var(--glass-border);
   padding: 48px 0 32px;
 }
 
@@ -1052,11 +1161,11 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-text-dim);
 }
 
-/* 13. RESPONSIVE */
+/* 12. RESPONSIVE BREAKPOINTS */
 @media (max-width: 900px) {
   .hero-slider__layout {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 36px;
   }
   
   .hero-showcase__title {
@@ -1065,22 +1174,29 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+  .nav-floating-pill {
+    border-radius: var(--radius-md);
+    padding: 10px 16px;
+  }
+
   .nav-toggle {
     display: block;
   }
 
   .nav-menu {
     position: absolute;
-    top: 72px;
-    left: 0;
-    right: 0;
-    background: rgba(12, 16, 23, 0.98);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--color-border);
+    top: 70px;
+    left: 20px;
+    right: 20px;
+    background: rgba(12, 18, 28, 0.96);
+    backdrop-filter: blur(24px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
     flex-direction: column;
     padding: 24px;
     gap: 16px;
     display: none;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
   }
 
   .nav-menu.is-open {
@@ -1088,6 +1204,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .hero-showcase__title {
-    font-size: 2.8rem;
+    font-size: 2.7rem;
   }
 }

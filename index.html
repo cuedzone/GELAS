@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KisahNusantara - Storytelling Sejarah dan Budaya Nusantara</title>
-  <meta name="description" content="Platform storytelling interaktif menyajikan kisah sejarah, kearifan budaya, dan legenda nusantara dalam tampilan visual imersif.">
-  
-  <!-- Google Fonts: Oswald (Display / Heading) & Inter (Body / UI) -->
+  <meta name="description" content="Platform storytelling interaktif menyajikan kisah sejarah, budaya tradisi, dan legenda nusantara dalam tampilan Glassmorphism yang imersif.">
+  <link rel="icon" type="image/jpeg" href="images/ui/logo.jpg">
+
+  <!-- Google Fonts: Oswald (Heading / Display) & Inter (Body / UI) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,12 +17,13 @@
 </head>
 <body>
 
-  <!-- TOPBAR NAVBAR (Persis Desain Referensi) -->
+  <!-- FLOATING PILL NAVBAR (Glassmorphism) -->
   <header class="site-header">
-    <div class="container nav-container">
+    <div class="nav-floating-pill">
+      <!-- Logo Resmi KisahNusantara Gambar 1 -->
       <a href="index.html" class="site-logo">
-        <span class="site-logo-icon">🏛</span>
-        <span>KISAH NUSANTARA</span>
+        <img src="images/ui/logo.jpg" alt="Logo Resmi KisahNusantara Republik Indonesia" class="site-logo__img">
+        <span class="site-logo__title">KISAH NUSANTARA</span>
       </a>
 
       <button class="nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
@@ -40,7 +42,7 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="cerita.html" class="nav-icon-btn" aria-label="Cari Cerita" title="Cari Cerita">
+        <a href="cerita.html" class="nav-search-btn" aria-label="Cari Cerita" title="Cari Cerita">
           🔍
         </a>
       </div>
@@ -48,18 +50,19 @@
   </header>
 
   <main>
-    <!-- HERO SLIDER SECTION (100% Persis Referensi Visual Dribbble) -->
+    <!-- HERO SLIDER SECTION (Glassmorphism & Floating Pill System) -->
     <section class="hero-slider">
-      <!-- Dynamic Background Image Layer -->
+      <!-- Dynamic Background Image Layer with Crossfade -->
       <div id="hero-slider-bg" class="hero-slider__bg"></div>
       <div class="hero-slider__overlay"></div>
 
       <div class="container hero-slider__container">
         <div class="hero-slider__layout">
           
-          <!-- KIRI: ACTIVE STORY SHOWCASE (Diperbarui dinamis sesuai kartu aktif) -->
+          <!-- KIRI: ACTIVE STORY SHOWCASE (Floating Pill Elements) -->
           <div class="hero-showcase">
-            <div id="hero-tag" class="hero-showcase__tag">
+            <!-- Floating Pill Tag -->
+            <div id="hero-tag" class="floating-pill-tag">
               DI YOGYAKARTA &bull; LEGENDA
             </div>
             
@@ -67,21 +70,38 @@
               CANDI PRAMBANAN
             </h1>
 
-            <p id="hero-desc" class="hero-showcase__desc">
-              Kisah cinta Bandung Bondowoso dan Roro Jonggrang yang melahirkan kompleks seribu candi megah di tanah Jawa.
-            </p>
+            <!-- Glassmorphism Description Card -->
+            <div class="hero-glass-desc">
+              <p id="hero-desc">
+                Kisah cinta Bandung Bondowoso dan Roro Jonggrang yang melahirkan kompleks seribu candi megah di tanah Jawa.
+              </p>
+            </div>
 
+            <!-- Floating Actions Pill -->
             <div class="hero-showcase__actions">
-              <button class="btn-circle-gold" title="Kisah Pilihan Editor">✦</button>
-              <a id="hero-cta" href="detail.html?id=1" class="btn-pill-explore">
-                BACA CERITA LENGKAP &rarr;
+              <a id="hero-cta" href="detail.html?id=1" class="btn-pill-cta">
+                BACA KISAH LENGKAP &rarr;
               </a>
+              <a href="cerita.html" class="btn-pill-glass">
+                SEMUA 10 KISAH
+              </a>
+            </div>
+
+            <!-- FLOATING PILL MASKOT SI LORENG (GAMBAR 2) -->
+            <div class="mascot-guide-pill" id="mascot-guide" title="Klik Si Loreng untuk fakta & petuah seru!">
+              <div class="mascot-avatar-frame">
+                <img src="images/ui/maskot.jpg" alt="Maskot Si Loreng KisahNusantara">
+              </div>
+              <div class="mascot-guide-text">
+                <span class="mascot-guide-name">Si Loreng &bull; Pemandu Budaya 🐯</span>
+                <span id="mascot-quote" class="mascot-guide-quote">"Klik aku untuk petuah hikmah & fakta unik nusantara!"</span>
+              </div>
             </div>
           </div>
 
           <!-- KANAN: FLOATING CAROUSEL DECK (KONTRAK PRD 9.4: #featured-grid) -->
           <div class="hero-deck">
-            <!-- HOOK KONTRAK PRD 9.4: #featured-grid (kartu dirender otomatis oleh js/main.js) -->
+            <!-- Seluruh 10 Cerita dapat diakses secara penuh di sini -->
             <div id="featured-grid">
               <!-- Kartu floating slider dimuat otomatis oleh js/main.js -->
             </div>
@@ -89,29 +109,32 @@
 
         </div>
 
-        <!-- BOTTOM CONTROLS (PANAH NAVIGASI & COUNTER SLIDE) -->
+        <!-- BOTTOM CONTROLS (FLOATING PILL CONTROLLER) -->
         <div class="hero-slider__bottom-bar">
-          <div class="slider-nav-arrows">
-            <button id="slide-prev" class="circle-nav-btn" aria-label="Cerita Sebelumnya">&#8592;</button>
-            <button id="slide-next" class="circle-nav-btn" aria-label="Cerita Selanjutnya">&#8594;</button>
+          <div class="floating-pill-controller">
+            <button id="slide-prev" class="circle-nav-btn" aria-label="Kisah Sebelumnya">&#8592;</button>
+            <div class="slider-counter">
+              <span id="slide-current">01</span>
+              <span id="slide-total" class="slider-counter__total">/ 10</span>
+            </div>
+            <button id="slide-next" class="circle-nav-btn" aria-label="Kisah Selanjutnya">&#8594;</button>
           </div>
 
-          <div class="slider-counter">
-            <span id="slide-current">01</span>
-            <span class="slider-counter__total">/ 03</span>
+          <div style="font-size: 0.82rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--color-text-dim);">
+            GESER / KLIK KARTU UNTUK PILIH CERITA
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SECTION KATEGORI UTAMA NUSANTARA -->
+    <!-- SECTION KATEGORI UTAMA (GLASSMORPHISM CARDS) -->
     <section class="section-dark">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">JELAJAHI KHASANAH</span>
+          <span class="section-tag">JELAJAHI TIGA PILAR</span>
           <h2 class="section-title">Kategori Cerita Nusantara</h2>
           <p class="section-desc">
-            Warisan cerita kepulauan yang dirangkum dalam tiga pilar narasi peradaban bangsa.
+            Warisan adiluhung peradaban kepulauan nusantara yang dirangkum dalam tiga sudut pandang.
           </p>
         </div>
 
@@ -122,7 +145,7 @@
             <span class="badge badge--sejarah" style="margin-bottom: 12px;">Sejarah</span>
             <h3 class="category-card__title">Kisah Sejarah</h3>
             <p class="category-card__text">
-              Jejak keagungan kerajaan Majapahit, kejayaan Dinasti Syailendra Borobudur, hingga tonggak sakral Proklamasi 1945.
+              Jejak keagungan kerajaan Majapahit, kemegahan Wangsa Syailendra Borobudur, hingga tonggak sakral Proklamasi 17 Agustus 1945.
             </p>
             <a href="cerita.html?kategori=Sejarah" class="category-card__link">
               Eksplorasi Sejarah &rarr;
@@ -135,7 +158,7 @@
             <span class="badge badge--budaya" style="margin-bottom: 12px;">Budaya</span>
             <h3 class="category-card__title">Adat & Tradisi</h3>
             <p class="category-card__text">
-              Filosofi adiluhung batik tulis Imogiri, harmoni bambu angklung Sunda, dan kearifan merajut tas noken Papua.
+              Filosofi sakral motif batik tulis Imogiri, harmoni bambu angklung Sunda, dan kearifan merajut tas noken Papua warisan UNESCO.
             </p>
             <a href="cerita.html?kategori=Budaya" class="category-card__link">
               Eksplorasi Budaya &rarr;
@@ -148,7 +171,7 @@
             <span class="badge badge--legenda" style="margin-bottom: 12px;">Legenda</span>
             <h3 class="category-card__title">Mitos & Hikayat</h3>
             <p class="category-card__text">
-              Misteri terbentuknya Danau Toba, amarah Sangkuriang Tangkuban Perahu, serta petuah budi pekerti Malin Kundang.
+              Misteri letusan Danau Toba, kutukan candi Roro Jonggrang, amarah Sangkuriang Tangkuban Perahu, serta petuah Malin Kundang.
             </p>
             <a href="cerita.html?kategori=Legenda" class="category-card__link">
               Eksplorasi Legenda &rarr;
@@ -163,14 +186,16 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <div>
-          <a href="index.html" class="site-logo">
-            <span class="site-logo-icon">🏛</span>
-            <span>KISAH NUSANTARA</span>
-          </a>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 8px; max-width: 360px;">
-            Platform Storytelling Sejarah, Budaya Tradisi, dan Legenda Rakyat Nusantara.
-          </p>
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <img src="images/ui/logo.jpg" alt="Logo KisahNusantara" style="width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--color-primary);">
+          <div>
+            <span style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; letter-spacing: 2px; color: #FFFFFF; display: block;">
+              KISAH NUSANTARA
+            </span>
+            <p style="color: var(--color-text-muted); font-size: 0.85rem;">
+              Platform Storytelling Sejarah, Budaya Tradisi, dan Legenda Rakyat Republik Indonesia.
+            </p>
+          </div>
         </div>
         <ul class="footer-links">
           <li><a href="index.html">BERANDA</a></li>
@@ -180,7 +205,7 @@
         </ul>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 <strong>KisahNusantara</strong>. Proyek Tugas Kerjasama Digital.</p>
+        <p>&copy; 2026 <strong>KisahNusantara</strong>. Proyek Tugas Kuliah Kerjasama Digital.</p>
         <p style="margin-top: 4px;">Dikerjakan oleh Edy Sutanto (Kapten), Riki, Alvin, dan Toni. Tayang via GitHub Pages.</p>
       </div>
     </div>

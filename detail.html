@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Detail Cerita - KisahNusantara</title>
   <meta name="description" content="Baca narasi lengkap kisah sejarah, budaya, dan legenda nusantara dengan sumber pustaka terpercaya.">
-  
-  <!-- Google Fonts: Oswald (Display / Heading) & Inter (Body / UI) -->
+  <link rel="icon" type="image/jpeg" href="images/ui/logo.jpg">
+
+  <!-- Google Fonts: Oswald (Heading / Display) & Inter (Body / UI) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,14 +15,15 @@
   <!-- Stylesheet Utama -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body style="padding-top: 80px;">
+<body style="padding-top: 100px;">
 
-  <!-- TOPBAR NAVBAR -->
+  <!-- FLOATING PILL NAVBAR -->
   <header class="site-header is-sticky">
-    <div class="container nav-container">
+    <div class="nav-floating-pill">
+      <!-- Logo Gambar 1 -->
       <a href="index.html" class="site-logo">
-        <span class="site-logo-icon">🏛</span>
-        <span>KISAH NUSANTARA</span>
+        <img src="images/ui/logo.jpg" alt="Logo KisahNusantara" class="site-logo__img">
+        <span class="site-logo__title">KISAH NUSANTARA</span>
       </a>
 
       <button class="nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
@@ -40,7 +42,7 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="cerita.html" class="nav-icon-btn" aria-label="Cari Cerita" title="Cari Cerita">
+        <a href="cerita.html" class="nav-search-btn" aria-label="Cari Cerita" title="Cari Cerita">
           🔍
         </a>
       </div>
@@ -75,6 +77,19 @@
           <!-- Paragraf cerita dirender otomatis oleh js/detail.js -->
         </section>
 
+        <!-- PESAN HIKMAH DARI MASKOT SI LORENG -->
+        <div class="mascot-guide-pill" style="margin-bottom: 40px; width: 100%; border-radius: var(--radius-md);">
+          <div class="mascot-avatar-frame" style="width: 54px; height: 54px;">
+            <img src="images/ui/maskot.jpg" alt="Maskot Si Loreng">
+          </div>
+          <div class="mascot-guide-text">
+            <span class="mascot-guide-name" style="font-size: 0.85rem;">Pesan Hikmah &bull; Si Loreng 🐯</span>
+            <p style="font-size: 0.95rem; color: var(--color-text-muted); line-height: 1.6; margin-top: 4px;">
+              Setiap cerita nusantara menyimpan mutiara pesan moral. Jadikan kearifan masa lalu sebagai suluh bijak dalam melangkah di masa depan!
+            </p>
+          </div>
+        </div>
+
         <!-- HOOK KONTRAK: #story-sources -->
         <section class="detail-sources-box">
           <h3>Rujukan Sumber & Kepustakaan</h3>
@@ -84,7 +99,7 @@
         </section>
 
         <!-- BAGIAN CERITA TERKAIT (PRD F-07 & HOOK: #related-grid) -->
-        <section style="margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--color-border);">
+        <section style="margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--glass-border);">
           <div style="margin-bottom: 28px;">
             <span class="section-tag">REKOMENDASI</span>
             <h2 style="font-size: 2.2rem; text-transform: uppercase;">Kisah Nusantara Terkait</h2>
@@ -114,14 +129,16 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
-        <div>
-          <a href="index.html" class="site-logo">
-            <span class="site-logo-icon">🏛</span>
-            <span>KISAH NUSANTARA</span>
-          </a>
-          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 8px; max-width: 360px;">
-            Platform Storytelling Sejarah, Budaya Tradisi, dan Legenda Rakyat Nusantara.
-          </p>
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <img src="images/ui/logo.jpg" alt="Logo KisahNusantara" style="width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--color-primary);">
+          <div>
+            <span style="font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; letter-spacing: 2px; color: #FFFFFF; display: block;">
+              KISAH NUSANTARA
+            </span>
+            <p style="color: var(--color-text-muted); font-size: 0.85rem;">
+              Platform Storytelling Sejarah, Budaya Tradisi, dan Legenda Rakyat Republik Indonesia.
+            </p>
+          </div>
         </div>
         <ul class="footer-links">
           <li><a href="index.html">BERANDA</a></li>
