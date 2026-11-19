@@ -3,115 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daftar Cerita - KisahNusantara</title>
+  <title>Daftar Cerita & Destinasi - Nepalora</title>
   <meta name="description" content="Koleksi lengkap cerita sejarah, budaya, dan legenda nusantara. Cari dan filter berdasarkan kategori.">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
   
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    .filter-toolbar {
-      padding: 32px 0 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .search-box {
-      width: 100%;
-      max-width: 500px;
-    }
-    .search-box input {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1px solid rgba(107, 91, 78, 0.3);
-      border-radius: 8px;
-      font-size: 1rem;
-      font-family: var(--font-body);
-      outline: none;
-      background: var(--color-surface);
-    }
-    .search-box input:focus {
-      border-color: var(--color-primary);
-      box-shadow: 0 0 0 3px rgba(107, 62, 38, 0.15);
-    }
-    .filter-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .filter-btn {
-      padding: 8px 16px;
-      border: 1px solid rgba(107, 91, 78, 0.25);
-      border-radius: 999px;
-      background: var(--color-surface);
-      color: var(--color-text);
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .filter-btn:hover {
-      background: rgba(107, 62, 38, 0.08);
-    }
-    .filter-btn.is-active {
-      background: var(--color-primary);
-      color: #FFFFFF;
-      border-color: var(--color-primary);
-    }
-    .status-bar {
-      margin-bottom: 24px;
-      font-size: 0.95rem;
-      color: var(--color-muted);
-    }
-    .empty-state-box {
-      text-align: center;
-      padding: 60px 20px;
-      background: var(--color-surface);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-  </style>
 </head>
 <body>
 
   <!-- NAVBAR KONSISTEN (F-02) -->
-  <header class="site-header">
+  <header class="site-header is-scrolled">
     <div class="container nav-container">
-      <a href="index.html" class="site-logo">KisahNusantara</a>
+      <a href="index.html" class="site-logo">Nepalora<span class="logo-dot">.</span></a>
+      
       <button class="nav-toggle" aria-label="Toggle Menu" aria-expanded="false">
         <span>☰</span>
       </button>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link">Beranda</a></li>
-          <li><a href="cerita.html" class="nav-link is-active">Cerita</a></li>
-          <li><a href="tentang.html" class="nav-link">Tentang</a></li>
-        </ul>
-      </nav>
+
+      <div class="nav-center-wrap">
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="cerita.html?kategori=Sejarah" class="nav-link">Destinations</a></li>
+            <li>
+              <a href="cerita.html" class="nav-link is-active">
+                Tours <span class="nav-badge-pill">NEW</span>
+              </a>
+            </li>
+            <li><a href="cerita.html" class="nav-link">Experiences</a></li>
+            <li><a href="tentang.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+        <a href="cerita.html" class="nav-auth-btn">
+          <span class="nav-auth-icon">&#8594;</span>
+          <span>LOG IN</span>
+        </a>
+      </div>
     </div>
   </header>
 
   <main>
-    <div class="container">
-      <div style="padding-top: 32px;">
-        <h1 style="font-family: var(--font-heading); color: var(--color-text); margin-bottom: 8px;">
-          Jelajahi Cerita Nusantara
+    <div class="container" style="padding-top: 48px; padding-bottom: 80px;">
+      <div style="text-align: center; max-width: 720px; margin: 0 auto 36px;">
+        <div class="section-tag-pill">DESTINATIONS & TOURS</div>
+        <h1 class="section-title-editorial">
+          Discover <span class="serif-italic">All Popular</span><br>
+          <span class="serif-italic">Journeys &</span> Stories
         </h1>
-        <p style="color: var(--color-muted);">Temukan kisah legenda, sejarah kebangsaan, dan tradisi warisan leluhur.</p>
+        <p style="color: var(--color-muted); font-size: 1.05rem;">
+          Temukan kisah legenda memikat, sejarah kebangsaan agung, dan tradisi warisan leluhur nusantara.
+        </p>
       </div>
 
       <!-- TOOLBAR PENCARIAN & FILTER (HOOK KONTRAK 9.4) -->
-      <section class="filter-toolbar">
+      <section class="filter-toolbar" style="align-items: center; text-align: center;">
         <div class="search-box">
           <!-- HOOK KONTRAK: #search-input -->
-          <input type="text" id="search-input" placeholder="Cari judul, daerah, ringkasan, atau kata kunci..." aria-label="Cari cerita">
+          <input type="text" id="search-input" placeholder="Cari judul cerita, daerah, kata kunci..." aria-label="Cari cerita">
         </div>
 
         <!-- HOOK KONTRAK: .filter-btn + data-kategori -->
-        <div class="filter-group">
+        <div class="filter-group" style="justify-content: center;">
           <button type="button" class="filter-btn is-active" data-kategori="Semua">Semua</button>
           <button type="button" class="filter-btn" data-kategori="Sejarah">Sejarah</button>
           <button type="button" class="filter-btn" data-kategori="Budaya">Budaya</button>
@@ -120,14 +77,18 @@
       </section>
 
       <!-- HOOK KONTRAK: #result-count -->
-      <div class="status-bar">
+      <div class="status-bar" style="text-align: center;">
         <span id="result-count">Memuat cerita...</span>
       </div>
 
       <!-- HOOK KONTRAK: #empty-state -->
       <div id="empty-state" class="empty-state-box" hidden>
-        <h3 style="font-family: var(--font-heading); color: var(--color-text); margin-bottom: 8px;">Tidak Ada Cerita yang Ditemukan</h3>
-        <p style="color: var(--color-muted); max-width: 480px; margin: 0 auto;">Coba periksa kembali ejaan kata kunci kamu, atau gunakan pilihan filter kategori lainnya.</p>
+        <h3 style="font-size: 1.4rem; font-weight: 700; color: var(--color-text); margin-bottom: 8px;">
+          Tidak Ada Cerita yang Ditemukan
+        </h3>
+        <p style="color: var(--color-muted); max-width: 480px; margin: 0 auto;">
+          Coba periksa kembali ejaan kata kunci kamu, atau gunakan pilihan filter kategori lainnya.
+        </p>
       </div>
 
       <!-- HOOK KONTRAK: #story-grid -->
@@ -140,7 +101,20 @@
   <!-- FOOTER KONSISTEN (F-02) -->
   <footer class="site-footer">
     <div class="container">
-      <p><strong>KisahNusantara</strong> &copy; 2026. Tugas Kerjasama Digital Tim Edy, Riki, Alvin, Toni.</p>
+      <div class="footer-top">
+        <a href="index.html" class="footer-logo">Nepalora<span class="logo-dot">.</span></a>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="cerita.html">Destinations</a></li>
+          <li><a href="cerita.html">Tours</a></li>
+          <li><a href="tentang.html">Experiences</a></li>
+          <li><a href="tentang.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nepalora / KisahNusantara. Tugas Kerjasama Digital Tim Edy, Riki, Alvin, Toni.</p>
+        <p>Platform Storytelling Interaktif. Dihosting di GitHub Pages.</p>
+      </div>
     </div>
   </footer>
 
