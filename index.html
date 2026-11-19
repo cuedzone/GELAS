@@ -3,65 +3,115 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KisahNusantara - Storytelling Sejarah dan Budaya</title>
-  <meta name="description" content="Platform storytelling interaktif yang menyajikan kisah sejarah, kearifan budaya, dan legenda nusantara dalam narasi visual yang memikat.">
+  <title>KisahNusantara - Storytelling Sejarah dan Budaya Nusantara</title>
+  <meta name="description" content="Platform storytelling interaktif menyajikan kisah sejarah, kearifan budaya, dan legenda nusantara dalam tampilan visual imersif.">
   
-  <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans-Serif) -->
+  <!-- Google Fonts: Oswald (Display / Heading) & Inter (Body / UI) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Stylesheet Utama (Path Relatif) -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- NAVBAR KONSISTEN (PRD F-02) -->
+  <!-- TOPBAR NAVBAR (Persis Desain Referensi) -->
   <header class="site-header">
     <div class="container nav-container">
-      <a href="index.html" class="site-logo">KisahNusantara</a>
-      
+      <a href="index.html" class="site-logo">
+        <span class="site-logo-icon">🏛</span>
+        <span>KISAH NUSANTARA</span>
+      </a>
+
       <button class="nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
         <span>☰</span>
       </button>
 
       <nav>
         <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link is-active">Beranda</a></li>
-          <li><a href="cerita.html" class="nav-link">Cerita</a></li>
-          <li><a href="tentang.html" class="nav-link">Tentang Tim</a></li>
-          <li><a href="cerita.html" class="nav-cta">Jelajahi Cerita</a></li>
+          <li><a href="index.html" class="nav-link is-active">BERANDA</a></li>
+          <li><a href="cerita.html" class="nav-link">KATALOG CERITA</a></li>
+          <li><a href="cerita.html?kategori=Sejarah" class="nav-link">SEJARAH</a></li>
+          <li><a href="cerita.html?kategori=Budaya" class="nav-link">BUDAYA</a></li>
+          <li><a href="cerita.html?kategori=Legenda" class="nav-link">LEGENDA</a></li>
+          <li><a href="tentang.html" class="nav-link">TENTANG TIM</a></li>
         </ul>
       </nav>
+
+      <div class="nav-actions">
+        <a href="cerita.html" class="nav-icon-btn" aria-label="Cari Cerita" title="Cari Cerita">
+          🔍
+        </a>
+      </div>
     </div>
   </header>
 
   <main>
-    <!-- HERO SECTION (PRD F-01: Nuansa Hangat & Edukatif Nusantara) -->
-    <section class="hero-banner">
-      <div class="container">
-        <div class="hero-pill">Warisan Cerita Kepulauan Indonesia</div>
-        <h1 class="hero-title">
-          Merajut Jejak Sejarah, <br>
-          Menghidupkan <span class="serif-accent">Jiwa Nusantara</span>
-        </h1>
-        <p class="hero-desc">
-          Menelusuri keagungan peradaban masa lampau, pesona adat tradisi luhur, dan hikmah moral legenda rakyat yang diwariskan dari generasi ke generasi.
-        </p>
-        <div class="hero-actions">
-          <a href="cerita.html" class="btn btn--primary">Mulai Membaca Cerita</a>
-          <a href="tentang.html" class="btn btn--outline">Tentang Proyek</a>
+    <!-- HERO SLIDER SECTION (100% Persis Referensi Visual Dribbble) -->
+    <section class="hero-slider">
+      <!-- Dynamic Background Image Layer -->
+      <div id="hero-slider-bg" class="hero-slider__bg"></div>
+      <div class="hero-slider__overlay"></div>
+
+      <div class="container hero-slider__container">
+        <div class="hero-slider__layout">
+          
+          <!-- KIRI: ACTIVE STORY SHOWCASE (Diperbarui dinamis sesuai kartu aktif) -->
+          <div class="hero-showcase">
+            <div id="hero-tag" class="hero-showcase__tag">
+              DI YOGYAKARTA &bull; LEGENDA
+            </div>
+            
+            <h1 id="hero-title" class="hero-showcase__title">
+              CANDI PRAMBANAN
+            </h1>
+
+            <p id="hero-desc" class="hero-showcase__desc">
+              Kisah cinta Bandung Bondowoso dan Roro Jonggrang yang melahirkan kompleks seribu candi megah di tanah Jawa.
+            </p>
+
+            <div class="hero-showcase__actions">
+              <button class="btn-circle-gold" title="Kisah Pilihan Editor">✦</button>
+              <a id="hero-cta" href="detail.html?id=1" class="btn-pill-explore">
+                BACA CERITA LENGKAP &rarr;
+              </a>
+            </div>
+          </div>
+
+          <!-- KANAN: FLOATING CAROUSEL DECK (KONTRAK PRD 9.4: #featured-grid) -->
+          <div class="hero-deck">
+            <!-- HOOK KONTRAK PRD 9.4: #featured-grid (kartu dirender otomatis oleh js/main.js) -->
+            <div id="featured-grid">
+              <!-- Kartu floating slider dimuat otomatis oleh js/main.js -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- BOTTOM CONTROLS (PANAH NAVIGASI & COUNTER SLIDE) -->
+        <div class="hero-slider__bottom-bar">
+          <div class="slider-nav-arrows">
+            <button id="slide-prev" class="circle-nav-btn" aria-label="Cerita Sebelumnya">&#8592;</button>
+            <button id="slide-next" class="circle-nav-btn" aria-label="Cerita Selanjutnya">&#8594;</button>
+          </div>
+
+          <div class="slider-counter">
+            <span id="slide-current">01</span>
+            <span class="slider-counter__total">/ 03</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- KATEGORI UTAMA (PRD F-01: 3 Kategori Utama Nusantara) -->
-    <section style="padding: 60px 0 40px;">
+    <!-- SECTION KATEGORI UTAMA NUSANTARA -->
+    <section class="section-dark">
       <div class="container">
-        <div style="text-align: center; max-width: 650px; margin: 0 auto 32px;">
-          <h2 style="font-size: 2.1rem; margin-bottom: 8px;">Jelajahi Berdasarkan Kategori</h2>
-          <p style="color: var(--color-muted); font-size: 1rem;">
-            Temukan ragam kisah yang dikelompokkan dalam tiga pilar utama khazanah nusantara.
+        <div class="section-header">
+          <span class="section-tag">JELAJAHI KHASANAH</span>
+          <h2 class="section-title">Kategori Cerita Nusantara</h2>
+          <p class="section-desc">
+            Warisan cerita kepulauan yang dirangkum dalam tiga pilar narasi peradaban bangsa.
           </p>
         </div>
 
@@ -72,10 +122,10 @@
             <span class="badge badge--sejarah" style="margin-bottom: 12px;">Sejarah</span>
             <h3 class="category-card__title">Kisah Sejarah</h3>
             <p class="category-card__text">
-              Jejak kebesaran kerajaan-kerajaan kuno, peristiwa heroik kebangsaan, dan arsitektur punden serta candi megah penanda peradaban bangsa.
+              Jejak keagungan kerajaan Majapahit, kejayaan Dinasti Syailendra Borobudur, hingga tonggak sakral Proklamasi 1945.
             </p>
             <a href="cerita.html?kategori=Sejarah" class="category-card__link">
-              Lihat Kisah Sejarah &rarr;
+              Eksplorasi Sejarah &rarr;
             </a>
           </article>
 
@@ -85,10 +135,10 @@
             <span class="badge badge--budaya" style="margin-bottom: 12px;">Budaya</span>
             <h3 class="category-card__title">Adat & Tradisi</h3>
             <p class="category-card__text">
-              Kekayaan filosofi kain batik, kesakralan alat musik tradisional, kearifan noken Papua, dan ritual turun-temurun masyarakat nusantara.
+              Filosofi adiluhung batik tulis Imogiri, harmoni bambu angklung Sunda, dan kearifan merajut tas noken Papua.
             </p>
             <a href="cerita.html?kategori=Budaya" class="category-card__link">
-              Lihat Kisah Budaya &rarr;
+              Eksplorasi Budaya &rarr;
             </a>
           </article>
 
@@ -96,63 +146,14 @@
           <article class="category-card">
             <div class="category-card__icon">📜</div>
             <span class="badge badge--legenda" style="margin-bottom: 12px;">Legenda</span>
-            <h3 class="category-card__title">Mitos & Cerita Rakyat</h3>
+            <h3 class="category-card__title">Mitos & Hikayat</h3>
             <p class="category-card__text">
-              Kisah tutur lisan yang sarat pesan budi pekerti, asal-usul bentang alam danau hingga gunung, serta hikayat para tokoh legendaris tanah air.
+              Misteri terbentuknya Danau Toba, amarah Sangkuriang Tangkuban Perahu, serta petuah budi pekerti Malin Kundang.
             </p>
             <a href="cerita.html?kategori=Legenda" class="category-card__link">
-              Lihat Kisah Legenda &rarr;
+              Eksplorasi Legenda &rarr;
             </a>
           </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- CERITA UNGGULAN (PRD F-01 & KONTRAK 9.4: #featured-grid) -->
-    <section style="padding: 50px 0 70px;">
-      <div class="container">
-        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;">
-          <div>
-            <h2 style="font-size: 2.1rem; margin-bottom: 6px;">Cerita Pilihan Editor</h2>
-            <p style="color: var(--color-muted); font-size: 1rem;">
-              Kisah unggulan dengan narasi mendalam yang wajib kamu baca hari ini.
-            </p>
-          </div>
-          <a href="cerita.html" class="btn btn--outline" style="padding: 8px 18px; font-size: 0.9rem;">
-            Lihat Semua Koleksi &rarr;
-          </a>
-        </div>
-
-        <!-- HOOK KONTRAK PRD 9.4: #featured-grid -->
-        <div id="featured-grid" class="card-grid">
-          <!-- 3 Kartu Cerita Unggulan dimuat secara otomatis oleh js/main.js -->
-        </div>
-      </div>
-    </section>
-
-    <!-- NILAI FILOSOFI KISAHNUSANTARA -->
-    <section style="background: var(--color-surface); padding: 70px 0; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
-      <div class="container" style="max-width: 860px; text-align: center;">
-        <span class="badge badge--budaya" style="margin-bottom: 16px;">Pelestarian Budaya Digital</span>
-        <h2 style="font-size: 2.3rem; margin-bottom: 16px; color: var(--color-primary);">
-          Mengapa KisahNusantara Hadir?
-        </h2>
-        <p style="font-size: 1.12rem; color: var(--color-muted); line-height: 1.85; margin-bottom: 28px;">
-          Di era modern yang serba cepat, kisah-kisah luhur nenek moyang sering kali terlupakan atau terkubur dalam buku-buku naskah tebal. KisahNusantara merangkum keagungan cerita tersebut dalam bahasa yang mengalir, visual yang menyejukkan, serta didukung rujukan sumber terverifikasi untuk generasi masa kini.
-        </p>
-        <div style="display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; padding-top: 10px;">
-          <div>
-            <strong style="font-size: 1.8rem; font-family: var(--font-heading); color: var(--color-primary); display: block;">10+</strong>
-            <span style="font-size: 0.9rem; color: var(--color-muted);">Kisah Terkurasi</span>
-          </div>
-          <div>
-            <strong style="font-size: 1.8rem; font-family: var(--font-heading); color: var(--color-primary); display: block;">100%</strong>
-            <span style="font-size: 0.9rem; color: var(--color-muted);">Sumber Terbuka & Legal</span>
-          </div>
-          <div>
-            <strong style="font-size: 1.8rem; font-family: var(--font-heading); color: var(--color-primary); display: block;">4</strong>
-            <span style="font-size: 0.9rem; color: var(--color-muted);">Pengembang Mahasiswa</span>
-          </div>
         </div>
       </div>
     </section>
@@ -163,21 +164,24 @@
     <div class="container">
       <div class="footer-top">
         <div>
-          <a href="index.html" class="footer-logo">KisahNusantara</a>
-          <p style="color: var(--color-muted); font-size: 0.9rem; margin-top: 6px; max-width: 360px;">
+          <a href="index.html" class="site-logo">
+            <span class="site-logo-icon">🏛</span>
+            <span>KISAH NUSANTARA</span>
+          </a>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 8px; max-width: 360px;">
             Platform Storytelling Sejarah, Budaya Tradisi, dan Legenda Rakyat Nusantara.
           </p>
         </div>
         <ul class="footer-links">
-          <li><a href="index.html">Beranda</a></li>
-          <li><a href="cerita.html">Katalog Cerita</a></li>
-          <li><a href="tentang.html">Tentang Tim</a></li>
-          <li><a href="docs/sumber.md">Pustaka & Referensi</a></li>
+          <li><a href="index.html">BERANDA</a></li>
+          <li><a href="cerita.html">KATALOG CERITA</a></li>
+          <li><a href="tentang.html">TENTANG TIM</a></li>
+          <li><a href="docs/sumber.md">PUSTAKA & SUMBER</a></li>
         </ul>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 <strong>KisahNusantara</strong>. Proyek Tugas Kuliah Kerjasama Digital.</p>
-        <p style="margin-top: 4px; font-size: 0.85rem;">Dikembangkan oleh Edy Sutanto, Riki, Alvin, dan Toni. Tayang via GitHub Pages.</p>
+        <p>&copy; 2026 <strong>KisahNusantara</strong>. Proyek Tugas Kerjasama Digital.</p>
+        <p style="margin-top: 4px;">Dikerjakan oleh Edy Sutanto (Kapten), Riki, Alvin, dan Toni. Tayang via GitHub Pages.</p>
       </div>
     </div>
   </footer>

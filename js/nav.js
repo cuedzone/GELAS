@@ -1,6 +1,6 @@
 /**
  * KisahNusantara - nav.js
- * Logika Navigasi: Menu Hamburger Responsif & Indikator Halaman Aktif
+ * Logika Navigasi: Menu Hamburger Responsif, Sticky Header & Indikator Halaman Aktif
  * Dimuat di: Semua halaman
  */
 
@@ -17,7 +17,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 2. Active Nav Link Indicator
+  // 2. Sticky Header Scroll Effect (untuk halaman beranda dan lainnya)
+  const siteHeader = document.querySelector(".site-header");
+  if (siteHeader && !siteHeader.classList.contains("is-sticky")) {
+    const handleScroll = () => {
+      if (window.scrollY > 40) {
+        siteHeader.classList.add("is-sticky");
+      } else {
+        siteHeader.classList.remove("is-sticky");
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+  }
+
+  // 3. Active Nav Link Indicator
   const currentPath = window.location.pathname.split("/").pop() || "index.html";
   const navLinks = document.querySelectorAll(".nav-link");
   navLinks.forEach(link => {

@@ -6,40 +6,52 @@
   <title>Katalog Cerita Nusantara - KisahNusantara</title>
   <meta name="description" content="Koleksi lengkap cerita sejarah peradaban, kebudayaan luhur, dan legenda rakyat nusantara. Dilengkapi fitur pencarian dan filter kategori.">
   
-  <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans-Serif) -->
+  <!-- Google Fonts: Oswald (Display / Heading) & Inter (Body / UI) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Stylesheet Utama -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body style="padding-top: 80px;">
 
-  <!-- NAVBAR KONSISTEN (PRD F-02) -->
-  <header class="site-header">
+  <!-- TOPBAR NAVBAR -->
+  <header class="site-header is-sticky">
     <div class="container nav-container">
-      <a href="index.html" class="site-logo">KisahNusantara</a>
-      
+      <a href="index.html" class="site-logo">
+        <span class="site-logo-icon">🏛</span>
+        <span>KISAH NUSANTARA</span>
+      </a>
+
       <button class="nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
         <span>☰</span>
       </button>
 
       <nav>
         <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link">Beranda</a></li>
-          <li><a href="cerita.html" class="nav-link is-active">Cerita</a></li>
-          <li><a href="tentang.html" class="nav-link">Tentang Tim</a></li>
-          <li><a href="cerita.html" class="nav-cta">Jelajahi Cerita</a></li>
+          <li><a href="index.html" class="nav-link">BERANDA</a></li>
+          <li><a href="cerita.html" class="nav-link is-active">KATALOG CERITA</a></li>
+          <li><a href="cerita.html?kategori=Sejarah" class="nav-link">SEJARAH</a></li>
+          <li><a href="cerita.html?kategori=Budaya" class="nav-link">BUDAYA</a></li>
+          <li><a href="cerita.html?kategori=Legenda" class="nav-link">LEGENDA</a></li>
+          <li><a href="tentang.html" class="nav-link">TENTANG TIM</a></li>
         </ul>
       </nav>
+
+      <div class="nav-actions">
+        <a href="cerita.html" class="nav-icon-btn" aria-label="Cari Cerita" title="Cari Cerita">
+          🔍
+        </a>
+      </div>
     </div>
   </header>
 
   <main>
-    <div class="container" style="padding-top: 20px; padding-bottom: 80px;">
+    <div class="container" style="padding-top: 30px; padding-bottom: 90px;">
       <!-- HEADER KATALOG -->
       <header class="catalog-header">
+        <span class="section-tag">ARSIP CERITA LENGKAP</span>
         <h1>Katalog Cerita Nusantara</h1>
         <p>Temukan kisah sejarah, tradisi adat, dan legenda dari Sabang sampai Merauke.</p>
       </header>
@@ -69,20 +81,20 @@
       <!-- STATUS JUMLAH HASIL (HOOK KONTRAK: #result-count) -->
       <div class="status-bar">
         <span id="result-count">Memuat koleksi cerita...</span>
-        <span style="font-size: 0.88rem; color: var(--color-muted);">Koleksi Arsip KisahNusantara</span>
+        <span style="font-size: 0.88rem; color: var(--color-text-dim);">Basis Data KisahNusantara</span>
       </div>
 
       <!-- EMPTY STATE JIKA HASIL KOSONG (HOOK KONTRAK: #empty-state) -->
       <div id="empty-state" class="empty-state-box" hidden>
-        <div style="font-size: 3rem; margin-bottom: 12px;">🔍</div>
+        <div style="font-size: 3.2rem; margin-bottom: 12px;">🔍</div>
         <h3>Kisah Tidak Ditemukan</h3>
-        <p style="color: var(--color-muted); max-width: 480px; margin: 0 auto 20px; font-size: 0.98rem;">
-          Kami tidak menemukan cerita dengan kata kunci atau filter tersebut. Silakan periksa kembali ejaan kamu atau pilih kategori "Semua Cerita".
+        <p style="color: var(--color-text-muted); max-width: 480px; margin: 0 auto; font-size: 0.98rem;">
+          Tidak ada kisah yang sesuai dengan kata kunci tersebut. Silakan periksa kembali ejaan kamu atau pilih tombol kategori "Semua Cerita".
         </p>
       </div>
 
       <!-- DAFTAR GRID CERITA (HOOK KONTRAK: #story-grid) -->
-      <section id="story-grid" class="card-grid">
+      <section id="story-grid" class="card-grid catalog-view">
         <!-- Kartu cerita dirender secara otomatis oleh js/filter.js & js/main.js -->
       </section>
     </div>
@@ -93,21 +105,24 @@
     <div class="container">
       <div class="footer-top">
         <div>
-          <a href="index.html" class="footer-logo">KisahNusantara</a>
-          <p style="color: var(--color-muted); font-size: 0.9rem; margin-top: 6px; max-width: 360px;">
+          <a href="index.html" class="site-logo">
+            <span class="site-logo-icon">🏛</span>
+            <span>KISAH NUSANTARA</span>
+          </a>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 8px; max-width: 360px;">
             Platform Storytelling Sejarah, Budaya Tradisi, dan Legenda Rakyat Nusantara.
           </p>
         </div>
         <ul class="footer-links">
-          <li><a href="index.html">Beranda</a></li>
-          <li><a href="cerita.html">Katalog Cerita</a></li>
-          <li><a href="tentang.html">Tentang Tim</a></li>
-          <li><a href="docs/sumber.md">Pustaka & Referensi</a></li>
+          <li><a href="index.html">BERANDA</a></li>
+          <li><a href="cerita.html">KATALOG CERITA</a></li>
+          <li><a href="tentang.html">TENTANG TIM</a></li>
+          <li><a href="docs/sumber.md">PUSTAKA & SUMBER</a></li>
         </ul>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 <strong>KisahNusantara</strong>. Proyek Tugas Kuliah Kerjasama Digital.</p>
-        <p style="margin-top: 4px; font-size: 0.85rem;">Dikembangkan oleh Edy Sutanto, Riki, Alvin, dan Toni. Tayang via GitHub Pages.</p>
+        <p style="margin-top: 4px;">Dikerjakan oleh Edy Sutanto (Kapten), Riki, Alvin, dan Toni. Tayang via GitHub Pages.</p>
       </div>
     </div>
   </footer>

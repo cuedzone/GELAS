@@ -6,40 +6,51 @@
   <title>Tentang Tim Pengembang - KisahNusantara</title>
   <meta name="description" content="Profil tim mahasiswa pengembang platform KisahNusantara dalam tugas kolaboratif mata kuliah Kerjasama Digital.">
   
-  <!-- Google Fonts: Playfair Display (Serif) & Inter (Sans-Serif) -->
+  <!-- Google Fonts: Oswald (Display / Heading) & Inter (Body / UI) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Stylesheet Utama -->
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body style="padding-top: 80px;">
 
-  <!-- NAVBAR KONSISTEN (PRD F-02) -->
-  <header class="site-header">
+  <!-- TOPBAR NAVBAR -->
+  <header class="site-header is-sticky">
     <div class="container nav-container">
-      <a href="index.html" class="site-logo">KisahNusantara</a>
-      
+      <a href="index.html" class="site-logo">
+        <span class="site-logo-icon">🏛</span>
+        <span>KISAH NUSANTARA</span>
+      </a>
+
       <button class="nav-toggle" aria-label="Buka Menu Navigasi" aria-expanded="false">
         <span>☰</span>
       </button>
 
       <nav>
         <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link">Beranda</a></li>
-          <li><a href="cerita.html" class="nav-link">Cerita</a></li>
-          <li><a href="tentang.html" class="nav-link is-active">Tentang Tim</a></li>
-          <li><a href="cerita.html" class="nav-cta">Jelajahi Cerita</a></li>
+          <li><a href="index.html" class="nav-link">BERANDA</a></li>
+          <li><a href="cerita.html" class="nav-link">KATALOG CERITA</a></li>
+          <li><a href="cerita.html?kategori=Sejarah" class="nav-link">SEJARAH</a></li>
+          <li><a href="cerita.html?kategori=Budaya" class="nav-link">BUDAYA</a></li>
+          <li><a href="cerita.html?kategori=Legenda" class="nav-link">LEGENDA</a></li>
+          <li><a href="tentang.html" class="nav-link is-active">TENTANG TIM</a></li>
         </ul>
       </nav>
+
+      <div class="nav-actions">
+        <a href="cerita.html" class="nav-icon-btn" aria-label="Cari Cerita" title="Cari Cerita">
+          🔍
+        </a>
+      </div>
     </div>
   </header>
 
-  <main class="container" style="padding-top: 20px; padding-bottom: 80px;">
+  <main class="container" style="padding-top: 30px; padding-bottom: 90px;">
     <!-- HEADER TENTANG PROYEK (PRD F-08) -->
     <section class="team-hero">
-      <span class="badge badge--budaya" style="margin-bottom: 16px;">Kerjasama Digital 2026</span>
+      <span class="section-tag">KERJASAMA DIGITAL 2026</span>
       <h1>Tentang KisahNusantara</h1>
       <p>
         Platform storytelling digital yang didedikasikan untuk mendokumentasikan, melestarikan, dan menghidupkan kembali kekayaan sejarah peradaban, nilai-nilai tradisi luhur, dan hikmah legenda rakyat kepulauan Indonesia.
@@ -48,9 +59,10 @@
 
     <!-- PROFIL 4 ANGGOTA TIM (PRD F-08) -->
     <section>
-      <div style="text-align: center; margin-bottom: 12px;">
-        <h2 style="font-size: 2rem;">Tim Pengembang</h2>
-        <p style="color: var(--color-muted);">Kolaborasi 4 peran dalam menerapkan alur kerja modern Git & GitHub</p>
+      <div style="text-align: center; margin-bottom: 24px;">
+        <span class="section-tag">KOLABORASI TIM</span>
+        <h2 style="font-size: 2.4rem; text-transform: uppercase;">Tim Pengembang</h2>
+        <p style="color: var(--color-text-muted);">Empat peran bersinergi menerapkan alur kerja modern Git & GitHub</p>
       </div>
 
       <div class="team-grid">
@@ -60,7 +72,7 @@
           <h3 class="team-name">Edy Sutanto</h3>
           <span class="team-role">Kapten / Project Manager & Integrator</span>
           <p class="team-desc">
-            Memimpin alur proyek, mengelola repository GitHub, menyelesaikan merge conflict, menginisialisasi arsitektur fondasi, dan bertanggung jawab atas rilis deployment.
+            Memimpin arah proyek, mengelola repository GitHub, menyelesaikan merge conflict, menginisialisasi arsitektur fondasi, dan bertanggung jawab atas rilis deployment.
           </p>
         </article>
 
@@ -70,7 +82,7 @@
           <h3 class="team-name">Riki</h3>
           <span class="team-role">UI/UX & Desain Tampilan</span>
           <p class="team-desc">
-            Merancang tata letak CSS bertema naskah nusantara yang hangat dan elegan, memastikan keselarasan tipografi, efek hover kartu, dan responsivitas lintas perangkat.
+            Merancang tata letak visual imersif dengan hero slider modern, sistem kartu cerita floating, dan responsivitas lintas perangkat.
           </p>
         </article>
 
@@ -80,7 +92,7 @@
           <h3 class="team-name">Alvin</h3>
           <span class="team-role">Konten & Riset Data</span>
           <p class="team-desc">
-            Melakukan riset mendalam terhadap 10+ kisah nusantara, menuliskan kembali narasi dengan bahasa orisinal yang kaya makna, dan mengurasi lisensi gambar terbuka.
+            Melakukan riset mendalam terhadap 10+ kisah nusantara, menyusun narasi orisinal yang sarat nilai budi pekerti, dan kurasi lisensi gambar terbuka.
           </p>
         </article>
 
@@ -97,10 +109,11 @@
     </section>
 
     <!-- TRANSPARANSI REPOSITORI & KELAYAKAN AKADEMIK -->
-    <section style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow); max-width: 820px; margin: 0 auto; text-align: center;">
-      <h3 style="font-size: 1.6rem; color: var(--color-primary); margin-bottom: 12px;">Transparansi & Pustaka Terbuka</h3>
-      <p style="color: var(--color-muted); line-height: 1.75; margin-bottom: 24px; font-size: 1rem;">
-        Seluruh kode sumber proyek ini dapat ditinjau secara terbuka melalui repository GitHub kami. Rujukan narasi sejarah dan lisensi gambar telah didokumentasikan secara rinci pada halaman rujukan pustaka demi menjaga integritas akademik.
+    <section style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 48px 36px; box-shadow: var(--shadow-card); max-width: 860px; margin: 0 auto; text-align: center;">
+      <span class="section-tag">OPEN SOURCE & INTEGRITAS</span>
+      <h3 style="font-size: 2rem; text-transform: uppercase; color: #FFFFFF; margin-bottom: 14px;">Transparansi & Pustaka Terbuka</h3>
+      <p style="color: var(--color-text-muted); line-height: 1.75; margin-bottom: 28px; font-size: 1.02rem;">
+        Seluruh kode sumber proyek ini dapat ditinjau secara terbuka melalui repository GitHub kami. Rujukan narasi sejarah dan lisensi gambar telah didokumentasikan secara rinci pada berkas rujukan pustaka demi menjaga integritas akademik.
       </p>
       <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
         <a href="https://github.com/cuedzone/GELAS" target="_blank" rel="noopener" class="btn btn--primary">
@@ -118,21 +131,24 @@
     <div class="container">
       <div class="footer-top">
         <div>
-          <a href="index.html" class="footer-logo">KisahNusantara</a>
-          <p style="color: var(--color-muted); font-size: 0.9rem; margin-top: 6px; max-width: 360px;">
+          <a href="index.html" class="site-logo">
+            <span class="site-logo-icon">🏛</span>
+            <span>KISAH NUSANTARA</span>
+          </a>
+          <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-top: 8px; max-width: 360px;">
             Platform Storytelling Sejarah, Budaya Tradisi, dan Legenda Rakyat Nusantara.
           </p>
         </div>
         <ul class="footer-links">
-          <li><a href="index.html">Beranda</a></li>
-          <li><a href="cerita.html">Katalog Cerita</a></li>
-          <li><a href="tentang.html">Tentang Tim</a></li>
-          <li><a href="docs/sumber.md">Pustaka & Referensi</a></li>
+          <li><a href="index.html">BERANDA</a></li>
+          <li><a href="cerita.html">KATALOG CERITA</a></li>
+          <li><a href="tentang.html">TENTANG TIM</a></li>
+          <li><a href="docs/sumber.md">PUSTAKA & SUMBER</a></li>
         </ul>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 <strong>KisahNusantara</strong>. Proyek Tugas Kuliah Kerjasama Digital.</p>
-        <p style="margin-top: 4px; font-size: 0.85rem;">Dikembangkan oleh Edy Sutanto, Riki, Alvin, dan Toni. Tayang via GitHub Pages.</p>
+        <p style="margin-top: 4px;">Dikerjakan oleh Edy Sutanto (Kapten), Riki, Alvin, dan Toni. Tayang via GitHub Pages.</p>
       </div>
     </div>
   </footer>

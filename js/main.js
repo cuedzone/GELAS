@@ -46,6 +46,7 @@ function escapeHTML(str) {
 function createCard(story) {
   const article = document.createElement("article");
   article.className = "story-card";
+  article.dataset.id = story.id;
 
   const kategoriLower = (story.kategori || "").toLowerCase();
   const badgeClass = `badge badge--${escapeHTML(kategoriLower)}`;
@@ -98,25 +99,110 @@ function getStoryById(stories, id) {
  * @returns {Array}
  */
 function getRelated(stories, currentStory, max = 3) {
-  if (!currentStory || !Array.isArray(stories)) return [];
-  const sameCategory = stories.filter(s => s.kategori === currentStory.kategori && s.id !== currentStory.id);
-  if (sameCategory.length > 0) {
-    return sameCategory.slice(0, max);
-  }
-  return stories.filter(s => s.id !== currentStory.id).slice(0, max);
+  if (!currentStory) return [];
+  return stories
+    .filter(s => s.kategori === currentStory.kategori && s.id !== currentStory.id)
+    .slice(0, max);
 }
 
 /**
  * Inisialisasi halaman Beranda (index.html)
- * Mengisi kontainer #featured-grid dengan cerita featured: true
+ * Mengontrol Hero Slider Imersif sesuai referensi Dribbble
  */
 async function initHome() {
   const featuredGrid = document.getElementById("featured-grid");
+  const heroBg = document.getElementById("hero-slider-bg");
+  const heroTag = document.getElementById("hero-tag");
+  const heroTitle = document.getElementById("hero-title");
+  const heroDesc = document.getElementById("hero-desc");
+  const heroCta = document.getElementById("hero-cta");
+  const slideCurrent = document.getElementById("slide-current");
+  const btnPrev = document.getElementById("slide-prev");
+  const btnNext = document.getElementById("slide-next");
+
   if (!featuredGrid) return;
 
   const stories = await loadStories();
-  const featured = stories.filter(story => story.featured === true).slice(0, 3);
-  renderCards(featured, featuredGrid);
+  if (stories.length === 0) return;
+
+  // Ambil cerita unggulan (atau ambil koleksi untuk deck slider)
+  const featured = stories.filter(s => s.featured === true);
+  const deckStories = featured.length >= 3 ? featured : stories.slice(0, 6);
+
+  // Render kartu ke #featured-grid
+  renderCards(deckStories, featuredGrid);
+
+  let currentIndex = 0;
+  const cards = featuredGrid.querySelectorAll(".story-card");
+
+  function updateHeroShowcase(index) {
+    if (index < 0 || index >= deckStories.length) return;
+    currentIndex = index;
+    const story = deckStories[currentIndex];
+
+    // 1. Update background image
+    if (heroBg && story.gambar) {
+      heroBg.style.backgroundImage = `url('${story.gambar}')`;
+    }
+
+    // 2. Update teks showcase kiri
+    if (heroTag) {
+      heroTag.textContent = `${story.daerah}, ${story.provinsi} • ${(story.kategori || "").toUpperCase()}`;
+    }
+    if (heroTitle) {
+      heroTitle.textContent = (story.judul || "").toUpperCase();
+    }
+    if (heroDesc) {
+      heroDesc.textContent = story.ringkasan || "";
+    }
+    if (heroCta) {
+      heroCta.setAttribute("href", `detail.html?id=${story.id}`);
+    }
+
+    // 3. Update counter slide (01, 02, ...)
+    if (slideCurrent) {
+      slideCurrent.textContent = String(currentIndex + 1).padStart(2, "0");
+    }
+
+    // 4. Update status kartu aktif di deck
+    cards.forEach((card, idx) => {
+      if (idx === currentIndex) {
+        card.classList.add("is-active-card");
+        // Scroll kartu aktif agar terlihat
+        card.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      } else {
+        card.classList.remove("is-active-card");
+      }
+    });
+  }
+
+  // Klik pada masing-masing kartu di deck untuk berpindah slide
+  cards.forEach((card, idx) => {
+    card.addEventListener("click", (e) => {
+      // Jika pengguna mengklik link langsung di kartu, biarkan membuka detail
+      if (e.target.tagName.toLowerCase() === "a") return;
+      updateHeroShowcase(idx);
+    });
+  });
+
+  // Tombol panah Sebelumnya
+  if (btnPrev) {
+    btnPrev.addEventListener("click", () => {
+      const nextIdx = (currentIndex - 1 + deckStories.length) % deckStories.length;
+      updateHeroShowcase(nextIdx);
+    });
+  }
+
+  // Tombol panah Berikutnya
+  if (btnNext) {
+    btnNext.addEventListener("click", () => {
+      const nextIdx = (currentIndex + 1) % deckStories.length;
+      updateHeroShowcase(nextIdx);
+    });
+  }
+
+  // Set slide pertama saat load
+  updateHeroShowcase(0);
 }
 
 // Jalankan otomatis bila ada di halaman beranda
