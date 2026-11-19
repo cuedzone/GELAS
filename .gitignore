@@ -1,0 +1,15 @@
+# Sistem
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Rahasia
+.env
+*.token
+
+# Lainnya
+node_modules/
+*.log
