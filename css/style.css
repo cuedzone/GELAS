@@ -1,0 +1,245 @@
+/* ==========================================================================
+   KisahNusantara - style.css
+   Pemilik File: Riki (UI/UX & Tampilan)
+   Tugas Terkait: T-R2, T-R3, T-R4, T-R5, T-R6, T-R7, T-R8
+   Catatan: File ini diisi dan diatur oleh Riki sesuai Design Tokens PRD Bagian 10.
+   ========================================================================== */
+
+/* 1. DESIGN TOKENS (PRD Bagian 10.2) */
+:root {
+  --color-bg: #FBF6EC;        /* krem kertas */
+  --color-surface: #FFFFFF;   /* putih kartu */
+  --color-text: #2B2118;      /* cokelat gelap teks utama */
+  --color-muted: #6B5B4E;     /* abu kecokelatan teks sekunder */
+  --color-primary: #6B3E26;   /* cokelat soga */
+  --color-accent: #C9962B;    /* emas aksen */
+  --color-indigo: #1F3A5F;
+  --color-sejarah: #1F3A5F;   /* lencana sejarah */
+  --color-budaya: #2F6B4F;    /* lencana budaya */
+  --color-legenda: #8A3B2E;   /* lencana legenda */
+
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+
+  --radius: 12px;
+  --shadow: 0 4px 16px rgba(43, 33, 24, 0.10);
+  --container: 1120px;
+}
+
+/* 2. BASE RESET & BOX SIZING */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+/* 3. LAYOUT & CONTAINER */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* 4. NAVBAR (T-R3: Dikerjakan Riki) */
+.site-header {
+  background: var(--color-surface);
+  border-bottom: 1px solid rgba(107, 91, 78, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.site-logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--color-muted);
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.nav-link.is-active,
+.nav-link:hover {
+  color: var(--color-primary);
+  background-color: rgba(107, 62, 38, 0.08);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+/* 5. KONTRAK KARTU CERITA (PRD 9.4 & T-R4: Dikerjakan Riki) */
+.story-card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.story-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(43, 33, 24, 0.15);
+}
+
+.story-card__img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background-color: #e5ded3;
+}
+
+.story-card__body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.story-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  margin: 12px 0 6px;
+  color: var(--color-text);
+}
+
+.story-card__meta {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  margin-bottom: 12px;
+}
+
+.story-card__text {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+/* LENCANA (BADGES) */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #FFFFFF;
+  align-self: flex-start;
+}
+
+.badge--sejarah { background-color: var(--color-sejarah); }
+.badge--budaya  { background-color: var(--color-budaya); }
+.badge--legenda { background-color: var(--color-legenda); }
+
+/* TOMBOL (BUTTONS) */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  min-height: 44px;
+}
+
+.btn--primary {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+}
+
+.btn--primary:hover {
+  background-color: #54311e;
+  color: #FFFFFF;
+}
+
+/* 6. GRID SYSTEM (HP, Tablet, Desktop) */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 7. FOOTER */
+.site-footer {
+  background: var(--color-surface);
+  border-top: 1px solid rgba(107, 91, 78, 0.15);
+  padding: 32px 0;
+  margin-top: 60px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}

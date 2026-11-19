@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Cerita - KisahNusantara</title>
+  <meta name="description" content="Koleksi lengkap cerita sejarah, budaya, dan legenda nusantara. Cari dan filter berdasarkan kategori.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .filter-toolbar {
+      padding: 32px 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .search-box {
+      width: 100%;
+      max-width: 500px;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid rgba(107, 91, 78, 0.3);
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: var(--font-body);
+      outline: none;
+      background: var(--color-surface);
+    }
+    .search-box input:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(107, 62, 38, 0.15);
+    }
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .filter-btn {
+      padding: 8px 16px;
+      border: 1px solid rgba(107, 91, 78, 0.25);
+      border-radius: 999px;
+      background: var(--color-surface);
+      color: var(--color-text);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover {
+      background: rgba(107, 62, 38, 0.08);
+    }
+    .filter-btn.is-active {
+      background: var(--color-primary);
+      color: #FFFFFF;
+      border-color: var(--color-primary);
+    }
+    .status-bar {
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+      color: var(--color-muted);
+    }
+    .empty-state-box {
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--color-surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR KONSISTEN (F-02) -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="site-logo">KisahNusantara</a>
+      <button class="nav-toggle" aria-label="Toggle Menu" aria-expanded="false">
+        <span>☰</span>
+      </button>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Beranda</a></li>
+          <li><a href="cerita.html" class="nav-link is-active">Cerita</a></li>
+          <li><a href="tentang.html" class="nav-link">Tentang</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div style="padding-top: 32px;">
+        <h1 style="font-family: var(--font-heading); color: var(--color-text); margin-bottom: 8px;">
+          Jelajahi Cerita Nusantara
+        </h1>
+        <p style="color: var(--color-muted);">Temukan kisah legenda, sejarah kebangsaan, dan tradisi warisan leluhur.</p>
+      </div>
+
+      <!-- TOOLBAR PENCARIAN & FILTER (HOOK KONTRAK 9.4) -->
+      <section class="filter-toolbar">
+        <div class="search-box">
+          <!-- HOOK KONTRAK: #search-input -->
+          <input type="text" id="search-input" placeholder="Cari judul, daerah, ringkasan, atau kata kunci..." aria-label="Cari cerita">
+        </div>
+
+        <!-- HOOK KONTRAK: .filter-btn + data-kategori -->
+        <div class="filter-group">
+          <button type="button" class="filter-btn is-active" data-kategori="Semua">Semua</button>
+          <button type="button" class="filter-btn" data-kategori="Sejarah">Sejarah</button>
+          <button type="button" class="filter-btn" data-kategori="Budaya">Budaya</button>
+          <button type="button" class="filter-btn" data-kategori="Legenda">Legenda</button>
+        </div>
+      </section>
+
+      <!-- HOOK KONTRAK: #result-count -->
+      <div class="status-bar">
+        <span id="result-count">Memuat cerita...</span>
+      </div>
+
+      <!-- HOOK KONTRAK: #empty-state -->
+      <div id="empty-state" class="empty-state-box" hidden>
+        <h3 style="font-family: var(--font-heading); color: var(--color-text); margin-bottom: 8px;">Tidak Ada Cerita yang Ditemukan</h3>
+        <p style="color: var(--color-muted); max-width: 480px; margin: 0 auto;">Coba periksa kembali ejaan kata kunci kamu, atau gunakan pilihan filter kategori lainnya.</p>
+      </div>
+
+      <!-- HOOK KONTRAK: #story-grid -->
+      <section id="story-grid" class="card-grid">
+        <!-- Kartu cerita dirender secara otomatis oleh js/filter.js & js/main.js -->
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER KONSISTEN (F-02) -->
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>KisahNusantara</strong> &copy; 2026. Tugas Kerjasama Digital Tim Edy, Riki, Alvin, Toni.</p>
+    </div>
+  </footer>
+
+  <!-- URUTAN SCRIPT (PRD Bagian 9.2) -->
+  <script src="js/main.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/filter.js"></script>
+</body>
+</html>
