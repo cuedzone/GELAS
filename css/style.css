@@ -1,51 +1,63 @@
 /* ==========================================================================
    KisahNusantara - style.css
-   Konsep: Glassmorphism Elegan & Floating Pill Hero Section
-   Maskot: Si Loreng (Harimau Budaya Nusantara)
-   Logo: Lambang Resmi KisahNusantara Republik Indonesia
-   Tipografi: Oswald (Heading / Display) & Inter (Body / UI)
+   Desain: Editorial Nusantara Modern (Bebas AI Slop - Patuh Standar Anti-Slop)
+   Tipografi: Oswald (Headings / Display) & Inter (Body / UI)
+   Palet: Midnight Navy, Emas Pusaka, & Aksen Tri-Pilar Budaya (WCAG AA Compliant)
    ========================================================================== */
 
 /* 1. GOOGLE FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap');
 
-/* 2. DESIGN TOKENS (Glassmorphism & Warna Nusantara) */
+/* 2. DESIGN TOKENS (R-29: Palet Terstruktur & Kontras Tinggi) */
 :root {
-  /* Nuansa Gelap Sinematik dengan Refraksi Kaca */
-  --color-bg: #0A0E15;
-  --color-bg-mesh: radial-gradient(circle at 15% 20%, rgba(212, 163, 70, 0.08) 0%, transparent 45%),
-                   radial-gradient(circle at 85% 75%, rgba(39, 92, 150, 0.12) 0%, transparent 50%),
-                   #0A0E15;
+  /* Warna Latar & Kontras (R-25: Memenuhi Rasio WCAG AA 4.5:1+) */
+  --color-bg: #090D14;
+  --color-surface: #121824;
+  --color-surface-card: #161F2E;
+  --color-surface-hover: #1C2638;
+  --color-surface-glass: rgba(14, 20, 32, 0.82);
 
-  /* Glassmorphism System */
-  --glass-surface: rgba(18, 26, 40, 0.65);
-  --glass-surface-card: rgba(22, 32, 50, 0.75);
-  --glass-surface-hover: rgba(30, 44, 68, 0.85);
-  --glass-border: rgba(255, 255, 255, 0.16);
-  --glass-border-gold: rgba(212, 163, 70, 0.55);
-  --glass-blur: blur(20px);
-  --glass-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
-  --glass-pill: 9999px;
+  /* Border & Garis Refraksi */
+  --color-border: rgba(255, 255, 255, 0.13);
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-gold: rgba(212, 163, 70, 0.55);
 
-  /* Warna Utama & Lencana PRD 9.4 */
-  --color-primary: #D4A346;       /* Emas Pusaka */
-  --color-primary-hover: #E8BC66;
-  --color-text: #FFFFFF;
-  --color-text-muted: rgba(255, 255, 255, 0.75);
-  --color-text-dim: rgba(255, 255, 255, 0.48);
-  --color-sejarah: #275C96;       /* Indigo Bahari */
-  --color-budaya: #2F7A56;        /* Hijau Zamrud */
-  --color-legenda: #A84133;       /* Merah Bata Candi */
+  /* Aksen Emas & Warna Kategori PRD 9.4 */
+  --color-primary: #D4A346;          /* Emas Pusaka */
+  --color-primary-hover: #E5B558;
+  --color-primary-dark: #A67C2E;
+  --color-primary-text: #090D14;     /* Hitam Pekat di atas Emas (Rasio Kontras 10.8:1 - WCAG AAA) */
+  --color-sejarah: #265B96;          /* Indigo Bahari */
+  --color-budaya: #2B7A54;           /* Hijau Zamrud */
+  --color-legenda: #AD3F31;          /* Merah Bata Candi */
 
-  /* Tipografi */
+  /* Tipografi Berjenjang */
+  --color-text: #F8FAFC;             /* Putih Bersih (Rasio 16.5:1 di latar gelap) */
+  --color-text-muted: #CBD5E1;       /* Abu Terang (Rasio 9.8:1 di latar gelap) */
+  --color-text-dim: #94A3B8;         /* Abu Netral (Rasio 5.2:1 di latar gelap) */
+
   --font-heading: "Oswald", system-ui, -apple-system, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
 
-  /* Ukuran */
-  --radius-sm: 10px;
-  --radius-md: 18px;
-  --radius-lg: 24px;
-  --container: 1240px;
+  /* Hierarki Sudut (R-11: Variasi radius terukur, bukan semua dibuat pill) */
+  --radius-pill: 9999px;             /* Khusus Navbar Kapsul & Lencana */
+  --radius-card: 16px;               /* Khusus Kartu Cerita & Panel */
+  --radius-btn: 10px;                /* Khusus Tombol Standar & Form */
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-sm: 6px;
+
+  /* Token Kompatibilitas Glassmorphism */
+  --glass-surface: var(--color-surface-glass);
+  --glass-border: var(--color-border);
+  --glass-border-gold: var(--color-border-gold);
+  --glass-shadow: var(--shadow-card);
+  --glass-blur: blur(20px);
+
+  /* Bayangan & Elevasi (R-12 & R-13) */
+  --shadow-card: 0 10px 28px rgba(0, 0, 0, 0.45);
+  --shadow-glow: 0 0 20px rgba(212, 163, 70, 0.35);
+  --container: 1200px;
 }
 
 /* 3. BASE RESET */
@@ -55,19 +67,25 @@
   padding: 0;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--color-bg-mesh);
   background-color: var(--color-bg);
+  background-image: 
+    radial-gradient(circle at 18% 15%, rgba(212, 163, 70, 0.07) 0%, transparent 40%),
+    radial-gradient(circle at 82% 80%, rgba(38, 91, 150, 0.10) 0%, transparent 50%);
+  background-attachment: fixed;
   color: var(--color-text);
   font-family: var(--font-body);
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -87,7 +105,7 @@ img {
 a {
   color: inherit;
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -96,49 +114,52 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.15;
 }
 
+/* Aksesibilitas Keyboard (R-32: Focus State Jelas) */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
 .container {
   width: 100%;
   max-width: var(--container);
   margin-left: auto;
   margin-right: auto;
-  padding-left: 28px;
-  padding-right: 28px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
-/* 4. FLOATING PILL NAVBAR */
+/* 4. FLOATING PILL NAVBAR (R-10 & R-11: Glassmorphism Terkendali) */
 .site-header {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 1060px;
   z-index: 1000;
-  padding: 16px 20px;
-  pointer-events: none;
-  transition: all 0.3s ease;
+  transition: top 0.3s ease;
 }
 
 .nav-floating-pill {
-  pointer-events: auto;
-  max-width: 1060px;
-  margin: 0 auto;
-  background: rgba(14, 20, 32, 0.72);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--glass-pill);
-  padding: 8px 24px;
+  position: relative;
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 8px 22px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
-  transition: all 0.3s ease;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5);
+  transition: border-color 0.25s ease, background 0.25s ease;
 }
 
 .site-header.is-sticky .nav-floating-pill {
-  background: rgba(10, 15, 25, 0.88);
+  background: rgba(10, 15, 24, 0.94);
   border-color: rgba(212, 163, 70, 0.35);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6);
-  padding: 6px 20px;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.7);
 }
 
 /* Logo */
@@ -149,17 +170,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .site-logo__img {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--color-primary);
-  box-shadow: 0 0 14px rgba(212, 163, 70, 0.45);
-  transition: transform 0.3s ease;
-}
-
-.site-logo:hover .site-logo__img {
-  transform: rotate(15deg) scale(1.08);
+  box-shadow: 0 0 10px rgba(212, 163, 70, 0.4);
 }
 
 .site-logo__title {
@@ -175,19 +191,19 @@ h1, h2, h3, h4, h5, h6 {
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 26px;
+  gap: 24px;
   align-items: center;
 }
 
 .nav-link {
   font-family: var(--font-body);
   font-size: 0.82rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--color-text-muted);
   position: relative;
-  padding: 6px 0;
+  padding: 6px 2px;
   transition: color 0.2s ease;
 }
 
@@ -197,7 +213,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-link.is-active {
   color: #FFFFFF;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .nav-link.is-active::after {
@@ -209,29 +225,27 @@ h1, h2, h3, h4, h5, h6 {
   height: 2px;
   background-color: var(--color-primary);
   border-radius: 2px;
-  box-shadow: 0 0 8px var(--color-primary);
 }
 
 .nav-search-btn {
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--glass-border);
-  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
+  font-size: 0.95rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .nav-search-btn:hover {
   background: var(--color-primary);
-  color: #0A0E15;
+  color: #0B0F17;
   border-color: var(--color-primary);
-  transform: scale(1.08);
 }
 
 .nav-toggle {
@@ -241,17 +255,19 @@ h1, h2, h3, h4, h5, h6 {
   color: #FFFFFF;
   font-size: 1.6rem;
   cursor: pointer;
+  padding: 6px;
+  line-height: 1;
 }
 
-/* 5. FLOATING PILL HERO SECTION */
+/* 5. HERO SLIDER SECTION (R-03: Responsif & Bebas Collide) */
 .hero-slider {
   position: relative;
   width: 100%;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 100px;
-  padding-bottom: 60px;
+  padding-top: 110px;
+  padding-bottom: 50px;
   overflow: hidden;
   background-color: #080B10;
 }
@@ -264,7 +280,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   background-size: cover;
   background-position: center center;
-  transition: background-image 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-image 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1;
 }
 
@@ -276,10 +292,10 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   background: linear-gradient(
     90deg,
-    rgba(10, 14, 21, 0.94) 0%,
-    rgba(10, 14, 21, 0.82) 45%,
-    rgba(10, 14, 21, 0.50) 80%,
-    rgba(10, 14, 21, 0.75) 100%
+    rgba(9, 13, 20, 0.95) 0%,
+    rgba(9, 13, 20, 0.85) 45%,
+    rgba(9, 13, 20, 0.55) 75%,
+    rgba(9, 13, 20, 0.75) 100%
   );
   z-index: 2;
 }
@@ -292,58 +308,57 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-slider__layout {
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
+  grid-template-columns: 1.05fr 1.25fr;
   align-items: center;
-  gap: 40px;
+  gap: 48px;
+  min-width: 0;
 }
 
 /* --- Hero Showcase Kiri --- */
 .hero-showcase {
-  max-width: 530px;
+  max-width: 540px;
+  min-width: 0;
 }
 
-/* Floating Pill Tag */
 .floating-pill-tag {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 6px 16px;
   background: rgba(212, 163, 70, 0.15);
-  backdrop-filter: var(--glass-blur);
-  border: 1px solid rgba(212, 163, 70, 0.4);
-  border-radius: var(--glass-pill);
+  border: 1px solid rgba(212, 163, 70, 0.45);
+  border-radius: var(--radius-pill);
   font-family: var(--font-body);
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--color-primary);
-  margin-bottom: 16px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  margin-bottom: 14px;
 }
 
 .hero-showcase__title {
   font-family: var(--font-heading);
-  font-size: 4.8rem;
+  font-size: clamp(2.4rem, 5.5vw, 4.4rem);
   font-weight: 700;
   text-transform: uppercase;
-  line-height: 0.95;
+  line-height: 1;
   letter-spacing: 1px;
   color: #FFFFFF;
-  margin-bottom: 20px;
-  text-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+  margin-bottom: 18px;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+  word-break: break-word;
 }
 
-/* Glass Description Box */
 .hero-glass-desc {
-  background: var(--glass-surface);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
   padding: 18px 22px;
-  margin-bottom: 28px;
-  box-shadow: var(--glass-shadow);
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-card);
 }
 
 .hero-glass-desc p {
@@ -357,7 +372,6 @@ h1, h2, h3, h4, h5, h6 {
   overflow: hidden;
 }
 
-/* Floating Actions Pill */
 .hero-showcase__actions {
   display: flex;
   align-items: center;
@@ -368,76 +382,75 @@ h1, h2, h3, h4, h5, h6 {
 .btn-pill-cta {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 13px 30px;
+  gap: 8px;
+  padding: 13px 28px;
   background: var(--color-primary);
-  color: #0A0E15 !important;
+  color: var(--color-primary-text) !important;
   font-family: var(--font-body);
   font-size: 0.88rem;
   font-weight: 700;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  border-radius: var(--glass-pill);
-  box-shadow: 0 8px 24px rgba(212, 163, 70, 0.35);
-  transition: all 0.25s ease;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 8px 20px rgba(212, 163, 70, 0.35);
+  transition: all 0.2s ease;
+  min-height: 46px;
 }
 
 .btn-pill-cta:hover {
   background: var(--color-primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(212, 163, 70, 0.5);
+  box-shadow: 0 12px 28px rgba(212, 163, 70, 0.5);
 }
 
 .btn-pill-glass {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 13px 24px;
+  padding: 13px 22px;
   background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--color-border);
   color: #FFFFFF;
   font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  border-radius: var(--glass-pill);
-  transition: all 0.25s ease;
+  border-radius: var(--radius-pill);
+  transition: all 0.2s ease;
+  min-height: 46px;
 }
 
 .btn-pill-glass:hover {
   border-color: var(--color-primary);
-  background: rgba(212, 163, 70, 0.15);
   color: var(--color-primary);
 }
 
-/* --- MASKOT SI LORENG FLOATING WIDGET --- */
+/* Maskot Si Loreng Widget */
 .mascot-guide-pill {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 14px;
-  margin-top: 24px;
-  background: var(--glass-surface);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border-gold);
-  border-radius: var(--glass-pill);
-  padding: 8px 20px 8px 10px;
-  box-shadow: var(--glass-shadow);
+  margin-top: 22px;
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border-gold);
+  border-radius: var(--radius-card);
+  padding: 12px 18px;
+  box-shadow: var(--shadow-card);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
 .mascot-guide-pill:hover {
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-2px);
   border-color: var(--color-primary);
-  box-shadow: 0 12px 32px rgba(212, 163, 70, 0.3);
+  box-shadow: var(--shadow-glow);
 }
 
 .mascot-avatar-frame {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   overflow: hidden;
   border: 2px solid var(--color-primary);
@@ -458,7 +471,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mascot-guide-name {
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -466,30 +479,32 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .mascot-guide-quote {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--color-text-muted);
+  line-height: 1.45;
 }
 
-/* --- Hero Carousel Deck Kanan (Hook Kontrak PRD 9.4: #featured-grid) --- */
+/* --- Hero Carousel Deck Kanan (Hook Kontrak 9.4: #featured-grid) --- */
 .hero-deck {
   position: relative;
   width: 100%;
-  overflow: visible;
+  min-width: 0;
+  overflow: hidden;
 }
 
-/* Penampung seluruh 10 cerita yang bisa diakses penuh */
+/* Track scroll horizontal untuk slider Beranda */
 #featured-grid {
   display: flex;
   gap: 20px;
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding: 24px 8px;
+  padding: 20px 4px;
   scrollbar-width: thin;
   scrollbar-color: var(--color-primary) transparent;
 }
 
 #featured-grid::-webkit-scrollbar {
-  height: 6px;
+  height: 5px;
 }
 
 #featured-grid::-webkit-scrollbar-thumb {
@@ -497,81 +512,51 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 10px;
 }
 
-/* KONTRAK KARTU CERITA (PRD 9.4: .story-card) GLASSMORPHISM */
-.story-card {
-  flex: 0 0 195px;
-  height: 320px;
-  border-radius: var(--radius-lg);
+/* KHUSUS KARTU DI DALAM HERO SLIDER BERANDA */
+.hero-deck .story-card {
+  flex: 0 0 200px;
+  height: 310px;
+  border-radius: var(--radius-card);
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: var(--glass-shadow);
-  border: 1.5px solid var(--glass-border);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.35s ease, box-shadow 0.35s ease;
-  background-color: var(--glass-surface);
+  box-shadow: var(--shadow-card);
+  border: 1.5px solid var(--color-border);
+  background-color: var(--color-surface);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s ease;
 }
 
-.story-card:hover {
-  transform: translateY(-8px) scale(1.03);
+.hero-deck .story-card:hover {
+  transform: translateY(-6px) scale(1.02);
   border-color: var(--color-primary);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.65), 0 0 25px rgba(212, 163, 70, 0.3);
 }
 
-.story-card.is-active-card {
+.hero-deck .story-card.is-active-card {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px var(--color-primary), 0 20px 40px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 0 2px var(--color-primary), var(--shadow-card);
 }
 
-.story-card__img {
+.hero-deck .story-card__img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
   z-index: 1;
 }
 
-.story-card:hover .story-card__img {
-  transform: scale(1.1);
-}
-
-.story-card__body {
+.hero-deck .story-card__body {
   position: relative;
   z-index: 2;
-  padding: 20px 16px;
-  background: linear-gradient(180deg, rgba(10, 14, 21, 0) 0%, rgba(10, 14, 21, 0.95) 60%);
+  padding: 18px 14px;
+  background: linear-gradient(180deg, rgba(9, 13, 20, 0) 0%, rgba(9, 13, 20, 0.95) 55%);
   display: flex;
   flex-direction: column;
   gap: 4px;
-}
-
-.story-card__meta {
-  font-family: var(--font-body);
-  font-size: 0.72rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-}
-
-.story-card__title {
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: #FFFFFF;
-  line-height: 1.1;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .hero-deck .story-card__text,
@@ -579,54 +564,46 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
-/* Lencana Kategori Glass */
-.badge {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: var(--glass-pill);
-  font-family: var(--font-body);
-  font-size: 0.68rem;
+.hero-deck .story-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
   font-weight: 600;
-  letter-spacing: 0.8px;
   text-transform: uppercase;
   color: #FFFFFF;
-  width: fit-content;
-  backdrop-filter: var(--glass-blur);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  line-height: 1.15;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.badge--sejarah { background-color: rgba(39, 92, 150, 0.85); }
-.badge--budaya  { background-color: rgba(47, 122, 86, 0.85); }
-.badge--legenda { background-color: rgba(168, 65, 51, 0.85); }
-
-/* --- Floating Pill Slider Controller Bawah --- */
+/* Bottom Controls Slider Beranda */
 .hero-slider__bottom-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 36px;
+  margin-top: 32px;
   padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--color-border-subtle);
 }
 
 .floating-pill-controller {
   display: inline-flex;
   align-items: center;
   gap: 14px;
-  background: var(--glass-surface);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--glass-pill);
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
   padding: 6px 18px;
-  box-shadow: var(--glass-shadow);
+  box-shadow: var(--shadow-card);
 }
 
 .circle-nav-btn {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--color-border);
   background: rgba(255, 255, 255, 0.08);
   color: #FFFFFF;
   display: inline-flex;
@@ -641,12 +618,11 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--color-primary);
   color: var(--color-primary);
   background: rgba(212, 163, 70, 0.2);
-  transform: scale(1.1);
 }
 
 .slider-counter {
   font-family: var(--font-heading);
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: #FFFFFF;
   letter-spacing: 2px;
@@ -661,102 +637,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-body);
 }
 
-/* 6. SECTION KATEGORI (BERANDA LANJUTAN) */
-.section-dark {
-  padding: 90px 0;
-  background-color: var(--color-bg);
-  border-top: 1px solid var(--glass-border);
-}
-
-.section-header {
-  text-align: center;
-  max-width: 680px;
-  margin: 0 auto 48px;
-}
-
-.section-tag {
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--color-primary);
-  margin-bottom: 8px;
-  display: block;
-}
-
-.section-title {
-  font-size: 2.6rem;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  margin-bottom: 12px;
-}
-
-.section-desc {
-  font-size: 1.05rem;
-  color: var(--color-text-muted);
-}
-
-.category-deck {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 28px;
-}
-
-.category-card {
-  background: var(--glass-surface);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border-radius: var(--radius-lg);
-  padding: 36px 30px;
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.category-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--color-primary);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 163, 70, 0.25);
-}
-
-.category-card__icon {
-  font-size: 2.4rem;
-  margin-bottom: 16px;
-}
-
-.category-card__title {
-  font-size: 1.6rem;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  margin-bottom: 10px;
-}
-
-.category-card__text {
-  font-size: 0.95rem;
-  color: var(--color-text-muted);
-  line-height: 1.65;
-  margin-bottom: 22px;
-  flex: 1;
-}
-
-.category-card__link {
-  font-size: 0.88rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--color-primary);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* 7. GRID KATALOG (cerita.html) */
+/* 6. KONTRAK KARTU STANDAR PRD 9.4 (Untuk cerita.html & detail.html) */
+/* R-14: Kartu di Katalog Cerita terstruktur vertikal bersih tanpa overlap gambar */
 .card-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 32px;
+  gap: 28px;
 }
 
 @media (min-width: 640px) {
@@ -771,70 +657,117 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.catalog-view .story-card {
-  height: 420px;
-  flex: none;
-}
-
-.catalog-view .story-card__body {
-  padding: 24px;
-  background: linear-gradient(180deg, rgba(10, 14, 21, 0) 0%, rgba(10, 14, 21, 0.98) 50%);
-}
-
-.catalog-view .story-card__title {
-  font-size: 1.5rem;
-  margin: 6px 0;
-}
-
-.catalog-view .story-card__text {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+/* Tampilan Normal Kartu Cerita di Katalog & Terkait */
+.card-grid .story-card {
+  background: var(--color-surface-card);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--color-border);
   overflow: hidden;
-  font-size: 0.92rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-grid .story-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+}
+
+.card-grid .story-card__img {
+  width: 100%;
+  height: 210px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.card-grid .story-card__body {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-grid .story-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 10px 0 6px;
+  line-height: 1.2;
+}
+
+.card-grid .story-card__meta {
+  font-size: 0.85rem;
+  color: var(--color-text-dim);
+  margin-bottom: 12px;
+}
+
+.card-grid .story-card__text {
+  font-size: 0.95rem;
   color: var(--color-text-muted);
-  margin-bottom: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex: 1;
 }
 
-.catalog-view .story-card .btn {
-  display: inline-flex;
+.card-grid .story-card .btn {
   align-self: flex-start;
-  padding: 8px 18px;
-  font-size: 0.82rem;
 }
 
+/* Lencana Kategori (PRD 9.4: .badge--*) */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  width: fit-content;
+}
+
+.badge--sejarah { background-color: var(--color-sejarah); }
+.badge--budaya  { background-color: var(--color-budaya); }
+.badge--legenda { background-color: var(--color-legenda); }
+
+/* Tombol Standar */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   padding: 10px 22px;
-  border-radius: var(--glass-pill);
+  border-radius: var(--radius-btn);
   font-family: var(--font-body);
   font-size: 0.88rem;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
   cursor: pointer;
-  border: none;
-  transition: all 0.25s ease;
+  border: 1px solid transparent;
+  min-height: 44px;
+  transition: all 0.2s ease;
 }
 
 .btn--primary {
   background-color: var(--color-primary);
-  color: #0A0E15 !important;
+  color: var(--color-primary-text) !important;
 }
 
 .btn--primary:hover {
   background-color: var(--color-primary-hover);
-  box-shadow: 0 0 20px rgba(212, 163, 70, 0.4);
-  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(212, 163, 70, 0.4);
+  transform: translateY(-1px);
 }
 
 .btn--outline {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
+  background: transparent;
+  border-color: var(--color-border);
   color: #FFFFFF;
 }
 
@@ -843,60 +776,145 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-primary);
 }
 
+/* 7. SECTION KATEGORI (BERANDA LANJUTAN) */
+.section-dark {
+  padding: 80px 0;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 48px;
+}
+
+.section-tag {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+}
+
+.section-desc {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+}
+
+.category-deck {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 28px;
+}
+
+.category-card {
+  background: var(--color-surface-card);
+  border-radius: var(--radius-card);
+  padding: 32px 28px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+}
+
+.category-card__icon {
+  font-size: 2.2rem;
+  margin-bottom: 14px;
+}
+
+.category-card__title {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+}
+
+.category-card__text {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.category-card__link {
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
 /* 8. FILTER & TOOLBAR DI cerita.html */
 .catalog-header {
-  padding: 60px 0 32px;
+  padding: 40px 0 28px;
   text-align: center;
 }
 
 .catalog-header h1 {
-  font-size: 3.2rem;
+  font-size: 3rem;
   text-transform: uppercase;
   color: #FFFFFF;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .catalog-header p {
   color: var(--color-text-muted);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
 }
 
 .filter-toolbar {
-  background: var(--glass-surface);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
   padding: 24px;
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-  margin-bottom: 36px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 32px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 18px;
 }
 
 .search-box input {
   width: 100%;
-  padding: 14px 24px;
-  background: rgba(10, 14, 21, 0.85);
-  border: 1.5px solid var(--glass-border);
-  border-radius: var(--glass-pill);
+  padding: 14px 20px;
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-btn);
   color: #FFFFFF;
   font-family: var(--font-body);
   font-size: 1rem;
   outline: none;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .search-box input:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(212, 163, 70, 0.25);
+  box-shadow: 0 0 0 3px rgba(212, 163, 70, 0.2);
 }
 
 .filter-group {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
 }
 
@@ -905,19 +923,21 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: var(--color-text-dim);
-  font-weight: 600;
+  font-weight: 700;
+  margin-right: 4px;
 }
 
 .filter-btn {
-  padding: 8px 20px;
-  border-radius: var(--glass-pill);
-  border: 1px solid var(--glass-border);
-  background: rgba(10, 14, 21, 0.6);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
   color: var(--color-text-muted);
   font-family: var(--font-body);
   font-size: 0.85rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
+  min-height: 40px;
   transition: all 0.2s ease;
 }
 
@@ -928,41 +948,39 @@ h1, h2, h3, h4, h5, h6 {
 
 .filter-btn.is-active {
   background: var(--color-primary);
-  color: #0A0E15;
+  color: var(--color-primary-text);
   border-color: var(--color-primary);
-  font-weight: 600;
 }
 
 .status-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   font-size: 0.95rem;
   color: var(--color-text-muted);
 }
 
 .empty-state-box {
   text-align: center;
-  padding: 80px 24px;
-  background: var(--glass-surface);
-  backdrop-filter: var(--glass-blur);
-  border-radius: var(--radius-lg);
-  border: 1.5px dashed var(--glass-border);
+  padding: 70px 24px;
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  border: 1.5px dashed var(--color-border);
   margin-bottom: 40px;
 }
 
 .empty-state-box h3 {
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 /* 9. DETAIL CERITA (detail.html) */
 .detail-wrapper {
-  max-width: 880px;
+  max-width: 860px;
   margin: 0 auto;
-  padding: 40px 0 80px;
+  padding: 30px 0 80px;
 }
 
 .detail-back {
@@ -970,19 +988,19 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 8px;
   font-size: 0.88rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--color-primary);
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .detail-header {
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .detail-header h1 {
-  font-size: 3.4rem;
+  font-size: 3.2rem;
   text-transform: uppercase;
   color: #FFFFFF;
   margin: 12px 0 8px;
@@ -992,19 +1010,16 @@ h1, h2, h3, h4, h5, h6 {
 .detail-meta {
   font-size: 1rem;
   color: var(--color-text-muted);
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
 .detail-image-box {
   width: 100%;
-  max-height: 520px;
+  max-height: 480px;
   overflow: hidden;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--glass-shadow);
-  border: 1px solid var(--glass-border);
-  margin-bottom: 40px;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border);
+  margin-bottom: 36px;
 }
 
 .detail-image-box img {
@@ -1016,8 +1031,8 @@ h1, h2, h3, h4, h5, h6 {
 .detail-content {
   font-size: 1.15rem;
   line-height: 1.9;
-  color: rgba(255, 255, 255, 0.88);
-  margin-bottom: 48px;
+  color: var(--color-text);
+  margin-bottom: 40px;
 }
 
 .detail-content p {
@@ -1025,23 +1040,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .detail-sources-box {
-  background: var(--glass-surface);
-  backdrop-filter: var(--glass-blur);
+  background: var(--color-surface);
   border-left: 4px solid var(--color-primary);
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  padding: 28px;
-  border-top: 1px solid var(--glass-border);
-  border-right: 1px solid var(--glass-border);
-  border-bottom: 1px solid var(--glass-border);
-  margin-bottom: 60px;
-  box-shadow: var(--glass-shadow);
+  border-radius: 0 var(--radius-card) var(--radius-card) 0;
+  padding: 24px 28px;
+  border-top: 1px solid var(--color-border);
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 50px;
 }
 
 .detail-sources-box h3 {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   text-transform: uppercase;
   color: var(--color-primary);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .detail-sources-box ul {
@@ -1054,52 +1067,48 @@ h1, h2, h3, h4, h5, h6 {
 /* 10. TENTANG TIM (tentang.html) */
 .team-hero {
   text-align: center;
-  padding: 60px 0 40px;
-  max-width: 780px;
+  padding: 50px 0 36px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
 .team-hero h1 {
-  font-size: 3.2rem;
+  font-size: 3rem;
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 28px;
-  margin: 40px 0 60px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin: 36px 0 50px;
 }
 
 .team-card {
-  background: var(--glass-surface);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border-radius: var(--radius-lg);
-  padding: 36px 24px;
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
+  background: var(--color-surface-card);
+  border-radius: var(--radius-card);
+  padding: 32px 24px;
+  border: 1px solid var(--color-border);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: all 0.3s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
 .team-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   border-color: var(--color-primary);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 163, 70, 0.3);
 }
 
 .team-avatar {
-  font-size: 2.8rem;
-  margin-bottom: 16px;
+  font-size: 2.6rem;
+  margin-bottom: 14px;
 }
 
 .team-name {
-  font-size: 1.45rem;
+  font-size: 1.4rem;
   text-transform: uppercase;
   color: #FFFFFF;
   margin-bottom: 6px;
@@ -1110,8 +1119,8 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--color-primary);
-  margin-bottom: 14px;
-  font-weight: 600;
+  margin-bottom: 12px;
+  font-weight: 700;
 }
 
 .team-desc {
@@ -1120,11 +1129,58 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.6;
 }
 
-/* 11. FOOTER */
+/* Mascot Spotlight & Open Source Box (tentang.html) */
+.mascot-spotlight {
+  background: var(--color-surface-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid var(--color-border-gold);
+  border-radius: var(--radius-card);
+  padding: 36px 32px;
+  box-shadow: var(--shadow-card);
+  max-width: 860px;
+  margin: 0 auto 50px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.mascot-spotlight__avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--color-primary);
+  box-shadow: 0 0 20px rgba(212, 163, 70, 0.4);
+  background: #FFFFFF;
+  flex-shrink: 0;
+  margin: 0 auto;
+}
+
+.mascot-spotlight__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.open-source-box {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: 44px 32px;
+  box-shadow: var(--shadow-card);
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* 11. FOOTER KONSISTEN (PRD F-02) */
 .site-footer {
-  background: rgba(8, 12, 18, 0.95);
-  border-top: 1px solid var(--glass-border);
-  padding: 48px 0 32px;
+  background: #06090F;
+  border-top: 1px solid var(--color-border);
+  padding: 44px 0 32px;
+  margin-top: 60px;
 }
 
 .footer-top {
@@ -1133,8 +1189,8 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   flex-wrap: wrap;
   gap: 24px;
-  padding-bottom: 32px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--color-border-subtle);
 }
 
 .footer-links {
@@ -1144,7 +1200,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-links a {
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--color-text-muted);
@@ -1161,22 +1217,31 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-text-dim);
 }
 
-/* 12. RESPONSIVE BREAKPOINTS */
-@media (max-width: 900px) {
+/* 12. RESPONSIVE BREAKPOINTS (R-03: Bebas Overflow & Nyaman di HP) */
+@media (max-width: 960px) {
   .hero-slider__layout {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 40px;
   }
   
+  .hero-showcase {
+    max-width: 100%;
+  }
+
   .hero-showcase__title {
-    font-size: 3.5rem;
+    font-size: 3.6rem;
   }
 }
 
 @media (max-width: 768px) {
+  .site-header {
+    top: 8px;
+    width: calc(100% - 16px);
+  }
+
   .nav-floating-pill {
-    border-radius: var(--radius-md);
-    padding: 10px 16px;
+    padding: 8px 16px;
+    border-radius: 14px;
   }
 
   .nav-toggle {
@@ -1185,25 +1250,38 @@ h1, h2, h3, h4, h5, h6 {
 
   .nav-menu {
     position: absolute;
-    top: 70px;
-    left: 20px;
-    right: 20px;
-    background: rgba(12, 18, 28, 0.96);
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    z-index: 1001;
+    background: rgba(10, 15, 24, 0.98);
     backdrop-filter: blur(24px);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
     flex-direction: column;
-    padding: 24px;
+    padding: 20px;
     gap: 16px;
     display: none;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.8);
   }
 
   .nav-menu.is-open {
     display: flex;
   }
 
+  .hero-slider {
+    padding-top: 90px;
+  }
+
   .hero-showcase__title {
-    font-size: 2.7rem;
+    font-size: 2.8rem;
+  }
+
+  .catalog-header h1 {
+    font-size: 2.3rem;
+  }
+
+  .detail-header h1 {
+    font-size: 2.2rem;
   }
 }

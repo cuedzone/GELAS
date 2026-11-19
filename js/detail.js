@@ -70,13 +70,22 @@ async function initDetail() {
     });
   }
 
-  // Isi daftar sumber referensi
+  // Isi daftar sumber referensi (F-06 & Pustaka Terpercaya)
   if (sourcesEl) {
     sourcesEl.innerHTML = "";
     if (Array.isArray(story.sumber)) {
       story.sumber.forEach(sourceText => {
         const li = document.createElement("li");
-        li.textContent = sourceText;
+        const urlMatch = sourceText.match(/(https?:\/\/[^\s]+)/);
+        if (urlMatch) {
+          const url = urlMatch[1];
+          const textBefore = sourceText.replace(url, "").replace(/:\s*$/, "").trim();
+          const cleanText = typeof escapeHTML === "function" ? escapeHTML(textBefore) : textBefore;
+          const cleanUrl = typeof escapeHTML === "function" ? escapeHTML(url) : url;
+          li.innerHTML = `${cleanText}: <a href="${cleanUrl}" target="_blank" rel="noopener" style="color: var(--color-primary); text-decoration: underline; word-break: break-all;">${cleanUrl}</a>`;
+        } else {
+          li.textContent = sourceText;
+        }
         sourcesEl.appendChild(li);
       });
     }

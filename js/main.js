@@ -188,22 +188,38 @@ async function initHome() {
       mascotQuote.textContent = `"${trivia}"`;
     }
 
-    // 5. Tandai kartu aktif dan scroll ke posisi kartu tersebut
+    // 5. Tandai kartu aktif dan scroll kartu horizontal tanpa mengganggu posisi vertikal halaman
     cards.forEach((card, idx) => {
       if (idx === currentIndex) {
         card.classList.add("is-active-card");
-        card.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+        card.setAttribute("aria-selected", "true");
+        if (featuredGrid) {
+          const scrollTarget = card.offsetLeft - (featuredGrid.clientWidth / 2) + (card.clientWidth / 2);
+          featuredGrid.scrollTo({ left: Math.max(0, scrollTarget), behavior: "smooth" });
+        }
       } else {
         card.classList.remove("is-active-card");
+        card.setAttribute("aria-selected", "false");
       }
     });
   }
 
-  // Interaksi klik kartu di deck
+  // Aksesibilitas & Interaksi klik/keyboard kartu di deck
   cards.forEach((card, idx) => {
+    card.setAttribute("tabindex", "0");
+    card.setAttribute("role", "button");
+    card.setAttribute("aria-label", `Pilih kisah ${deckStories[idx].judul}`);
+    
     card.addEventListener("click", (e) => {
       if (e.target.tagName.toLowerCase() === "a") return;
       updateHeroShowcase(idx);
+    });
+
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        updateHeroShowcase(idx);
+      }
     });
   });
 
